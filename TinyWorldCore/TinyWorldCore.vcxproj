@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A0A2F024-13BC-4EB9-A3AA-63197B19115C}</ProjectGuid>
+    <SccProjectName>SAK</SccProjectName>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccProvider>SAK</SccProvider>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>TinyWorldCore</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include;C:\clibs\glfw\include;C:\clibs\glew\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\clibs\glfw\lib\Win32\Debug;C:\clibs\glew\lib\Win32\Debug;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include;C:\clibs\glfw\include;C:\clibs\glew\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\clibs\glfw\lib\x64\Debug;C:\clibs\glew\lib\x64\Debug;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include;C:\clibs\glfw\include;C:\clibs\glew\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\clibs\glfw\lib\Win32\Release;C:\clibs\glew\lib\Win32\Release;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include;C:\clibs\glfw\include;C:\clibs\glew\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\clibs\glfw\lib\x64\Release;C:\clibs\glew\lib\x64\Release;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <OpenMPSupport>true</OpenMPSupport>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>glew32sd.lib;glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <OpenMPSupport>true</OpenMPSupport>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>glew32sd.lib;glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <OpenMPSupport>true</OpenMPSupport>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>glew32s.lib;glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <OpenMPSupport>true</OpenMPSupport>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>glew32s.lib;glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\TinyWorld\AbstractProjectingDevice.cpp" />
+    <ClCompile Include="..\TinyWorld\AbstractRenderableObject.cpp" />
+    <ClCompile Include="..\TinyWorld\AbstractRenderableObjectHDRBloomEx.cpp" />
+    <ClCompile Include="..\TinyWorld\AbstractRenderableObjectLightEx.cpp" />
+    <ClCompile Include="..\TinyWorld\AbstractRenderableObjectSelectionEx.cpp" />
+    <ClCompile Include="..\TinyWorld\AbstractRenderingDevice.cpp" />
+    <ClCompile Include="..\TinyWorld\Buffer.cpp" />
+    <ClCompile Include="..\TinyWorld\BufferTexture.cpp" />
+    <ClCompile Include="..\TinyWorld\Clouds.cpp" />
+    <ClCompile Include="..\TinyWorld\CompleteShaderProgram.cpp" />
+    <ClCompile Include="..\TinyWorld\Cube.cpp" />
+    <ClCompile Include="..\TinyWorld\CylindricalSurface.cpp" />
+    <ClCompile Include="..\TinyWorld\Entity.cpp" />
+    <ClCompile Include="..\TinyWorld\EnvironmentMap.cpp" />
+    <ClCompile Include="..\TinyWorld\ErrorBehavioral.cpp" />
+    <ClCompile Include="..\TinyWorld\FractalNoise.cpp" />
+    <ClCompile Include="..\TinyWorld\Framebuffer.cpp" />
+    <ClCompile Include="..\TinyWorld\FullscreenRectangle.cpp" />
+    <ClCompile Include="..\TinyWorld\ImageUnit.cpp" />
+    <ClCompile Include="..\TinyWorld\ImmutableTexture.cpp" />
+    <ClCompile Include="..\TinyWorld\ImmutableTexture1D.cpp" />
+    <ClCompile Include="..\TinyWorld\ImmutableTexture2D.cpp" />
+    <ClCompile Include="..\TinyWorld\ImmutableTexture3D.cpp" />
+    <ClCompile Include="..\TinyWorld\ImmutableTextureCubeMap.cpp" />
+    <ClCompile Include="..\TinyWorld\KPWater.cpp" />
+    <ClCompile Include="..\TinyWorld\KTXTexture.cpp" />
+    <ClCompile Include="..\TinyWorld\Light.cpp" />
+    <ClCompile Include="..\TinyWorld\LightingConditions.cpp" />
+    <ClCompile Include="..\TinyWorld\PixelTraits.cpp" />
+    <ClCompile Include="..\TinyWorld\Screen.cpp" />
+    <ClCompile Include="..\TinyWorld\SeparateShaderProgram.cpp" />
+    <ClCompile Include="..\TinyWorld\Shader.cpp" />
+    <ClCompile Include="..\TinyWorld\ShaderProgram.cpp" />
+    <ClCompile Include="..\TinyWorld\SharedBuffer.cpp" />
+    <ClCompile Include="..\TinyWorld\Skydome.cpp" />
+    <ClCompile Include="..\TinyWorld\SSFilter.cpp" />
+    <ClCompile Include="..\TinyWorld\SSFilter_AtmosphericFog.cpp" />
+    <ClCompile Include="..\TinyWorld\SSFilter_Blur.cpp" />
+    <ClCompile Include="..\TinyWorld\SSFilter_HDRBloom.cpp" />
+    <ClCompile Include="..\TinyWorld\SSFilter_ImmediateShader.cpp" />
+    <ClCompile Include="..\TinyWorld\SSFilter_LightHaze.cpp" />
+    <ClCompile Include="..\TinyWorld\SSFilter_SSAO.cpp" />
+    <ClCompile Include="..\TinyWorld\std140UniformBuffer.cpp" />
+    <ClCompile Include="..\TinyWorld\TessellatedTerrain.cpp" />
+    <ClCompile Include="..\TinyWorld\Texture.cpp" />
+    <ClCompile Include="..\TinyWorld\TextureSampler.cpp" />
+    <ClCompile Include="..\TinyWorld\TextureUnitBlock.cpp" />
+    <ClCompile Include="..\TinyWorld\TransparentBox.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\TinyWorld\AbstractProjectingDevice.h" />
+    <ClInclude Include="..\TinyWorld\AbstractRenderableObject.h" />
+    <ClInclude Include="..\TinyWorld\AbstractRenderableObjectHDRBloomEx.h" />
+    <ClInclude Include="..\TinyWorld\AbstractRenderableObjectLightEx.h" />
+    <ClInclude Include="..\TinyWorld\AbstractRenderableObjectSelectionEx.h" />
+    <ClInclude Include="..\TinyWorld\AbstractRenderingDevice.h" />
+    <ClInclude Include="..\TinyWorld\Buffer.h" />
+    <ClInclude Include="..\TinyWorld\BufferTexture.h" />
+    <ClInclude Include="..\TinyWorld\Clouds.h" />
+    <ClInclude Include="..\TinyWorld\CompilationDirectives.h" />
+    <ClInclude Include="..\TinyWorld\CompleteShaderProgram.h" />
+    <ClInclude Include="..\TinyWorld\Cube.h" />
+    <ClInclude Include="..\TinyWorld\CylindricalSurface.h" />
+    <ClInclude Include="..\TinyWorld\Entity.h" />
+    <ClInclude Include="..\TinyWorld\EnvironmentMap.h" />
+    <ClInclude Include="..\TinyWorld\ErrorBehavioral.h" />
+    <ClInclude Include="..\TinyWorld\FractalNoise.h" />
+    <ClInclude Include="..\TinyWorld\Framebuffer.h" />
+    <ClInclude Include="..\TinyWorld\FullscreenRectangle.h" />
+    <ClInclude Include="..\TinyWorld\ImageUnit.h" />
+    <ClInclude Include="..\TinyWorld\ImmutableTexture.h" />
+    <ClInclude Include="..\TinyWorld\ImmutableTexture1D.h" />
+    <ClInclude Include="..\TinyWorld\ImmutableTexture2D.h" />
+    <ClInclude Include="..\TinyWorld\ImmutableTexture3D.h" />
+    <ClInclude Include="..\TinyWorld\ImmutableTextureCubeMap.h" />
+    <ClInclude Include="..\TinyWorld\KPWater.h" />
+    <ClInclude Include="..\TinyWorld\KTXTexture.h" />
+    <ClInclude Include="..\TinyWorld\Light.h" />
+    <ClInclude Include="..\TinyWorld\LightingConditions.h" />
+    <ClInclude Include="..\TinyWorld\MatrixTypes.h" />
+    <ClInclude Include="..\TinyWorld\Misc.h" />
+    <ClInclude Include="..\TinyWorld\PixelTraits.h" />
+    <ClInclude Include="..\TinyWorld\QuaternionTypes.h" />
+    <ClInclude Include="..\TinyWorld\Screen.h" />
+    <ClInclude Include="..\TinyWorld\SeparateShaderProgram.h" />
+    <ClInclude Include="..\TinyWorld\Shader.h" />
+    <ClInclude Include="..\TinyWorld\ShaderProgram.h" />
+    <ClInclude Include="..\TinyWorld\SharedBuffer.h" />
+    <ClInclude Include="..\TinyWorld\Skydome.h" />
+    <ClInclude Include="..\TinyWorld\SSFilter.h" />
+    <ClInclude Include="..\TinyWorld\SSFilter_AtmosphericFog.h" />
+    <ClInclude Include="..\TinyWorld\SSFilter_Blur.h" />
+    <ClInclude Include="..\TinyWorld\SSFilter_HDRBloom.h" />
+    <ClInclude Include="..\TinyWorld\SSFilter_ImmediateShader.h" />
+    <ClInclude Include="..\TinyWorld\SSFilter_LightHaze.h" />
+    <ClInclude Include="..\TinyWorld\SSFilter_SSAO.h" />
+    <ClInclude Include="..\TinyWorld\std140UniformBuffer.h" />
+    <ClInclude Include="..\TinyWorld\TessellatedTerrain.h" />
+    <ClInclude Include="..\TinyWorld\Texture.h" />
+    <ClInclude Include="..\TinyWorld\TextureSampler.h" />
+    <ClInclude Include="..\TinyWorld\TextureUnitBlock.h" />
+    <ClInclude Include="..\TinyWorld\TransparentBox.h" />
+    <ClInclude Include="..\TinyWorld\VectorTypes.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\tw_shaders\AtmosphericFog.fp.glsl" />
+    <None Include="..\tw_shaders\BloomOutput.fp.glsl" />
+    <None Include="..\tw_shaders\Blur.fp.glsl" />
+    <None Include="..\tw_shaders\common\CubicEnvironmentMap.include.glsl" />
+    <None Include="..\tw_shaders\common\EquirectangularEnvironmentMap.include.glsl" />
+    <None Include="..\tw_shaders\common\FogBuffer.include.glsl" />
+    <None Include="..\tw_shaders\common\SphericalEnvironmentMap.include.glsl" />
+    <None Include="..\tw_shaders\common\LightBuffer.include.glsl" />
+    <None Include="..\tw_shaders\CylindricalSurface.fp.glsl" />
+    <None Include="..\tw_shaders\CylindricalSurface.gp.glsl" />
+    <None Include="..\tw_shaders\CylindricalSurface.vp.glsl" />
+    <None Include="..\tw_shaders\FullscreenFilter_inverse_colors.fp.glsl" />
+    <None Include="..\tw_shaders\HDR_Bloom.fp.glsl" />
+    <None Include="..\tw_shaders\ImmediateShader.fp.glsl" />
+    <None Include="..\tw_shaders\KPWater.fp.ext.glsl" />
+    <None Include="..\tw_shaders\KPWater.fp.glsl" />
+    <None Include="..\tw_shaders\KPWater.gp.glsl" />
+    <None Include="..\tw_shaders\KPWater.tcp.glsl" />
+    <None Include="..\tw_shaders\KPWater.tep.glsl" />
+    <None Include="..\tw_shaders\KPWater.vp.glsl" />
+    <None Include="..\tw_shaders\KPWaterCaustics.fp.glsl" />
+    <None Include="..\tw_shaders\KPWaterCommonUtils.inc" />
+    <None Include="..\tw_shaders\KPWaterFFT.cp.glsl" />
+    <None Include="..\tw_shaders\KPWaterCommonDefinitions.inc" />
+    <None Include="..\tw_shaders\LightHaze.fp.glsl" />
+    <None Include="..\tw_shaders\LightModel.fp.glsl" />
+    <None Include="..\tw_shaders\LightModel.vp.glsl" />
+    <None Include="..\tw_shaders\Moon.fp.glsl" />
+    <None Include="..\tw_shaders\Moon.vp.glsl" />
+    <None Include="..\tw_shaders\PerlinNoise2DCreateGrid.cp.glsl" />
+    <None Include="..\tw_shaders\PerlinNoise2DCreateValues.cp.glsl" />
+    <None Include="..\tw_shaders\PerlinNoise3DCreateGrid.cp.glsl" />
+    <None Include="..\tw_shaders\PerlinNoise3DCreateValues.cp.glsl" />
+    <None Include="..\tw_shaders\Skydome.fp.glsl" />
+    <None Include="..\tw_shaders\Skydome.vp.glsl" />
+    <None Include="..\tw_shaders\SSAO.fp.glsl" />
+    <None Include="..\tw_shaders\Stars.fp.glsl" />
+    <None Include="..\tw_shaders\Stars.vp.glsl" />
+    <None Include="..\tw_shaders\TessellatedTerrain_default.fp.ext.glsl" />
+    <None Include="..\tw_shaders\TessellatedTerrain_default.fp.glsl" />
+    <None Include="..\tw_shaders\TessellatedTerrain_default.gp.glsl" />
+    <None Include="..\tw_shaders\TessellatedTerrain_default.tcp.glsl" />
+    <None Include="..\tw_shaders\TessellatedTerrain_default.tep.glsl" />
+    <None Include="..\tw_shaders\TessellatedTerrain_default.vp.glsl" />
+    <None Include="..\tw_shaders\TransparentBox_GasShading.fp.glsl" />
+    <None Include="..\tw_shaders\TransparentBox_PG1.fp.glsl" />
+    <None Include="..\tw_shaders\TransparentBox_PG1.vp.glsl" />
+    <None Include="..\tw_shaders\TransparentBox_PG2.fp.glsl" />
+    <None Include="..\tw_shaders\TransparentBox_PG2.vp.glsl" />
+    <None Include="..\tw_shaders\TransparentBox_RT.fp.glsl" />
+    <None Include="..\tw_shaders\TransparentBox_RT.vp.glsl" />
+    <None Include="..\tw_textures\moon.ktx" />
+    <None Include="..\tw_textures\sun.ktx" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
