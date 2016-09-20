@@ -71,20 +71,20 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include;C:\clibs\glfw\include;C:\clibs\glew\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\clibs\glfw\lib\Win32\Debug;C:\clibs\glew\lib\Win32\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\CUDA\v8.0\include;..\clibs\glfw\include;..\clibs\glew\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\clibs\glfw\lib\Win32\Debug;..\clibs\glew\lib\Win32\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include;C:\clibs\glfw\include;C:\clibs\glew\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\clibs\glfw\lib\x64\Debug;C:\clibs\glew\lib\x64\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\CUDA\v8.0\include;..\clibs\glfw\include;..\clibs\glew\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\clibs\glfw\lib\x64\Debug;..\clibs\glew\lib\x64\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include;C:\clibs\glfw\include;C:\clibs\glew\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\clibs\glfw\lib\Win32\Release;C:\clibs\glew\lib\Win32\Release;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\CUDA\v8.0\include;..\clibs\glfw\include;..\clibs\glew\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\clibs\glfw\lib\Win32\Release;..\clibs\glew\lib\Win32\Release;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include;C:\clibs\glfw\include;C:\clibs\glew\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\clibs\glfw\lib\x64\Release;C:\clibs\glew\lib\x64\Release;$(LibraryPath)</LibraryPath>
+    <IncludePath>../CUDA/v8.0/include;../clibs/glfw/include;../clibs/glew/include;$(IncludePath)</IncludePath>
+    <LibraryPath>../clibs/glfw/lib/x64/Release;../clibs/glew/lib/x64/Release;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

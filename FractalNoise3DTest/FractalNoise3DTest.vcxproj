@@ -72,23 +72,23 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\clibs\AntTweakBar\include;C:\clibs\glfw\include;C:\clibs\glew\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\clibs\AntTweakBar\lib\Win32\Debug;..\Debug;C:\clibs\glfw\lib\Win32\Debug;C:\clibs\glew\lib\Win32\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\clibs\AntTweakBar\include;..\clibs\glfw\include;..\clibs\glew\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\clibs\AntTweakBar\lib\Win32\Debug;..\Debug;..\clibs\glfw\lib\Win32\Debug;..\clibs\glew\lib\Win32\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\clibs\AntTweakBar\include;C:\clibs\glfw\include;C:\clibs\glew\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\clibs\AntTweakBar\lib\x64\Debug;..\x64\Debug;C:\clibs\glfw\lib\x64\Debug;C:\clibs\glew\lib\x64\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\clibs\AntTweakBar\include;..\clibs\glfw\include;..\clibs\glew\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\clibs\AntTweakBar\lib\x64\Debug;..\x64\Debug;..\clibs\glfw\lib\x64\Debug;..\clibs\glew\lib\x64\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\clibs\AntTweakBar\include;C:\clibs\glfw\include;C:\clibs\glew\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\clibs\AntTweakBar\lib\Win32\Release;..\Release;C:\clibs\glfw\lib\Win32\Release;C:\clibs\glew\lib\Win32\Release;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\clibs\AntTweakBar\include;..\clibs\glfw\include;..\clibs\glew\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\clibs\AntTweakBar\lib\Win32\Release;..\Release;..\clibs\glfw\lib\Win32\Release;..\clibs\glew\lib\Win32\Release;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\clibs\AntTweakBar\include;C:\clibs\glfw\include;C:\clibs\glew\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\clibs\AntTweakBar\lib\x64\Release;..\x64\Release;C:\clibs\glfw\lib\x64\Release;C:\clibs\glew\lib\x64\Release;$(LibraryPath)</LibraryPath>
+    <IncludePath>../clibs/AntTweakBar/include;../clibs/glfw/include;../clibs/glew/include;$(IncludePath)</IncludePath>
+    <LibraryPath>../clibs/AntTweakBar/lib/x64/Release;../x64/Release;../clibs/glfw/lib/x64/Release;../clibs/glew/lib/x64/Release;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

@@ -37,3 +37,4 @@
 **/Release
 *.VC.db
 *.sdf
+*.opensdf

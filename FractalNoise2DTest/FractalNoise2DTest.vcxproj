@@ -72,23 +72,23 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\clibs\glfw\include;C:\clibs\glew\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\clibs\glew\lib\Win32\Debug;..\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\clibs\glfw\include;..\clibs\glew\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\clibs\glew\lib\Win32\Debug;..\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\clibs\glfw\include;C:\clibs\glew\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\clibs\glew\lib\x64\Debug;..\x64\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\clibs\glfw\include;..\clibs\glew\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\clibs\glew\lib\x64\Debug;..\x64\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\clibs\glfw\include;C:\clibs\glew\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\clibs\glew\lib\Win32\Release;..\Release\;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\clibs\glfw\include;..\clibs\glew\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\clibs\glew\lib\Win32\Release;..\Release\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\clibs\glfw\include;C:\clibs\glew\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\clibs\glew\lib\x64\Release;..\x64\Release;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\clibs\glfw\include;..\clibs\glew\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\clibs\glew\lib\x64\Release;..\x64\Release;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

@@ -287,7 +287,7 @@ c:\program files\nvidia gpu computing toolkit\cuda\v8.0\include\host_defines.h
 c:\program files\nvidia gpu computing toolkit\cuda\v8.0\include\vector_functions.h
 c:\program files\nvidia gpu computing toolkit\cuda\v8.0\include\device_launch_parameters.h
 c:\program files\nvidia gpu computing toolkit\cuda\v8.0\include\vector_types.h
-c:\users\lexer\onedrive\documents\visual studio 2013\projects\tinyworld\tinyworld\tinyworld\kpwater_cuda\SaintVenantSystemCore.cuh
+c:\users\lexer\source\repos\tinyworld\tinyworld\kpwater_cuda\SaintVenantSystemCore.cuh
 D:\Programs\Microsoft Visual Studio 12.0\VC\include\vector
 D:\Programs\Microsoft Visual Studio 12.0\VC\include\xmemory
 D:\Programs\Microsoft Visual Studio 12.0\VC\include\xmemory0
@@ -350,10 +350,10 @@ D:\Programs\Microsoft Visual Studio 12.0\VC\include\functional
 D:\Programs\Microsoft Visual Studio 12.0\VC\include\xfunctional
 D:\Programs\Microsoft Visual Studio 12.0\VC\include\typeinfo
 D:\Programs\Microsoft Visual Studio 12.0\VC\include\omp.h
-c:\users\lexer\onedrive\documents\visual studio 2013\projects\tinyworld\tinyworld\tinyworld\kpwater_cuda\SaintVenantSystemCommon.cuh
+c:\users\lexer\source\repos\tinyworld\tinyworld\kpwater_cuda\SaintVenantSystemCommon.cuh
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include\cuda_runtime.h
-c:\users\lexer\onedrive\documents\visual studio 2013\projects\tinyworld\tinyworld\tinyworld\kpwater_cuda\SaintVenantSystemCompileParams.cuh
-c:\users\lexer\onedrive\documents\visual studio 2013\projects\tinyworld\tinyworld\tinyworld\kpwater_cuda\CudaErrorWrapper.h
+c:\users\lexer\source\repos\tinyworld\tinyworld\kpwater_cuda\SaintVenantSystemCompileParams.cuh
+c:\users\lexer\source\repos\tinyworld\tinyworld\kpwater_cuda\CudaErrorWrapper.h
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include\cuda_runtime_api.h
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include\device_launch_parameters.h
 D:\Programs\Microsoft Visual Studio 12.0\VC\include\string
@@ -381,10 +381,10 @@ D:\Programs\Microsoft Visual Studio 12.0\VC\include\share.h
 D:\Programs\Microsoft Visual Studio 12.0\VC\include\cstdint
 D:\Programs\Microsoft Visual Studio 12.0\VC\include\stdint.h
 D:\Programs\Microsoft Visual Studio 12.0\VC\include\crtdefs.h
-c:\users\lexer\onedrive\documents\visual studio 2013\projects\tinyworld\tinyworld\tinyworld\kpwater_cuda\CudaDeviceScheduler.h
+c:\users\lexer\source\repos\tinyworld\tinyworld\kpwater_cuda\CudaDeviceScheduler.h
 D:\Programs\Microsoft Visual Studio 12.0\VC\include\array
 D:\Programs\Microsoft Visual Studio 12.0\VC\include\algorithm
 D:\Programs\Microsoft Visual Studio 12.0\VC\include\numeric
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include\device_launch_parameters.h
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include\cuda_runtime.h
-c:\users\lexer\onedrive\documents\visual studio 2013\projects\tinyworld\tinyworld\tinyworld\kpwater_cuda\UnifiedMemoryBlock.h
+c:\users\lexer\source\repos\tinyworld\tinyworld\kpwater_cuda\UnifiedMemoryBlock.h
