@@ -1,0 +1,132 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ShallowWaterDemo", "ShallowWaterDemo\ShallowWaterDemo.vcxproj", "{8B264DB6-86E4-40DD-ADCD-BBDD9EB90BE0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A0A2F024-13BC-4EB9-A3AA-63197B19115C} = {A0A2F024-13BC-4EB9-A3AA-63197B19115C}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VirtualSawing", "VirtualSawing\VirtualSawing.vcxproj", "{8CFF5F8E-82BC-4A93-AC99-9D6A1AB56C1D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A0A2F024-13BC-4EB9-A3AA-63197B19115C} = {A0A2F024-13BC-4EB9-A3AA-63197B19115C}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TinyWorldCore", "TinyWorldCore\TinyWorldCore.vcxproj", "{A0A2F024-13BC-4EB9-A3AA-63197B19115C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1D509992-BA41-49EE-BB96-688E4EBA47BD} = {1D509992-BA41-49EE-BB96-688E4EBA47BD}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SurfaceViewer", "SurfaceViewer\SurfaceViewer.vcxproj", "{BCBB3FFD-9D10-485E-BE5C-24513C6AF6F1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A0A2F024-13BC-4EB9-A3AA-63197B19115C} = {A0A2F024-13BC-4EB9-A3AA-63197B19115C}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{292BD9A3-0A16-486E-B148-956B9FF53F1F}"
+	ProjectSection(SolutionItems) = preProject
+		TODO.txt = TODO.txt
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libswecore", "libswecore\libswecore.vcxproj", "{1D509992-BA41-49EE-BB96-688E4EBA47BD}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FractalNoise2DTest", "FractalNoise2DTest\FractalNoise2DTest.vcxproj", "{004BAE57-8D2A-465E-8B67-5429CDA10FCB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A0A2F024-13BC-4EB9-A3AA-63197B19115C} = {A0A2F024-13BC-4EB9-A3AA-63197B19115C}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FractalNoise3DTest", "FractalNoise3DTest\FractalNoise3DTest.vcxproj", "{BCD7500E-7DDC-424F-9BDE-B898A69208F5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A0A2F024-13BC-4EB9-A3AA-63197B19115C} = {A0A2F024-13BC-4EB9-A3AA-63197B19115C}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://alexbibov.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ShallowWaterDemo\\ShallowWaterDemo.vcxproj
+		SccProjectName1 = ShallowWaterDemo
+		SccLocalPath1 = ShallowWaterDemo
+		SccProjectUniqueName2 = VirtualSawing\\VirtualSawing.vcxproj
+		SccProjectName2 = VirtualSawing
+		SccLocalPath2 = VirtualSawing
+		SccProjectUniqueName3 = TinyWorldCore\\TinyWorldCore.vcxproj
+		SccProjectName3 = TinyWorldCore
+		SccLocalPath3 = TinyWorldCore
+		SccProjectUniqueName4 = SurfaceViewer\\SurfaceViewer.vcxproj
+		SccProjectName4 = SurfaceViewer
+		SccLocalPath4 = SurfaceViewer
+		SccProjectUniqueName5 = libswecore\\libswecore.vcxproj
+		SccProjectName5 = libswecore
+		SccLocalPath5 = libswecore
+		SccProjectUniqueName6 = FractalNoise2DTest\\FractalNoise2DTest.vcxproj
+		SccProjectName6 = FractalNoise2DTest
+		SccLocalPath6 = FractalNoise2DTest
+		SccProjectUniqueName7 = FractalNoise3DTest\\FractalNoise3DTest.vcxproj
+		SccProjectName7 = FractalNoise3DTest
+		SccLocalPath7 = FractalNoise3DTest
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B264DB6-86E4-40DD-ADCD-BBDD9EB90BE0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8B264DB6-86E4-40DD-ADCD-BBDD9EB90BE0}.Debug|Win32.Build.0 = Debug|Win32
+		{8B264DB6-86E4-40DD-ADCD-BBDD9EB90BE0}.Debug|x64.ActiveCfg = Debug|x64
+		{8B264DB6-86E4-40DD-ADCD-BBDD9EB90BE0}.Debug|x64.Build.0 = Debug|x64
+		{8B264DB6-86E4-40DD-ADCD-BBDD9EB90BE0}.Release|Win32.ActiveCfg = Release|Win32
+		{8B264DB6-86E4-40DD-ADCD-BBDD9EB90BE0}.Release|Win32.Build.0 = Release|Win32
+		{8B264DB6-86E4-40DD-ADCD-BBDD9EB90BE0}.Release|x64.ActiveCfg = Release|x64
+		{8B264DB6-86E4-40DD-ADCD-BBDD9EB90BE0}.Release|x64.Build.0 = Release|x64
+		{8CFF5F8E-82BC-4A93-AC99-9D6A1AB56C1D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8CFF5F8E-82BC-4A93-AC99-9D6A1AB56C1D}.Debug|Win32.Build.0 = Debug|Win32
+		{8CFF5F8E-82BC-4A93-AC99-9D6A1AB56C1D}.Debug|x64.ActiveCfg = Debug|x64
+		{8CFF5F8E-82BC-4A93-AC99-9D6A1AB56C1D}.Debug|x64.Build.0 = Debug|x64
+		{8CFF5F8E-82BC-4A93-AC99-9D6A1AB56C1D}.Release|Win32.ActiveCfg = Release|Win32
+		{8CFF5F8E-82BC-4A93-AC99-9D6A1AB56C1D}.Release|Win32.Build.0 = Release|Win32
+		{8CFF5F8E-82BC-4A93-AC99-9D6A1AB56C1D}.Release|x64.ActiveCfg = Release|x64
+		{8CFF5F8E-82BC-4A93-AC99-9D6A1AB56C1D}.Release|x64.Build.0 = Release|x64
+		{A0A2F024-13BC-4EB9-A3AA-63197B19115C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A0A2F024-13BC-4EB9-A3AA-63197B19115C}.Debug|Win32.Build.0 = Debug|Win32
+		{A0A2F024-13BC-4EB9-A3AA-63197B19115C}.Debug|x64.ActiveCfg = Debug|x64
+		{A0A2F024-13BC-4EB9-A3AA-63197B19115C}.Release|Win32.ActiveCfg = Release|Win32
+		{A0A2F024-13BC-4EB9-A3AA-63197B19115C}.Release|Win32.Build.0 = Release|Win32
+		{A0A2F024-13BC-4EB9-A3AA-63197B19115C}.Release|x64.ActiveCfg = Release|x64
+		{A0A2F024-13BC-4EB9-A3AA-63197B19115C}.Release|x64.Build.0 = Release|x64
+		{BCBB3FFD-9D10-485E-BE5C-24513C6AF6F1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BCBB3FFD-9D10-485E-BE5C-24513C6AF6F1}.Debug|Win32.Build.0 = Debug|Win32
+		{BCBB3FFD-9D10-485E-BE5C-24513C6AF6F1}.Debug|x64.ActiveCfg = Debug|x64
+		{BCBB3FFD-9D10-485E-BE5C-24513C6AF6F1}.Release|Win32.ActiveCfg = Release|Win32
+		{BCBB3FFD-9D10-485E-BE5C-24513C6AF6F1}.Release|Win32.Build.0 = Release|Win32
+		{BCBB3FFD-9D10-485E-BE5C-24513C6AF6F1}.Release|x64.ActiveCfg = Release|Win32
+		{BCBB3FFD-9D10-485E-BE5C-24513C6AF6F1}.Release|x64.Build.0 = Release|Win32
+		{1D509992-BA41-49EE-BB96-688E4EBA47BD}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1D509992-BA41-49EE-BB96-688E4EBA47BD}.Debug|Win32.Build.0 = Debug|Win32
+		{1D509992-BA41-49EE-BB96-688E4EBA47BD}.Debug|x64.ActiveCfg = Debug|x64
+		{1D509992-BA41-49EE-BB96-688E4EBA47BD}.Debug|x64.Build.0 = Debug|x64
+		{1D509992-BA41-49EE-BB96-688E4EBA47BD}.Release|Win32.ActiveCfg = Release|Win32
+		{1D509992-BA41-49EE-BB96-688E4EBA47BD}.Release|Win32.Build.0 = Release|Win32
+		{1D509992-BA41-49EE-BB96-688E4EBA47BD}.Release|x64.ActiveCfg = Release|x64
+		{1D509992-BA41-49EE-BB96-688E4EBA47BD}.Release|x64.Build.0 = Release|x64
+		{004BAE57-8D2A-465E-8B67-5429CDA10FCB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{004BAE57-8D2A-465E-8B67-5429CDA10FCB}.Debug|Win32.Build.0 = Debug|Win32
+		{004BAE57-8D2A-465E-8B67-5429CDA10FCB}.Debug|x64.ActiveCfg = Debug|Win32
+		{004BAE57-8D2A-465E-8B67-5429CDA10FCB}.Release|Win32.ActiveCfg = Release|Win32
+		{004BAE57-8D2A-465E-8B67-5429CDA10FCB}.Release|Win32.Build.0 = Release|Win32
+		{004BAE57-8D2A-465E-8B67-5429CDA10FCB}.Release|x64.ActiveCfg = Release|Win32
+		{BCD7500E-7DDC-424F-9BDE-B898A69208F5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BCD7500E-7DDC-424F-9BDE-B898A69208F5}.Debug|Win32.Build.0 = Debug|Win32
+		{BCD7500E-7DDC-424F-9BDE-B898A69208F5}.Debug|x64.ActiveCfg = Debug|Win32
+		{BCD7500E-7DDC-424F-9BDE-B898A69208F5}.Release|Win32.ActiveCfg = Release|Win32
+		{BCD7500E-7DDC-424F-9BDE-B898A69208F5}.Release|Win32.Build.0 = Release|Win32
+		{BCD7500E-7DDC-424F-9BDE-B898A69208F5}.Release|x64.ActiveCfg = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

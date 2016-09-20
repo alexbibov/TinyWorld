@@ -1,0 +1,25 @@
+1. Optimize combine() function of the immutable textures so that data is not tossed between GPU memory and system RAM
+2. Implement lens flare
+3. Implement depth-of-field SS-filter
+4. Implement volumetric clouds
+5.	Implement silhouette rendering
+6.	Implement crepuscular rays
+7. Improve appearance of star colors and the scintiallations
+8.	Create deferred renderer
+9.	Implement loader from OBJ-files
+10. Implement parallax occlusion mapping
+11. Implement flexible material system
+12. Implement dynamical soft shadows
+13. Design and implement scene composer
+14. Implement tessellation for cylindrical surface
+15. Implement lazy creation of OpenGL resources
+16.	Make ApplyOpenGLContextSettings() cheaper
+17. Improve transparent box ray-tracing by moving the ray shooting part to the vertex shader
+18. Experiment whether geometry normals or bump-normals produce better results for SSAO
+19. Modify lighting system so that it would be able to support different lighting models
+20. Implement support for multi-sampling
+21. Implement Cook-Torrence lighting model
+22. Implement support for separate shader objects (uniform values residing on program object)
+23. Sort out the problem with separation between array and sole textures
+24. Optimize ShaderProgram object
+25. GPU-CPU communication performance issue (causes 95% CPU load)

@@ -1,0 +1,494 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Resource Files\tw_shaders">
+      <UniqueIdentifier>{207dc0f0-15d0-4d6b-8ebe-4f996793bf92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\tw_textures">
+      <UniqueIdentifier>{975f3353-d96c-4e4b-ac61-30612c80e838}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\TinyWorld\AbstractProjectingDevice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\AbstractRenderableObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\AbstractRenderingDevice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\Buffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\CompleteShaderProgram.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\Cube.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\CylindricalSurface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\Framebuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\FullscreenRectangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\ImageUnit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\ImmutableTexture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\ImmutableTexture1D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\ImmutableTexture2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\ImmutableTexture3D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\ImmutableTextureCubeMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\KTXTexture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\Light.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\Screen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\SeparateShaderProgram.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\Shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\ShaderProgram.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\Skydome.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\SSFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\SSFilter_HDRBloom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\std140UniformBuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\TessellatedTerrain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\TextureSampler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\TextureUnitBlock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\TransparentBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\SSFilter_SSAO.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\SSFilter_Blur.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\SSFilter_ImmediateShader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\ErrorBehavioral.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\AbstractRenderableObjectLightEx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\AbstractRenderableObjectHDRBloomEx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\LightingConditions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\SSFilter_AtmosphericFog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\SSFilter_LightHaze.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\EnvironmentMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\KPWater.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\PixelTraits.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\BufferTexture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\FractalNoise.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\SharedBuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\Texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\Entity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\AbstractRenderableObjectSelectionEx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TinyWorld\Clouds.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\TinyWorld\AbstractProjectingDevice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\AbstractRenderableObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\AbstractRenderingDevice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\Buffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\CompleteShaderProgram.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\Cube.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\CylindricalSurface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\Framebuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\FullscreenRectangle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\ImageUnit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\ImmutableTexture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\ImmutableTexture1D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\ImmutableTexture2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\ImmutableTexture3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\ImmutableTextureCubeMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\KTXTexture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\Light.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\MatrixTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\Misc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\QuaternionTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\Screen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\SeparateShaderProgram.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\Shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\ShaderProgram.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\Skydome.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\SSFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\SSFilter_HDRBloom.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\SSFilter_SSAO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\std140UniformBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\TessellatedTerrain.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\TextureSampler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\TextureUnitBlock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\TransparentBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\VectorTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\SSFilter_Blur.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\SSFilter_ImmediateShader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\ErrorBehavioral.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\AbstractRenderableObjectLightEx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\AbstractRenderableObjectHDRBloomEx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\LightingConditions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\SSFilter_AtmosphericFog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\SSFilter_LightHaze.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\EnvironmentMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\KPWater.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\PixelTraits.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\BufferTexture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\FractalNoise.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\CompilationDirectives.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\SharedBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\Texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\Entity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\AbstractRenderableObjectSelectionEx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\Clouds.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\tw_shaders\BloomOutput.fp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\CylindricalSurface.fp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\CylindricalSurface.gp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\CylindricalSurface.vp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\FullscreenFilter_inverse_colors.fp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\HDR_Bloom.fp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\LightModel.fp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\LightModel.vp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\Moon.fp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\Moon.vp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\Skydome.fp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\Skydome.vp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\Stars.fp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\Stars.vp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\TessellatedTerrain_default.fp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\TessellatedTerrain_default.gp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\TessellatedTerrain_default.tcp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\TessellatedTerrain_default.tep.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\TessellatedTerrain_default.vp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\TransparentBox_GasShading.fp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\TransparentBox_PG1.fp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\TransparentBox_PG1.vp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\TransparentBox_PG2.fp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\TransparentBox_PG2.vp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\TransparentBox_RT.fp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\TransparentBox_RT.vp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_textures\moon.ktx">
+      <Filter>Resource Files\tw_textures</Filter>
+    </None>
+    <None Include="..\tw_textures\sun.ktx">
+      <Filter>Resource Files\tw_textures</Filter>
+    </None>
+    <None Include="..\tw_shaders\SSAO.fp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\Blur.fp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\ImmediateShader.fp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\AtmosphericFog.fp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\LightHaze.fp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\common\FogBuffer.include.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\common\LightBuffer.include.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\common\EquirectangularEnvironmentMap.include.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\common\SphericalEnvironmentMap.include.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\common\CubicEnvironmentMap.include.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\KPWater.tcp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\KPWater.vp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\KPWater.tep.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\KPWater.fp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\KPWater.gp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\KPWater.fp.ext.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\KPWaterFFT.cp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\KPWaterCommonUtils.inc">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\KPWaterCommonDefinitions.inc">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\TessellatedTerrain_default.fp.ext.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\KPWaterCaustics.fp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\PerlinNoise2DCreateGrid.cp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\PerlinNoise2DCreateValues.cp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\PerlinNoise3DCreateGrid.cp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+    <None Include="..\tw_shaders\PerlinNoise3DCreateValues.cp.glsl">
+      <Filter>Resource Files\tw_shaders</Filter>
+    </None>
+  </ItemGroup>
+</Project>

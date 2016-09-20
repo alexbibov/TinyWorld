@@ -1,0 +1,1159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="tiny_world::AbstractProjectingDevice" Collapsed="true">
+    <Position X="16.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IgoBggAACAAQBBgIgEIRXAgCACAcAAIAAAApAIEAhAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\AbstractProjectingDevice.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::PerspectiveProjectingDevice" Collapsed="true">
+    <Position X="15.25" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAgAIAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\AbstractProjectingDevice.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::OrthogonalProjectingDevice" Collapsed="true">
+    <Position X="17.5" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\AbstractProjectingDevice.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::CompleteShaderProgram" Collapsed="true">
+    <Position X="27.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAwCAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\CompleteShaderProgram.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::AbstractRenderableObject" Collapsed="true">
+    <Position X="21.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QgIhAAECNAEIlAAAAEgQ3IICACAgAQQIABAgAQAQDBA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\AbstractRenderableObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::AbstractRenderableObjectTextured" Collapsed="true">
+    <Position X="20.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AECAVSAEAAAAQAgAAQIAIBAhAIAACAAQBEAkQAAAggA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\AbstractRenderableObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::AbstractRenderableObjectLit" Collapsed="true">
+    <Position X="18" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AFgIBAAEqCKQgAgAAMAUBSQIBAEIAQIAQnBgAFABAgA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\AbstractRenderableObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::AbstractRenderableObjectHDRBloom" Collapsed="true">
+    <Position X="24.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAIAAYCAAUEAACECABIAAAAAIAAABAAAgAAQAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\AbstractRenderableObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::VertexAttributeSpecification&lt;vertex_attribute_id, vertex_attribute_format, vertex_attribute_size, special_vertex_attribute_format&gt;" Collapsed="true">
+    <Position X="32.25" Y="21" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAIIAAAAgIABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\AbstractRenderableObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::Cube" Collapsed="true">
+    <Position X="22.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAEAAoEAEAAAAAAAggAAICAIAUgIUJgBBgAYAYAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Cube.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::Screen" Collapsed="true">
+    <Position X="15.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gIwBEEBiAFAIIQAANECuQgJCoQAAJgZFAiSwACI1kgE=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Screen.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::Framebuffer" Collapsed="true">
+    <Position X="17.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AsQACEBgAgAiAQAICAoEENIAJUACLAKDAAFgAAQE2JQ=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Framebuffer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::AbstractRenderingDevice" Collapsed="true">
+    <Position X="16.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>NokSBwEaAQGiBSgcFEhFVVAKQVEjJAAWIMAwCgUFyBA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\AbstractRenderingDevice.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::ImmutableTexture1D" Collapsed="true">
+    <Position X="22.25" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAgAAAIAAAAAAAAABAAAAAAAgCAAAAEAAAAQA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\ImmutableTexture1D.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::ImmutableTexture3D" Collapsed="true">
+    <Position X="15.5" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAhAAAAAAAACAAAAEAAAAQA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\ImmutableTexture3D.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::AbstractLight" Collapsed="true">
+    <Position X="30" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAEgAAAABAAAAEABBAAAAAAAAACAAQAwkAAIAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Light.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::GlobalLight" Collapsed="true">
+    <Position X="27.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Light.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::LocalLight" Collapsed="true">
+    <Position X="30" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAIAAAAAAAAAAAAAAABAABACACEAAQAAACAgAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Light.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::DirectedLight" Collapsed="true">
+    <Position X="32.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAIAAAAAAAAAAAAAEAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Light.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::AmbientLight" Collapsed="true">
+    <Position X="27.75" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAgAAAAAAAAAAAAAAAAgEAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Light.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::DirectionalLight" Collapsed="true">
+    <Position X="30" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAgEAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Light.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::PointLight" Collapsed="true">
+    <Position X="30" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAgMAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Light.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::SpotLight" Collapsed="true">
+    <Position X="33.25" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAABAAAAAAAAAAAAAAAAAAAAAABAgGQAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Light.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::abstract_matrix&lt;T, nrows, ncolumns&gt;" Collapsed="true">
+    <Position X="41.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAgAAAQAAhAAAAAAAgAAAAAEAAAABAAAwAAAAAAg=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::FullscreenRectangle" Collapsed="true">
+    <Position X="24.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEBAAADDEAEAAASAQAgBEAMCAAAVAA0IgBAghYwYAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\FullscreenRectangle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::SeparateShaderProgram_Core" Collapsed="true">
+    <Position X="29.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\SeparateShaderProgram.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::ProgramPipeline" Collapsed="true">
+    <Position X="68.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAEAIAAAAgAAAAQAwAAAAAAAACACAAgAQAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\SeparateShaderProgram.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::SeparateShaderProgram" Collapsed="true">
+    <Position X="29.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAIAAAAQAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\SeparateShaderProgram.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::Shader" Collapsed="true">
+    <Position X="70" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QgAAAEAAAAAABYgEAAABBAAgAAEgAAAABAAwAAAAEAI=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Shader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::ShaderProgram" Collapsed="true">
+    <Position X="28.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgQ0AYAEEMGQRghMEEwDlhRAAMEhhJgAAEJxsQBHAkA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\ShaderProgram.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::PixelFormatTraits" Collapsed="true">
+    <Position X="66.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BMQgQMFhAQwAAABgAyIAIQADCkAADAAACAIAgFQAABE=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\ImmutableTexture.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::ImmutableTexture" Collapsed="true">
+    <Position X="18.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAIAAAAIABAAAgAAAAAAAAAAAAAAgAAAACAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\ImmutableTexture.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::ImmutableTexture_Core" Collapsed="true">
+    <Position X="18.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgDkAwIEBIAAJAsEIMQBFQJiAFAmAJgEAAg0EACAAAQ=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\ImmutableTexture.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::TextureUnitBlock" Collapsed="true">
+    <Position X="63" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAgAEgAAAQAAAAANAAAABADAAACEAEAAgMAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\TextureUnitBlock.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::ImmutableTextureCubeMap" Collapsed="true">
+    <Position X="17.75" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAgAAAIAAQBAAAAABAAAAAAAACAAAAEAAIAQA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\ImmutableTextureCubeMap.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::ImmutableTexture2D" Collapsed="true">
+    <Position X="20" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAgAAAIAAAAAAAAABAAAAAAAACAAAAEAABAQA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\ImmutableTexture2D.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::KTXTexture" Collapsed="true">
+    <Position X="64.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAABAAAAAAEAQABADAAAAAAAyECCACwgAAACAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\KTXTexture.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::Skydome" Collapsed="true">
+    <Position X="22.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>I4CIgQABGCFBUJhACRjlgwooAIIAAKQIWJhwAR6QIUQ=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Skydome.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::TessellatedTerrain" Collapsed="true">
+    <Position X="21.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gkgAASAgkCEABAAAABggCYYyEAAAAAQIChAgERA0AAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\TessellatedTerrain.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::TextureSampler_core" Collapsed="true">
+    <Position X="15.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QgEAgIQAAAAAFgAgAEAABQIAABAAAsIAIAAgyACAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\TextureSampler.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::TextureSampler" Collapsed="true">
+    <Position X="15.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\TextureSampler.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tiny_world::TransparentBox" Collapsed="true">
+    <Position X="24.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CkSAwgBMfC0WJIcgUBgAqAKgQJBCCQZY4BEwoRAaADE=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\TransparentBox.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ImageUnit" Collapsed="true">
+    <Position X="63" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAACBAXAgAAAAAAAAgABwAAwAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\ImageUnit.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="concrete_matrix&lt;T, nrows, ncolumns&gt;" Collapsed="true">
+    <Position X="41.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="concrete_matrix&lt;T, dim, dim&gt;" Collapsed="true">
+    <Position X="32.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAACIAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glsl_matrix_type&lt;T, 4, 4&gt;" Collapsed="true">
+    <Position X="41.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAQ=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glsl_matrix_type&lt;T, 3, 3&gt;" Collapsed="true">
+    <Position X="53" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAQ=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glsl_matrix_type&lt;T, 2, 2&gt;" Collapsed="true">
+    <Position X="55.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAQ=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glsl_matrix_type&lt;T, 4, 3&gt;" Collapsed="true">
+    <Position X="57.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAQ=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glsl_matrix_type&lt;T, 3, 4&gt;" Collapsed="true">
+    <Position X="32.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAQ=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glsl_matrix_type&lt;T, 4, 2&gt;" Collapsed="true">
+    <Position X="27" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAQ=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glsl_matrix_type&lt;T, 2, 4&gt;" Collapsed="true">
+    <Position X="46.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAQ=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glsl_matrix_type&lt;T, 3, 2&gt;" Collapsed="true">
+    <Position X="48.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAQ=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glsl_matrix_type&lt;T, 2, 3&gt;" Collapsed="true">
+    <Position X="50.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAQ=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="tiny_world::tagFramebufferAttachmentDetails_base&lt;TexturePointerType&gt;" Collapsed="true">
+    <Position X="35.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAQAEAAAAABAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Framebuffer.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::tagFramebufferAttachmentDetails_derived&lt;TexturePointerType&gt;" Collapsed="true">
+    <Position X="60.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Framebuffer.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::tagFramebufferAttachmentDetails_derived&lt;const ImmutableTexture*&gt;" Collapsed="true">
+    <Position X="35.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Framebuffer.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::tagFramebufferAttachmentDetails_derived&lt;std::unique_ptr&lt;const ImmutableTexture&gt;&gt;" Collapsed="true">
+    <Position X="37" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Framebuffer.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::ImageAttachmentInfo_base&lt;TexturePointerType&gt;" Collapsed="true">
+    <Position X="38.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAgAAAAAAABAAAAAAAAAAAAAACEQAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\ImageUnit.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::ImageAttachmentInfo_derived&lt;TexturePointerType&gt;" Collapsed="true">
+    <Position X="43.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\ImageUnit.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::ImageAttachmentInfo_derived&lt;const ImmutableTexture*&gt;" Collapsed="true">
+    <Position X="38.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\ImageUnit.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::LightScatteringSettings" Collapsed="true">
+    <Position X="63" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABABAAAAAAAAQAAIYCAAAAAAAAAAAAgAABACAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Light.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::ogl_type_mapper&lt;bool&gt;" Collapsed="true">
+    <Position X="64.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Misc.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::ogl_type_mapper&lt;int&gt;" Collapsed="true">
+    <Position X="66.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Misc.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::ogl_type_mapper&lt;unsigned int&gt;" Collapsed="true">
+    <Position X="68.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Misc.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::ogl_type_mapper&lt;short&gt;" Collapsed="true">
+    <Position X="70" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Misc.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::ogl_type_mapper&lt;unsigned short&gt;" Collapsed="true">
+    <Position X="63" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Misc.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::ogl_type_mapper&lt;float&gt;" Collapsed="true">
+    <Position X="64.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Misc.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::ogl_type_mapper&lt;double&gt;" Collapsed="true">
+    <Position X="66.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Misc.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::ogl_type_mapper&lt;char&gt;" Collapsed="true">
+    <Position X="68.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Misc.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::ogl_type_mapper&lt;unsigned char&gt;" Collapsed="true">
+    <Position X="70" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Misc.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::ogl_type_traits&lt;GLbyte&gt;" Collapsed="true">
+    <Position X="68.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Misc.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::ogl_type_traits&lt;GLshort&gt;" Collapsed="true">
+    <Position X="66.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Misc.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::ogl_type_traits&lt;GLint&gt;" Collapsed="true">
+    <Position X="63" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Misc.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::ogl_type_traits&lt;GLfloat&gt;" Collapsed="true">
+    <Position X="64.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Misc.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::ogl_type_traits&lt;GLdouble&gt;" Collapsed="true">
+    <Position X="70" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Misc.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::ogl_type_traits&lt;GLubyte&gt;" Collapsed="true">
+    <Position X="70" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Misc.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::ogl_type_traits&lt;GLushort&gt;" Collapsed="true">
+    <Position X="68.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Misc.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::ogl_type_traits&lt;GLuint&gt;" Collapsed="true">
+    <Position X="66.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Misc.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::ogl_type_traits&lt;GLhalf, true&gt;" Collapsed="true">
+    <Position X="64.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Misc.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::ogl_type_traits&lt;GLfixed, true&gt;" Collapsed="true">
+    <Position X="63" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Misc.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::triplet&lt;T1, T2, T3&gt;" Collapsed="true">
+    <Position X="20.25" Y="24.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAgEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Misc.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::Rectangle" Collapsed="true">
+    <Position X="63" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAhgAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Misc.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::ScreenVideoMode" Collapsed="true">
+    <Position X="66.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAQAQAAABQAAAAAAAAAAAAACAAAABAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Screen.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::TextureSize" Collapsed="true">
+    <Position X="70" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAQAAAAQAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\ImmutableTexture.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::TextureBinding" Collapsed="true">
+    <Position X="68.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\ImmutableTexture.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::SamplerWrapping" Collapsed="true">
+    <Position X="64.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAABAAQAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\TextureSampler.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tiny_world::tag_vec4&lt;T&gt;" Collapsed="true">
+    <Position X="16.25" Y="20" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAQAAAAAEAAAAAAAQBAAAEQCAAAAAhwAQAAAAE=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\VectorTypes.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tag_vec3&lt;T&gt;" Collapsed="true">
+    <Position X="28.25" Y="18" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgCAAQAAAAQEAAAAAAAQBAAAEQAAAAAABwEQAAAAE=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\VectorTypes.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tag_vec2&lt;T&gt;" Collapsed="true">
+    <Position X="21.25" Y="16" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgCAEQAAAAIEAAAAAAAQBAAAEQAAAAAABwAAAAAAE=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\VectorTypes.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Typedef Name="tiny_world::vertex_attribute_position" Collapsed="true">
+    <Position X="35.25" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\AbstractRenderableObject.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="tiny_world::vertex_attribute_color" Collapsed="true">
+    <Position X="29.25" Y="22" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\AbstractRenderableObject.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="tiny_world::vertex_attribute_normal" Collapsed="true">
+    <Position X="35.25" Y="21" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\AbstractRenderableObject.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="tiny_world::vertex_attribute_texcoord" Collapsed="true">
+    <Position X="34.25" Y="19" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\AbstractRenderableObject.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="tiny_world::vertex_attribute_texcoord_3d" Collapsed="true">
+    <Position X="32.25" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\AbstractRenderableObject.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="tiny_world::bitmask32" Collapsed="true">
+    <Position X="63" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\AbstractRenderingDevice.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="tiny_world::StencilTestPassCriterion" Collapsed="true">
+    <Position X="20.25" Y="22.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\AbstractRenderingDevice.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="tiny_world::GenericScreenRenderer" Collapsed="true">
+    <Position X="66.5" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\AbstractRenderingDevice.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="tiny_world::GenericFramebufferRenderer" Collapsed="true">
+    <Position X="64.75" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\AbstractRenderingDevice.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="tiny_world::FramebufferAttachmentInfo" Collapsed="true">
+    <Position X="35.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Framebuffer.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="ImageAttachmentInfo" Collapsed="true">
+    <Position X="38.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\ImageUnit.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="mat4" Collapsed="true">
+    <Position X="41.5" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="mat4x4" Collapsed="true">
+    <Position X="41.5" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="mat3" Collapsed="true">
+    <Position X="44.5" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="mat3x3" Collapsed="true">
+    <Position X="44.5" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="mat2" Collapsed="true">
+    <Position X="41.5" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="mat2x2" Collapsed="true">
+    <Position X="41.5" Y="17.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="mat4x3" Collapsed="true">
+    <Position X="38.5" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="mat4x2" Collapsed="true">
+    <Position X="44.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="mat3x4" Collapsed="true">
+    <Position X="47.5" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="mat2x4" Collapsed="true">
+    <Position X="47.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="mat3x2" Collapsed="true">
+    <Position X="35.5" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="mat2x3" Collapsed="true">
+    <Position X="47.5" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="dmat4" Collapsed="true">
+    <Position X="41.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="dmat4x4" Collapsed="true">
+    <Position X="41.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="dmat3" Collapsed="true">
+    <Position X="44.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="dmat3x3" Collapsed="true">
+    <Position X="44.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="dmat2" Collapsed="true">
+    <Position X="38.5" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="dmat2x2" Collapsed="true">
+    <Position X="38.5" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="dmat4x3" Collapsed="true">
+    <Position X="47.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="dmat4x2" Collapsed="true">
+    <Position X="44.5" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="dmat3x4" Collapsed="true">
+    <Position X="38.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="dmat2x4" Collapsed="true">
+    <Position X="35.5" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="dmat3x2" Collapsed="true">
+    <Position X="47.5" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="dmat2x3" Collapsed="true">
+    <Position X="47.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\MatrixTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="tiny_world::GLSLSourceCode" Collapsed="true">
+    <Position X="68.25" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Shader.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="tiny_world::PipelineStage" Collapsed="true">
+    <Position X="33.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\ShaderProgram.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="ivec4" Collapsed="true">
+    <Position X="13.25" Y="22" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\VectorTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="vec4" Collapsed="true">
+    <Position X="19.25" Y="20" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\VectorTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="dvec4" Collapsed="true">
+    <Position X="13.25" Y="20" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\VectorTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="uvec4" Collapsed="true">
+    <Position X="15.25" Y="18" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\VectorTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="bvec4" Collapsed="true">
+    <Position X="16.25" Y="22" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\VectorTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="ivec3" Collapsed="true">
+    <Position X="25.25" Y="20" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\VectorTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="vec3" Collapsed="true">
+    <Position X="31.25" Y="18" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\VectorTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="dvec3" Collapsed="true">
+    <Position X="25.25" Y="18" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\VectorTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="uvec3" Collapsed="true">
+    <Position X="28.25" Y="20" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\VectorTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="bvec3" Collapsed="true">
+    <Position X="28.25" Y="16" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\VectorTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="ivec2" Collapsed="true">
+    <Position X="24.25" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\VectorTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="vec2" Collapsed="true">
+    <Position X="18.25" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\VectorTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="dvec2" Collapsed="true">
+    <Position X="24.25" Y="16" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\VectorTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="uvec2" Collapsed="true">
+    <Position X="21.25" Y="18" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\VectorTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="bvec2" Collapsed="true">
+    <Position X="21.25" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\VectorTypes.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Enum Name="tiny_world::StencilTestPassFunction" Collapsed="true">
+    <Position X="70" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAFEQAAAAAAAAAAAAAAACAGAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\AbstractRenderingDevice.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="tiny_world::StencilBufferUpdateOperation" Collapsed="true">
+    <Position X="68.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAABIIABAEAAAAAAAAAAAAAAAIAAAAAAAAQA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\AbstractRenderingDevice.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="tiny_world::DepthTestPassFunction" Collapsed="true">
+    <Position X="68.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAFEQAAAAAAAAAAAAAAACAGAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\AbstractRenderingDevice.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="tiny_world::ColorBlendFactor" Collapsed="true">
+    <Position X="64.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAABgIQAAEACBAAAAAAAAAAAACCCAAAAEACIAAIwwA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\AbstractRenderingDevice.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="tiny_world::ColorBlendEquation" Collapsed="true">
+    <Position X="63" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAABCAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\AbstractRenderingDevice.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="tiny_world::LightType" Collapsed="true">
+    <Position X="70" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAIAgAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Light.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="tiny_world::Face" Collapsed="true">
+    <Position X="70" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABEAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Misc.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="tiny_world::MULTISAMPLING_MODE" Collapsed="true">
+    <Position X="63" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAIAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Misc.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="tiny_world::ROTATION_FRAME" Collapsed="true">
+    <Position X="70" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Misc.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="tiny_world::ShaderType" Collapsed="true">
+    <Position X="33.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAgIgAAAAEAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\Shader.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="tiny_world::TextureSlot" Collapsed="true">
+    <Position X="64.75" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAQAAAACAAAAAAAgQAQAAAAABEAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\ImmutableTexture.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="tiny_world::InternalPixelFormat" Collapsed="true">
+    <Position X="66.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgI0yeMrADIAosIK0wBBCEQWJhFRBIggJJsAgQEIwY=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\ImmutableTexture.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="tiny_world::InternalPixelFormatCompressed" Collapsed="true">
+    <Position X="68.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QEAQAQAAAIAABQAEAAAAAgIAgAEIIAQAAABgBAANAIA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\ImmutableTexture.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="tiny_world::PixelStorageClass" Collapsed="true">
+    <Position X="68.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAEAAAAQAAQQAAAAgAAAgIAAQAAAFgAQIAAAAIAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\ImmutableTexture.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="tiny_world::PixelLayout" Collapsed="true">
+    <Position X="66.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAKAAAAAAIAACAAAgCAIIgAAAAEAE4AAAAAABAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\ImmutableTexture.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="tiny_world::PixelDataType" Collapsed="true">
+    <Position X="64.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEgAAAFAgBIAAAAEAAAAIQCQAIIAgAAQAAABBIAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\ImmutableTexture.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="tiny_world::TextureDimension" Collapsed="true">
+    <Position X="63" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAIAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\ImmutableTexture.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="tiny_world::FramebufferAttachmentPoint" Collapsed="true">
+    <Position X="63" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAPwAAAACAAAAAAAAEBAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\ImmutableTexture.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="tiny_world::ImageAccess" Collapsed="true">
+    <Position X="64.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\ImmutableTexture.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="tiny_world::CubemapFace" Collapsed="true">
+    <Position X="66.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAwAIAAAAAAADgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\ImmutableTextureCubeMap.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="tiny_world::SamplerWrappingMode" Collapsed="true">
+    <Position X="66.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gACAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\TextureSampler.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="tiny_world::SamplerMagnificationFilter" Collapsed="true">
+    <Position X="63" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\TextureSampler.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="tiny_world::SamplerMinificationFilter" Collapsed="true">
+    <Position X="64.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAgAABEAAAAAAAAgAAAAAAAAACAA=</HashCode>
+      <FileName>C:\Users\Alexander\Documents\Visual Studio 2013\Projects\TinyWorld\TinyWorld\TextureSampler.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

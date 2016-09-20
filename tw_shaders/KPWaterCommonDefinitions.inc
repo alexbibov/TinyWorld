@@ -1,0 +1,5 @@
+#define TW__KPWATER_FFT_SIZE__			512U
+#define TW__KPWATER_FFT_HALF_SIZE__		256U
+#define TW__KPWATER_MIPMAPS__			10U
+
+#define TW__KPWATER_MIN_WATER_DEPTH__	1e-5f
