@@ -1,0 +1,145 @@
+﻿Build started 21.9.2016 0.18.46.
+     1>Project "C:\Users\lexer\Source\Repos\TinyWorld\TinyWorldCore\TinyWorldCore.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         D:\Programs\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /GL /D WIN32 /D NDEBUG /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /openmp /Fo"x64\Release\\" /Fd"x64\Release\vc120.pdb" /Gd /TP /errorReport:prompt ..\TinyWorld\AbstractProjectingDevice.cpp ..\TinyWorld\AbstractRenderableObject.cpp ..\TinyWorld\AbstractRenderableObjectHDRBloomEx.cpp ..\TinyWorld\AbstractRenderableObjectLightEx.cpp ..\TinyWorld\AbstractRenderableObjectSelectionEx.cpp ..\TinyWorld\AbstractRenderingDevice.cpp ..\TinyWorld\Buffer.cpp ..\TinyWorld\BufferTexture.cpp ..\TinyWorld\Clouds.cpp ..\TinyWorld\CompleteShaderProgram.cpp ..\TinyWorld\Cube.cpp ..\TinyWorld\CylindricalSurface.cpp ..\TinyWorld\Entity.cpp ..\TinyWorld\EnvironmentMap.cpp ..\TinyWorld\ErrorBehavioral.cpp ..\TinyWorld\FractalNoise.cpp ..\TinyWorld\Framebuffer.cpp ..\TinyWorld\FullscreenRectangle.cpp ..\TinyWorld\ImageUnit.cpp ..\TinyWorld\ImmutableTexture.cpp ..\TinyWorld\ImmutableTexture1D.cpp ..\TinyWorld\ImmutableTexture2D.cpp ..\TinyWorld\ImmutableTexture3D.cpp ..\TinyWorld\ImmutableTextureCubeMap.cpp ..\TinyWorld\KPWater.cpp ..\TinyWorld\KTXTexture.cpp ..\TinyWorld\Light.cpp ..\TinyWorld\LightingConditions.cpp ..\TinyWorld\PixelTraits.cpp ..\TinyWorld\Screen.cpp ..\TinyWorld\SeparateShaderProgram.cpp ..\TinyWorld\Shader.cpp ..\TinyWorld\ShaderProgram.cpp ..\TinyWorld\SharedBuffer.cpp ..\TinyWorld\Skydome.cpp ..\TinyWorld\SSFilter.cpp ..\TinyWorld\SSFilter_AtmosphericFog.cpp ..\TinyWorld\SSFilter_Blur.cpp ..\TinyWorld\SSFilter_HDRBloom.cpp ..\TinyWorld\SSFilter_ImmediateShader.cpp ..\TinyWorld\SSFilter_LightHaze.cpp ..\TinyWorld\SSFilter_SSAO.cpp ..\TinyWorld\std140UniformBuffer.cpp ..\TinyWorld\TessellatedTerrain.cpp ..\TinyWorld\Texture.cpp ..\TinyWorld\TextureSampler.cpp ..\TinyWorld\TextureUnitBlock.cpp ..\TinyWorld\TransparentBox.cpp
+         AbstractProjectingDevice.cpp
+         AbstractRenderableObject.cpp
+     1>..\TinyWorld\AbstractRenderableObject.cpp(715): warning C4244: '=' : conversion from '__int64' to 'int', possible loss of data
+     1>..\TinyWorld\AbstractRenderableObject.cpp(721): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>..\TinyWorld\AbstractRenderableObject.cpp(735): warning C4244: '=' : conversion from '__int64' to 'int', possible loss of data
+     1>..\TinyWorld\AbstractRenderableObject.cpp(741): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>..\TinyWorld\AbstractRenderableObject.cpp(755): warning C4244: '=' : conversion from '__int64' to 'int', possible loss of data
+     1>..\TinyWorld\AbstractRenderableObject.cpp(761): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>..\TinyWorld\AbstractRenderableObject.cpp(775): warning C4244: '=' : conversion from '__int64' to 'int', possible loss of data
+     1>..\TinyWorld\AbstractRenderableObject.cpp(781): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>..\TinyWorld\AbstractRenderableObject.cpp(795): warning C4244: '=' : conversion from '__int64' to 'int', possible loss of data
+     1>..\TinyWorld\AbstractRenderableObject.cpp(801): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+         AbstractRenderableObjectHDRBloomEx.cpp
+         AbstractRenderableObjectLightEx.cpp
+         AbstractRenderableObjectSelectionEx.cpp
+         AbstractRenderingDevice.cpp
+         Buffer.cpp
+         BufferTexture.cpp
+     1>..\TinyWorld\BufferTexture.cpp(109): warning C4267: 'return' : conversion from 'size_t' to 'uint32_t', possible loss of data
+     1>..\TinyWorld\BufferTexture.cpp(122): warning C4267: 'return' : conversion from 'size_t' to 'uint32_t', possible loss of data
+     1>..\TinyWorld\BufferTexture.cpp(153): warning C4267: 'initializing' : conversion from 'size_t' to 'uint32_t', possible loss of data
+     1>..\TinyWorld\BufferTexture.cpp(234): warning C4267: 'initializing' : conversion from 'size_t' to 'uint32_t', possible loss of data
+         Clouds.cpp
+         CompleteShaderProgram.cpp
+         Cube.cpp
+         CylindricalSurface.cpp
+     1>..\TinyWorld\CylindricalSurface.cpp(307): warning C4244: 'initializing' : conversion from '__int64' to 'unsigned int', possible loss of data
+     1>..\TinyWorld\CylindricalSurface.cpp(337): warning C4244: '=' : conversion from '__int64' to 'unsigned int', possible loss of data
+         Entity.cpp
+         EnvironmentMap.cpp
+         ErrorBehavioral.cpp
+         FractalNoise.cpp
+         Framebuffer.cpp
+         FullscreenRectangle.cpp
+         ImageUnit.cpp
+         ImmutableTexture.cpp
+         Compiling...
+         ImmutableTexture1D.cpp
+         ImmutableTexture2D.cpp
+         ImmutableTexture3D.cpp
+         ImmutableTextureCubeMap.cpp
+     1>..\TinyWorld\ImmutableTextureCubeMap.cpp(137): warning C4267: 'argument' : conversion from 'size_t' to 'uint32_t', possible loss of data
+     1>..\TinyWorld\ImmutableTextureCubeMap.cpp(140): warning C4267: 'argument' : conversion from 'size_t' to 'uint32_t', possible loss of data
+     1>..\TinyWorld\ImmutableTextureCubeMap.cpp(221): warning C4267: 'argument' : conversion from 'size_t' to 'uint32_t', possible loss of data
+     1>..\TinyWorld\ImmutableTextureCubeMap.cpp(223): warning C4267: 'argument' : conversion from 'size_t' to 'uint32_t', possible loss of data
+     1>..\TinyWorld\ImmutableTextureCubeMap.cpp(482): warning C4267: 'argument' : conversion from 'size_t' to 'GLsizei', possible loss of data
+     1>..\TinyWorld\ImmutableTextureCubeMap.cpp(486): warning C4267: 'argument' : conversion from 'size_t' to 'GLsizei', possible loss of data
+     1>..\TinyWorld\ImmutableTextureCubeMap.cpp(490): warning C4267: 'argument' : conversion from 'size_t' to 'GLsizei', possible loss of data
+     1>..\TinyWorld\ImmutableTextureCubeMap.cpp(494): warning C4267: 'argument' : conversion from 'size_t' to 'GLsizei', possible loss of data
+     1>..\TinyWorld\ImmutableTextureCubeMap.cpp(498): warning C4267: 'argument' : conversion from 'size_t' to 'GLsizei', possible loss of data
+     1>..\TinyWorld\ImmutableTextureCubeMap.cpp(502): warning C4267: 'argument' : conversion from 'size_t' to 'GLsizei', possible loss of data
+     1>..\TinyWorld\ImmutableTextureCubeMap.cpp(508): warning C4267: 'argument' : conversion from 'size_t' to 'GLsizei', possible loss of data
+     1>..\TinyWorld\ImmutableTextureCubeMap.cpp(511): warning C4267: 'argument' : conversion from 'size_t' to 'GLsizei', possible loss of data
+     1>..\TinyWorld\ImmutableTextureCubeMap.cpp(514): warning C4267: 'argument' : conversion from 'size_t' to 'GLsizei', possible loss of data
+     1>..\TinyWorld\ImmutableTextureCubeMap.cpp(517): warning C4267: 'argument' : conversion from 'size_t' to 'GLsizei', possible loss of data
+     1>..\TinyWorld\ImmutableTextureCubeMap.cpp(520): warning C4267: 'argument' : conversion from 'size_t' to 'GLsizei', possible loss of data
+     1>..\TinyWorld\ImmutableTextureCubeMap.cpp(523): warning C4267: 'argument' : conversion from 'size_t' to 'GLsizei', possible loss of data
+         KPWater.cpp
+         KTXTexture.cpp
+     1>..\TinyWorld\KTXTexture.cpp(49): warning C4309: 'initializing' : truncation of constant value
+         Light.cpp
+         LightingConditions.cpp
+         PixelTraits.cpp
+         Screen.cpp
+         SeparateShaderProgram.cpp
+         Shader.cpp
+         ShaderProgram.cpp
+         SharedBuffer.cpp
+         Skydome.cpp
+         SSFilter.cpp
+     1>..\TinyWorld\SSFilter.cpp(502): warning C4267: '+=' : conversion from 'size_t' to 'uint32_t', possible loss of data
+         SSFilter_AtmosphericFog.cpp
+         SSFilter_Blur.cpp
+         SSFilter_HDRBloom.cpp
+         SSFilter_ImmediateShader.cpp
+         Compiling...
+         SSFilter_LightHaze.cpp
+         SSFilter_SSAO.cpp
+         std140UniformBuffer.cpp
+         TessellatedTerrain.cpp
+         Texture.cpp
+         TextureSampler.cpp
+         TextureUnitBlock.cpp
+     1>..\TinyWorld\TextureUnitBlock.cpp(102): warning C4244: 'return' : conversion from '__int64' to 'int32_t', possible loss of data
+     1>..\TinyWorld\TextureUnitBlock.cpp(114): warning C4244: 'return' : conversion from '__int64' to 'int32_t', possible loss of data
+         TransparentBox.cpp
+       Lib:
+         D:\Programs\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\Lib.exe /OUT:"C:\Users\lexer\Source\Repos\TinyWorld\x64\Release\TinyWorldCore.lib" glew32s.lib glfw3.lib opengl32.lib /NOLOGO /MACHINE:X64 /LTCG x64\Release\AbstractProjectingDevice.obj
+         x64\Release\AbstractRenderableObject.obj
+         x64\Release\AbstractRenderableObjectHDRBloomEx.obj
+         x64\Release\AbstractRenderableObjectLightEx.obj
+         x64\Release\AbstractRenderableObjectSelectionEx.obj
+         x64\Release\AbstractRenderingDevice.obj
+         x64\Release\Buffer.obj
+         x64\Release\BufferTexture.obj
+         x64\Release\Clouds.obj
+         x64\Release\CompleteShaderProgram.obj
+         x64\Release\Cube.obj
+         x64\Release\CylindricalSurface.obj
+         x64\Release\Entity.obj
+         x64\Release\EnvironmentMap.obj
+         x64\Release\ErrorBehavioral.obj
+         x64\Release\FractalNoise.obj
+         x64\Release\Framebuffer.obj
+         x64\Release\FullscreenRectangle.obj
+         x64\Release\ImageUnit.obj
+         x64\Release\ImmutableTexture.obj
+         x64\Release\ImmutableTexture1D.obj
+         x64\Release\ImmutableTexture2D.obj
+         x64\Release\ImmutableTexture3D.obj
+         x64\Release\ImmutableTextureCubeMap.obj
+         x64\Release\KPWater.obj
+         x64\Release\KTXTexture.obj
+         x64\Release\Light.obj
+         x64\Release\LightingConditions.obj
+         x64\Release\PixelTraits.obj
+         x64\Release\Screen.obj
+         x64\Release\SeparateShaderProgram.obj
+         x64\Release\Shader.obj
+         x64\Release\ShaderProgram.obj
+         x64\Release\SharedBuffer.obj
+         x64\Release\Skydome.obj
+         x64\Release\SSFilter.obj
+         x64\Release\SSFilter_AtmosphericFog.obj
+         x64\Release\SSFilter_Blur.obj
+         x64\Release\SSFilter_HDRBloom.obj
+         x64\Release\SSFilter_ImmediateShader.obj
+         x64\Release\SSFilter_LightHaze.obj
+         x64\Release\SSFilter_SSAO.obj
+         x64\Release\std140UniformBuffer.obj
+         x64\Release\TessellatedTerrain.obj
+         x64\Release\Texture.obj
+         x64\Release\TextureSampler.obj
+         x64\Release\TextureUnitBlock.obj
+         x64\Release\TransparentBox.obj
+         TinyWorldCore.vcxproj -> C:\Users\lexer\Source\Repos\TinyWorld\x64\Release\TinyWorldCore.lib
+     1>Done Building Project "C:\Users\lexer\Source\Repos\TinyWorld\TinyWorldCore\TinyWorldCore.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:35.02

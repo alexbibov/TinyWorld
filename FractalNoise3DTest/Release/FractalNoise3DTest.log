@@ -1,0 +1,109 @@
+﻿Build started 21.9.2016 0.17.22.
+     1>Project "C:\Users\lexer\Source\Repos\TinyWorld\FractalNoise3DTest\FractalNoise3DTest.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         D:\Programs\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\lexer\Source\Repos\TinyWorld\Release\FractalNoise3DTest.exe" /INCREMENTAL:NO /NOLOGO TinyWorldCore.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\lexer\Source\Repos\TinyWorld\Release\FractalNoise3DTest.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\lexer\Source\Repos\TinyWorld\Release\FractalNoise3DTest.lib" /MACHINE:X86 /SAFESEH Release\main.obj
+         Generating code
+         Finished generating code
+     1>TinyWorldCore.lib(AbstractRenderingDevice.obj) : warning LNK4049: locally defined symbol ___glewScissorIndexed imported
+     1>TinyWorldCore.lib(AbstractRenderingDevice.obj) : warning LNK4049: locally defined symbol ___glewCopyTexSubImage3D imported
+     1>TinyWorldCore.lib(AbstractRenderingDevice.obj) : warning LNK4049: locally defined symbol ___glewBlendColor imported
+     1>TinyWorldCore.lib(AbstractRenderingDevice.obj) : warning LNK4049: locally defined symbol ___glewStencilFuncSeparate imported
+     1>TinyWorldCore.lib(AbstractRenderingDevice.obj) : warning LNK4049: locally defined symbol ___glewPrimitiveRestartIndex imported
+     1>TinyWorldCore.lib(AbstractRenderingDevice.obj) : warning LNK4049: locally defined symbol ___glewBindFramebuffer imported
+     1>TinyWorldCore.lib(AbstractRenderingDevice.obj) : warning LNK4049: locally defined symbol ___glewStencilMaskSeparate imported
+     1>TinyWorldCore.lib(AbstractRenderingDevice.obj) : warning LNK4049: locally defined symbol ___glewBlendFuncSeparate imported
+     1>TinyWorldCore.lib(AbstractRenderingDevice.obj) : warning LNK4049: locally defined symbol ___glewViewportIndexedf imported
+     1>TinyWorldCore.lib(AbstractRenderingDevice.obj) : warning LNK4049: locally defined symbol ___glewBlendEquationSeparate imported
+     1>TinyWorldCore.lib(AbstractRenderingDevice.obj) : warning LNK4049: locally defined symbol ___glewStencilOpSeparate imported
+     1>TinyWorldCore.lib(ImmutableTexture2D.obj) : warning LNK4049: locally defined symbol ___glewCompressedTexSubImage3D imported
+     1>TinyWorldCore.lib(ImmutableTexture2D.obj) : warning LNK4049: locally defined symbol ___glewTexStorage3D imported
+     1>TinyWorldCore.lib(ImmutableTexture2D.obj) : warning LNK4049: locally defined symbol ___glewGetCompressedTexImage imported
+     1>TinyWorldCore.lib(ImmutableTexture2D.obj) : warning LNK4049: locally defined symbol ___glewTexSubImage3D imported
+     1>TinyWorldCore.lib(ImmutableTexture2D.obj) : warning LNK4049: locally defined symbol ___glewCompressedTexSubImage2D imported
+     1>TinyWorldCore.lib(ImmutableTexture2D.obj) : warning LNK4049: locally defined symbol ___glewTexStorage2D imported
+     1>TinyWorldCore.lib(ImmutableTexture2D.obj) : warning LNK4049: locally defined symbol ___glewCopyImageSubData imported
+     1>TinyWorldCore.lib(TextureUnitBlock.obj) : warning LNK4049: locally defined symbol ___glewActiveTexture imported
+     1>TinyWorldCore.lib(Shader.obj) : warning LNK4049: locally defined symbol ___glewGetShaderiv imported
+     1>TinyWorldCore.lib(Shader.obj) : warning LNK4049: locally defined symbol ___glewShaderSource imported
+     1>TinyWorldCore.lib(Shader.obj) : warning LNK4049: locally defined symbol ___glewCompileShader imported
+     1>TinyWorldCore.lib(Shader.obj) : warning LNK4049: locally defined symbol ___glewGetShaderInfoLog imported
+     1>TinyWorldCore.lib(Shader.obj) : warning LNK4049: locally defined symbol ___glewCreateShader imported
+     1>TinyWorldCore.lib(Shader.obj) : warning LNK4049: locally defined symbol ___glewDeleteShader imported
+     1>TinyWorldCore.lib(ShaderProgram.obj) : warning LNK4049: locally defined symbol ___glewAttachShader imported
+     1>TinyWorldCore.lib(ShaderProgram.obj) : warning LNK4049: locally defined symbol ___glewCreateProgram imported
+     1>TinyWorldCore.lib(ShaderProgram.obj) : warning LNK4049: locally defined symbol ___glewGetProgramInfoLog imported
+     1>TinyWorldCore.lib(ShaderProgram.obj) : warning LNK4049: locally defined symbol ___glewDeleteProgram imported
+     1>TinyWorldCore.lib(ShaderProgram.obj) : warning LNK4049: locally defined symbol ___glewGetProgramiv imported
+     1>TinyWorldCore.lib(ShaderProgram.obj) : warning LNK4049: locally defined symbol ___glewUniformBlockBinding imported
+     1>TinyWorldCore.lib(ShaderProgram.obj) : warning LNK4049: locally defined symbol ___glewProgramBinary imported
+     1>TinyWorldCore.lib(ShaderProgram.obj) : warning LNK4049: locally defined symbol ___glewGetProgramStageiv imported
+     1>TinyWorldCore.lib(ShaderProgram.obj) : warning LNK4049: locally defined symbol ___glewGetProgramBinary imported
+     1>TinyWorldCore.lib(ShaderProgram.obj) : warning LNK4049: locally defined symbol ___glewGetSubroutineUniformLocation imported
+     1>TinyWorldCore.lib(ShaderProgram.obj) : warning LNK4049: locally defined symbol ___glewBindAttribLocation imported
+     1>TinyWorldCore.lib(ShaderProgram.obj) : warning LNK4049: locally defined symbol ___glewGetProgramResourceiv imported
+     1>TinyWorldCore.lib(ShaderProgram.obj) : warning LNK4049: locally defined symbol ___glewUseProgram imported
+     1>TinyWorldCore.lib(ShaderProgram.obj) : warning LNK4049: locally defined symbol ___glewGetSubroutineIndex imported
+     1>TinyWorldCore.lib(ShaderProgram.obj) : warning LNK4049: locally defined symbol ___glewProgramParameteri imported
+     1>TinyWorldCore.lib(ShaderProgram.obj) : warning LNK4049: locally defined symbol ___glewUniformSubroutinesuiv imported
+     1>TinyWorldCore.lib(ShaderProgram.obj) : warning LNK4049: locally defined symbol ___glewDetachShader imported
+     1>TinyWorldCore.lib(ShaderProgram.obj) : warning LNK4049: locally defined symbol ___glewLinkProgram imported
+     1>TinyWorldCore.lib(ShaderProgram.obj) : warning LNK4049: locally defined symbol ___glewGetProgramResourceIndex imported
+     1>TinyWorldCore.lib(Framebuffer.obj) : warning LNK4049: locally defined symbol ___glewCheckFramebufferStatus imported
+     1>TinyWorldCore.lib(Framebuffer.obj) : warning LNK4049: locally defined symbol ___glewBlendEquationSeparatei imported
+     1>TinyWorldCore.lib(Framebuffer.obj) : warning LNK4049: locally defined symbol ___glewGenFramebuffers imported
+     1>TinyWorldCore.lib(Framebuffer.obj) : warning LNK4049: locally defined symbol ___glewDrawBuffers imported
+     1>TinyWorldCore.lib(Framebuffer.obj) : warning LNK4049: locally defined symbol ___glewDeleteFramebuffers imported
+     1>TinyWorldCore.lib(Framebuffer.obj) : warning LNK4049: locally defined symbol ___glewColorMaski imported
+     1>TinyWorldCore.lib(Framebuffer.obj) : warning LNK4049: locally defined symbol ___glewBlendFuncSeparatei imported
+     1>TinyWorldCore.lib(FractalNoise.obj) : warning LNK4049: locally defined symbol ___glewDispatchCompute imported
+     1>TinyWorldCore.lib(FractalNoise.obj) : warning LNK4049: locally defined symbol ___glewUniform3uiv imported
+     1>TinyWorldCore.lib(FractalNoise.obj) : warning LNK4049: locally defined symbol ___glewUniform1fv imported
+     1>TinyWorldCore.lib(FractalNoise.obj) : warning LNK4049: locally defined symbol ___glewUniform4uiv imported
+     1>TinyWorldCore.lib(FractalNoise.obj) : warning LNK4049: locally defined symbol ___glewUniform1uiv imported
+     1>TinyWorldCore.lib(FractalNoise.obj) : warning LNK4049: locally defined symbol ___glewUniform2uiv imported
+     1>TinyWorldCore.lib(TransparentBox.obj) : warning LNK4049: locally defined symbol ___glewEnableVertexAttribArray imported
+     1>TinyWorldCore.lib(TransparentBox.obj) : warning LNK4049: locally defined symbol ___glewUniform3fv imported
+     1>TinyWorldCore.lib(TransparentBox.obj) : warning LNK4049: locally defined symbol ___glewGenBuffers imported
+     1>TinyWorldCore.lib(TransparentBox.obj) : warning LNK4049: locally defined symbol ___glewDeleteBuffers imported
+     1>TinyWorldCore.lib(TransparentBox.obj) : warning LNK4049: locally defined symbol ___glewUniformMatrix4fv imported
+     1>TinyWorldCore.lib(TransparentBox.obj) : warning LNK4049: locally defined symbol ___glewUniform4fv imported
+     1>TinyWorldCore.lib(TransparentBox.obj) : warning LNK4049: locally defined symbol ___glewBindVertexArray imported
+     1>TinyWorldCore.lib(TransparentBox.obj) : warning LNK4049: locally defined symbol ___glewVertexAttribFormat imported
+     1>TinyWorldCore.lib(TransparentBox.obj) : warning LNK4049: locally defined symbol ___glewBufferData imported
+     1>TinyWorldCore.lib(TransparentBox.obj) : warning LNK4049: locally defined symbol ___glewVertexAttribBinding imported
+     1>TinyWorldCore.lib(TransparentBox.obj) : warning LNK4049: locally defined symbol ___glewUniform2fv imported
+     1>TinyWorldCore.lib(TransparentBox.obj) : warning LNK4049: locally defined symbol ___glewGenVertexArrays imported
+     1>TinyWorldCore.lib(TransparentBox.obj) : warning LNK4049: locally defined symbol ___glewBindVertexBuffer imported
+     1>TinyWorldCore.lib(TransparentBox.obj) : warning LNK4049: locally defined symbol ___glewBufferSubData imported
+     1>TinyWorldCore.lib(TransparentBox.obj) : warning LNK4049: locally defined symbol ___glewDeleteVertexArrays imported
+     1>TinyWorldCore.lib(TransparentBox.obj) : warning LNK4049: locally defined symbol ___glewBindBuffer imported
+     1>TinyWorldCore.lib(ImmutableTexture.obj) : warning LNK4049: locally defined symbol ___glewFramebufferTextureLayer imported
+     1>TinyWorldCore.lib(ImmutableTexture.obj) : warning LNK4049: locally defined symbol ___glewGetInternalformativ imported
+     1>TinyWorldCore.lib(ImmutableTexture.obj) : warning LNK4049: locally defined symbol ___glewGenerateMipmap imported
+     1>TinyWorldCore.lib(ImmutableTexture.obj) : warning LNK4049: locally defined symbol ___glewBindImageTexture imported
+     1>TinyWorldCore.lib(ImmutableTexture.obj) : warning LNK4049: locally defined symbol ___glewFramebufferTexture imported
+     1>TinyWorldCore.lib(BufferTexture.obj) : warning LNK4049: locally defined symbol ___glewTexBuffer imported
+     1>TinyWorldCore.lib(ImmutableTexture1D.obj) : warning LNK4049: locally defined symbol ___glewCompressedTexSubImage1D imported
+     1>TinyWorldCore.lib(ImmutableTexture1D.obj) : warning LNK4049: locally defined symbol ___glewTexStorage1D imported
+     1>TinyWorldCore.lib(TextureSampler.obj) : warning LNK4049: locally defined symbol ___glewBindSampler imported
+     1>TinyWorldCore.lib(TextureSampler.obj) : warning LNK4049: locally defined symbol ___glewDeleteSamplers imported
+     1>TinyWorldCore.lib(TextureSampler.obj) : warning LNK4049: locally defined symbol ___glewSamplerParameterfv imported
+     1>TinyWorldCore.lib(TextureSampler.obj) : warning LNK4049: locally defined symbol ___glewGenSamplers imported
+     1>TinyWorldCore.lib(TextureSampler.obj) : warning LNK4049: locally defined symbol ___glewSamplerParameteri imported
+     1>TinyWorldCore.lib(SeparateShaderProgram.obj) : warning LNK4049: locally defined symbol ___glewGenProgramPipelines imported
+     1>TinyWorldCore.lib(SeparateShaderProgram.obj) : warning LNK4049: locally defined symbol ___glewUseProgramStages imported
+     1>TinyWorldCore.lib(SeparateShaderProgram.obj) : warning LNK4049: locally defined symbol ___glewDeleteProgramPipelines imported
+     1>TinyWorldCore.lib(SeparateShaderProgram.obj) : warning LNK4049: locally defined symbol ___glewBindProgramPipeline imported
+     1>TinyWorldCore.lib(SeparateShaderProgram.obj) : warning LNK4049: locally defined symbol ___glewActiveShaderProgram imported
+     1>TinyWorldCore.lib(ImageUnit.obj) : warning LNK4049: locally defined symbol ___glewMemoryBarrier imported
+     1>TinyWorldCore.lib(Buffer.obj) : warning LNK4049: locally defined symbol ___glewMapBufferRange imported
+     1>TinyWorldCore.lib(Buffer.obj) : warning LNK4049: locally defined symbol ___glewBindBufferBase imported
+     1>TinyWorldCore.lib(Buffer.obj) : warning LNK4049: locally defined symbol ___glewMapBuffer imported
+     1>TinyWorldCore.lib(Buffer.obj) : warning LNK4049: locally defined symbol ___glewCopyBufferSubData imported
+     1>TinyWorldCore.lib(Buffer.obj) : warning LNK4049: locally defined symbol ___glewUnmapBuffer imported
+         FractalNoise3DTest.vcxproj -> C:\Users\lexer\Source\Repos\TinyWorld\Release\FractalNoise3DTest.exe
+     1>Done Building Project "C:\Users\lexer\Source\Repos\TinyWorld\FractalNoise3DTest\FractalNoise3DTest.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:05.77
