@@ -101,7 +101,7 @@ rendering_mode{ 0 }, screen_size{ 0 }
 
 }
 
-AbstractRenderableObject::AbstractRenderableObject(const std::string& renderable_object_class_string_name) : 
+AbstractRenderableObject::AbstractRenderableObject(const std::string& renderable_object_class_string_name) :
 Entity(renderable_object_class_string_name),
 default_location{ 0 }, location{ 0 }, scale_factors{ 1.0f },
 default_object_transform{ vec3{ 1, 0, 0 }, vec3{ 0, 1, 0 }, vec3{ 0, 0, 1 } }, object_transform{ vec3{ 1, 0, 0 }, vec3{ 0, 1, 0 }, vec3{ 0, 0, 1 } },
@@ -132,7 +132,7 @@ AbstractRenderableObject::AbstractRenderableObject(const std::string& renderable
 	float x_rot_angle, float y_rot_angle, float z_rot_angle) :
 	Entity(renderable_object_class_string_name, object_string_name),
 	default_location{ location }, location{ location }, scale_factors{ 1.0f },
-	default_object_transform{ 
+	default_object_transform{
 	mat3{ vec3{ 1, 0, 0 }, vec3{ 0, std::cos(x_rot_angle), std::sin(x_rot_angle) }, vec3{ 0, -std::sin(x_rot_angle), std::cos(x_rot_angle) } }*
 	mat3{ vec3{ std::cos(y_rot_angle), 0, -std::sin(y_rot_angle) }, vec3{ 0, 1, 0 }, vec3{ std::sin(y_rot_angle), 0, std::cos(y_rot_angle) } }*
 	mat3{ vec3{ std::cos(z_rot_angle), std::sin(z_rot_angle), 0 }, vec3{ -std::sin(z_rot_angle), std::cos(z_rot_angle), 0 }, vec3{ 0, 0, 1 } }
@@ -143,21 +143,21 @@ AbstractRenderableObject::AbstractRenderableObject(const std::string& renderable
 	rotateX(x_rot_angle, RotationFrame::LOCAL);
 	rotateY(y_rot_angle, RotationFrame::LOCAL);
 	rotateZ(z_rot_angle, RotationFrame::LOCAL);
-	
+
 }
 
-AbstractRenderableObject::AbstractRenderableObject(const AbstractRenderableObject& other) : 
-Entity(other), 
+AbstractRenderableObject::AbstractRenderableObject(const AbstractRenderableObject& other) :
+Entity(other),
 default_location{ other.default_location }, location{ other.location }, scale_factors{ other.scale_factors },
-default_object_transform{other.default_object_transform}, object_transform{ other.object_transform }, rendering_mode{ other.rendering_mode }, screen_size{ other.screen_size }, 
+default_object_transform{other.default_object_transform}, object_transform{ other.object_transform }, rendering_mode{ other.rendering_mode }, screen_size{ other.screen_size },
 complete_rendering_programs(other.complete_rendering_programs),
 separate_rendering_programs(other.separate_rendering_programs)
 {
 
 }
 
-AbstractRenderableObject::AbstractRenderableObject(AbstractRenderableObject&& other) : 
-Entity(std::move(other)),  
+AbstractRenderableObject::AbstractRenderableObject(AbstractRenderableObject&& other) :
+Entity(std::move(other)),
 default_location{ other.default_location }, location{ std::move(other.location) },
 scale_factors{ std::move(other.scale_factors) },
 default_object_transform{std::move(other.default_object_transform)}, object_transform{ std::move(other.object_transform) },
@@ -170,7 +170,7 @@ separate_rendering_programs(std::move(other.separate_rendering_programs))
 
 AbstractRenderableObject::~AbstractRenderableObject()
 {
-	
+
 }
 
 AbstractRenderableObject& AbstractRenderableObject::operator=(const AbstractRenderableObject& other)
@@ -255,7 +255,7 @@ bool AbstractRenderableObject::updateShaderProgram(const ShaderProgramReferenceC
 	}
 	else
 	{
-		if (shader_program_ref_code.first >= static_cast<int>(complete_rendering_programs.size()) || shader_program_ref_code.first < 0 || 
+		if (shader_program_ref_code.first >= static_cast<int>(complete_rendering_programs.size()) || shader_program_ref_code.first < 0 ||
 			static_cast<supported_shader_program_type>(shader_program_ref_code.second) != supported_shader_program_type::complete)
 			return false;
 
@@ -266,14 +266,14 @@ bool AbstractRenderableObject::updateShaderProgram(const ShaderProgramReferenceC
 
 vec3 AbstractRenderableObject::getLocation() const { return location; }
 
-mat4 AbstractRenderableObject::getObjectTransform() const 
+mat4 AbstractRenderableObject::getObjectTransform() const
 {
 	mat4 combined_transform{ object_transform[0][0], object_transform[1][0], object_transform[2][0], 0,
 		object_transform[0][1], object_transform[1][1], object_transform[2][1], 0,
 		object_transform[0][2], object_transform[1][2], object_transform[2][2], 0,
 		location[0], location[1], location[2], 1 };
 
-	return combined_transform; 
+	return combined_transform;
 }
 
 mat4 AbstractRenderableObject::getObjectScaleTransform() const
@@ -427,9 +427,9 @@ void AbstractRenderableObject::resetObjectLocation()
 
 
 uint32_t AbstractRenderableObject::selectRenderingMode(uint32_t new_rendering_mode)
-{ 
+{
 	uint32_t rv = rendering_mode;
-	rendering_mode = new_rendering_mode; 
+	rendering_mode = new_rendering_mode;
 	return rv;
 }
 
@@ -540,13 +540,13 @@ texture_unit_offset{ 0 }, texture_unit_counter{ texture_unit_offset }
 	default_sampler_ref_code = createTextureSampler("AbstractRenderableObjectTextured::default_texture_sampler");
 }
 
-AbstractRenderableObjectTextured::AbstractRenderableObjectTextured(const AbstractRenderableObjectTextured& other) : 
+AbstractRenderableObjectTextured::AbstractRenderableObjectTextured(const AbstractRenderableObjectTextured& other) :
 _1d_textures(other._1d_textures), _2d_textures(other._2d_textures), _3d_textures(other._3d_textures),
 cubemap_textures(other.cubemap_textures), buffer_textures(other.buffer_textures),
-samplers(other.samplers), texture_unit_offset{ other.texture_unit_offset }, texture_unit_counter{ other.texture_unit_counter }, 
+samplers(other.samplers), texture_unit_offset{ other.texture_unit_offset }, texture_unit_counter{ other.texture_unit_counter },
 default_sampler_ref_code(other.default_sampler_ref_code)
 {
-	
+
 }
 
 AbstractRenderableObjectTextured::AbstractRenderableObjectTextured(AbstractRenderableObjectTextured&& other) :
@@ -555,7 +555,7 @@ cubemap_textures(std::move(other.cubemap_textures)), buffer_textures(std::move(o
 samplers(std::move(other.samplers)), texture_unit_offset{ other.texture_unit_offset }, texture_unit_counter{ other.texture_unit_counter },
 default_sampler_ref_code{ std::move(other.default_sampler_ref_code) }
 {
-	
+
 }
 
 AbstractRenderableObjectTextured& AbstractRenderableObjectTextured::operator=(const AbstractRenderableObjectTextured& other)
@@ -605,13 +605,13 @@ AbstractRenderableObjectTextured::~AbstractRenderableObjectTextured()
 
 }
 
-AbstractRenderableObjectTextured::TextureReferenceCode AbstractRenderableObjectTextured::registerTexture(const Texture& texture, 
+AbstractRenderableObjectTextured::TextureReferenceCode AbstractRenderableObjectTextured::registerTexture(const Texture& texture,
 	TextureSamplerReferenceCode sampler_reference_code /* = TextureSamplerReferenceCode */)
 {
 	return registerTexture(texture, texture_unit_counter++, sampler_reference_code);
 }
 
-AbstractRenderableObjectTextured::TextureReferenceCode AbstractRenderableObjectTextured::registerTexture(const Texture& texture, uint32_t unit_binding_block, 
+AbstractRenderableObjectTextured::TextureReferenceCode AbstractRenderableObjectTextured::registerTexture(const Texture& texture, uint32_t unit_binding_block,
 	TextureSamplerReferenceCode sampler_reference_code /* = TextureSamplerReferenceCode */)
 {
 	//Determine the type of provided texture
@@ -621,7 +621,7 @@ AbstractRenderableObjectTextured::TextureReferenceCode AbstractRenderableObjectT
 	case supported_texture_type::cubemap:
 		cubemap_textures.push_back(texture_entry < ImmutableTextureCubeMap > {unit_binding_block,
 			dynamic_cast<const ImmutableTextureCubeMap&>(texture), sampler_reference_code ? sampler_reference_code : default_sampler_ref_code});
-		return TextureReferenceCode{ static_cast<int>(cubemap_textures.size()) - 1, 
+		return TextureReferenceCode{ static_cast<int>(cubemap_textures.size()) - 1,
 			static_cast<int>(supported_texture_type::cubemap) };
 
 	case supported_texture_type::_1d_texture:
@@ -633,7 +633,7 @@ AbstractRenderableObjectTextured::TextureReferenceCode AbstractRenderableObjectT
 	case supported_texture_type::_2d_texture:
 		_2d_textures.push_back(texture_entry < ImmutableTexture2D > {unit_binding_block,
 			dynamic_cast<const ImmutableTexture2D&>(texture), sampler_reference_code ? sampler_reference_code : default_sampler_ref_code});
-		return TextureReferenceCode{ static_cast<int>(_2d_textures.size()) - 1, 
+		return TextureReferenceCode{ static_cast<int>(_2d_textures.size()) - 1,
 			static_cast<int>(supported_texture_type::_2d_texture) };
 
 	case supported_texture_type::_3d_texture:
@@ -653,7 +653,7 @@ AbstractRenderableObjectTextured::TextureReferenceCode AbstractRenderableObjectT
 	}
 }
 
-bool AbstractRenderableObjectTextured::updateTexture(TextureReferenceCode& texture_reference_code, const Texture& new_texture, 
+bool AbstractRenderableObjectTextured::updateTexture(TextureReferenceCode& texture_reference_code, const Texture& new_texture,
 	TextureSamplerReferenceCode sampler_reference_code /* = TextureSamplerReferenceCode */)
 {
 	//check if the texture reference code for which the update operation has been requested is valid
@@ -663,7 +663,7 @@ bool AbstractRenderableObjectTextured::updateTexture(TextureReferenceCode& textu
 	//check if the texture being replaced differs in type from the replacement texture
 	supported_texture_type old_texture_type = static_cast<supported_texture_type>(texture_reference_code.second);
 	supported_texture_type new_texture_type = getTextureType(new_texture);
-	
+
 	if (old_texture_type != new_texture_type)
 	{
 		int target_texture_unit;
@@ -672,7 +672,7 @@ bool AbstractRenderableObjectTextured::updateTexture(TextureReferenceCode& textu
 		//Identify  texture binding unit and the sampler used by the texture being replaced
 		switch (old_texture_type)
 		{
-		case supported_texture_type::cubemap: 
+		case supported_texture_type::cubemap:
 			target_texture_unit = cubemap_textures[texture_reference_code.first].first;
 			old_sampler_ref_code = cubemap_textures[texture_reference_code.first].third;
 			break;
@@ -707,18 +707,18 @@ bool AbstractRenderableObjectTextured::updateTexture(TextureReferenceCode& textu
 		case supported_texture_type::cubemap:
 		{
 			cubemap_texture_list::iterator target_texture_entry;
-			if ((target_texture_entry = std::find_if(cubemap_textures.begin(), cubemap_textures.end(), 
+			if ((target_texture_entry = std::find_if(cubemap_textures.begin(), cubemap_textures.end(),
 				[target_texture_unit](cubemap_texture_list::value_type elem) -> bool{return elem.first == target_texture_unit; })) != cubemap_textures.end())
 			{
 				target_texture_entry->second = dynamic_cast<const ImmutableTextureCubeMap&>(new_texture);
 				target_texture_entry->third = sampler_reference_code ? sampler_reference_code : old_sampler_ref_code;
-				texture_reference_code.first = target_texture_entry - cubemap_textures.begin();
+				texture_reference_code.first = static_cast<int>(target_texture_entry - cubemap_textures.begin());
 			}
 			else
 			{
-				cubemap_textures.push_back(texture_entry < ImmutableTextureCubeMap > {target_texture_unit,
+				cubemap_textures.push_back(texture_entry < ImmutableTextureCubeMap > {static_cast<uint32_t>(target_texture_unit),
 					dynamic_cast<const ImmutableTextureCubeMap&>(new_texture), sampler_reference_code ? sampler_reference_code : old_sampler_ref_code});
-				texture_reference_code.first = cubemap_textures.size() - 1;
+				texture_reference_code.first = static_cast<int>(cubemap_textures.size() - 1);
 			}
 			texture_reference_code.second = static_cast<int>(supported_texture_type::cubemap);
 			return true;
@@ -727,18 +727,18 @@ bool AbstractRenderableObjectTextured::updateTexture(TextureReferenceCode& textu
 		case supported_texture_type::_1d_texture:
 		{
 			_1d_texture_list::iterator target_texture_entry;
-			if ((target_texture_entry = std::find_if(_1d_textures.begin(), _1d_textures.end(), 
+			if ((target_texture_entry = std::find_if(_1d_textures.begin(), _1d_textures.end(),
 				[target_texture_unit](_1d_texture_list::value_type elem) -> bool{return elem.first == target_texture_unit; })) != _1d_textures.end())
 			{
 				target_texture_entry->second = dynamic_cast<const ImmutableTexture1D&>(new_texture);
 				target_texture_entry->third = sampler_reference_code ? sampler_reference_code : old_sampler_ref_code;
-				texture_reference_code.first = target_texture_entry - _1d_textures.begin();
+				texture_reference_code.first = static_cast<int>(target_texture_entry - _1d_textures.begin());
 			}
 			else
 			{
-				_1d_textures.push_back(texture_entry < ImmutableTexture1D > {target_texture_unit,
+				_1d_textures.push_back(texture_entry < ImmutableTexture1D > {static_cast<uint32_t>(target_texture_unit),
 					dynamic_cast<const ImmutableTexture1D&>(new_texture), sampler_reference_code ? sampler_reference_code : old_sampler_ref_code});
-				texture_reference_code.first = _1d_textures.size() - 1;
+				texture_reference_code.first = static_cast<int>(_1d_textures.size() - 1);
 			}
 			texture_reference_code.second = static_cast<int>(supported_texture_type::_1d_texture);
 			return true;
@@ -747,18 +747,18 @@ bool AbstractRenderableObjectTextured::updateTexture(TextureReferenceCode& textu
 		case supported_texture_type::_2d_texture:
 		{
 			_2d_texture_list::iterator target_texture_entry;
-			if ((target_texture_entry = std::find_if(_2d_textures.begin(), _2d_textures.end(), 
+			if ((target_texture_entry = std::find_if(_2d_textures.begin(), _2d_textures.end(),
 				[target_texture_unit](_2d_texture_list::value_type elem) -> bool{return elem.first == target_texture_unit; })) != _2d_textures.end())
 			{
 				target_texture_entry->second = dynamic_cast<const ImmutableTexture2D&>(new_texture);
 				target_texture_entry->third = sampler_reference_code ? sampler_reference_code : old_sampler_ref_code;
-				texture_reference_code.first = target_texture_entry - _2d_textures.begin();
+				texture_reference_code.first = static_cast<int>(target_texture_entry - _2d_textures.begin());
 			}
 			else
 			{
-				_2d_textures.push_back(texture_entry < ImmutableTexture2D > {target_texture_unit,
+				_2d_textures.push_back(texture_entry < ImmutableTexture2D > {static_cast<uint32_t>(target_texture_unit),
 					dynamic_cast<const ImmutableTexture2D&>(new_texture), sampler_reference_code ? sampler_reference_code : old_sampler_ref_code});
-				texture_reference_code.first = _2d_textures.size() - 1;
+				texture_reference_code.first = static_cast<int>(_2d_textures.size() - 1);
 			}
 			texture_reference_code.second = static_cast<int>(supported_texture_type::_2d_texture);
 			return true;
@@ -767,18 +767,18 @@ bool AbstractRenderableObjectTextured::updateTexture(TextureReferenceCode& textu
 		case supported_texture_type::_3d_texture:
 		{
 			_3d_texture_list::iterator target_texture_entry;
-			if ((target_texture_entry = std::find_if(_3d_textures.begin(), _3d_textures.end(), 
+			if ((target_texture_entry = std::find_if(_3d_textures.begin(), _3d_textures.end(),
 				[target_texture_unit](_3d_texture_list::value_type elem) -> bool{return elem.first == target_texture_unit; })) != _3d_textures.end())
 			{
 				target_texture_entry->second = dynamic_cast<const ImmutableTexture3D&>(new_texture);
 				target_texture_entry->third = sampler_reference_code ? sampler_reference_code : old_sampler_ref_code;
-				texture_reference_code.first = target_texture_entry - _3d_textures.begin();
+				texture_reference_code.first = static_cast<int>(target_texture_entry - _3d_textures.begin());
 			}
 			else
 			{
-				_3d_textures.push_back(texture_entry < ImmutableTexture3D > {target_texture_unit,
+				_3d_textures.push_back(texture_entry < ImmutableTexture3D > {static_cast<uint32_t>(target_texture_unit),
 					dynamic_cast<const ImmutableTexture3D&>(new_texture), sampler_reference_code ? sampler_reference_code : old_sampler_ref_code});
-				texture_reference_code.first = _3d_textures.size() - 1;
+				texture_reference_code.first = static_cast<int>(_3d_textures.size() - 1);
 			}
 			texture_reference_code.second = static_cast<int>(supported_texture_type::_3d_texture);
 			return true;
@@ -792,13 +792,13 @@ bool AbstractRenderableObjectTextured::updateTexture(TextureReferenceCode& textu
 			{
 				target_texture_entry->second = dynamic_cast<const BufferTexture&>(new_texture);
 				target_texture_entry->third = sampler_reference_code ? sampler_reference_code : old_sampler_ref_code;
-				texture_reference_code.first = target_texture_entry - buffer_textures.begin();
+				texture_reference_code.first = static_cast<int>(target_texture_entry - buffer_textures.begin());
 			}
 			else
 			{
-				buffer_textures.push_back(texture_entry < BufferTexture > {target_texture_unit,
+				buffer_textures.push_back(texture_entry < BufferTexture > {static_cast<uint32_t>(target_texture_unit),
 					dynamic_cast<const BufferTexture&>(new_texture), sampler_reference_code ? sampler_reference_code : old_sampler_ref_code});
-				texture_reference_code.first = buffer_textures.size() - 1;
+				texture_reference_code.first = static_cast<int>(buffer_textures.size() - 1);
 			}
 			texture_reference_code.second = static_cast<int>(supported_texture_type::buffer_texture);
 			return true;
@@ -939,8 +939,8 @@ void AbstractRenderableObjectTextured::setTextureUnitOffset(uint32_t offset)
 
 void AbstractRenderableObjectTextured::bindTextures() const
 {
-	std::for_each(cubemap_textures.begin(), cubemap_textures.end(), 
-		[this](const texture_entry<ImmutableTextureCubeMap> list_entry) -> void 
+	std::for_each(cubemap_textures.begin(), cubemap_textures.end(),
+		[this](const texture_entry<ImmutableTextureCubeMap> list_entry) -> void
 	{
 		getTextureUnitBlockPointer()->switchActiveTextureUnit(list_entry.first);
 		getTextureUnitBlockPointer()->bindSampler(samplers[list_entry.third.getFirst()]);

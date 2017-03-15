@@ -45,12 +45,12 @@ BufferTexture_Core::BufferTexture_Core(const std::string& texture_string_name) :
 
 BufferTexture_Core::BufferTexture_Core(const BufferTexture_Core& other) : Texture(other), p_shared_data(other.p_shared_data), is_buffer_provided_by_user{ other.is_buffer_provided_by_user }
 {
-	
+
 }
 
 BufferTexture_Core::BufferTexture_Core(BufferTexture_Core&& other) : Texture(std::move(other)), p_shared_data(other.p_shared_data), is_buffer_provided_by_user{ other.is_buffer_provided_by_user }
 {
-	
+
 }
 
 BufferTexture_Core::~BufferTexture_Core()
@@ -105,8 +105,8 @@ bool BufferTexture_Core::isBufferTexture() const { return true; }
 Texture* BufferTexture_Core::clone() const { return new BufferTexture_Core{ *this }; }
 
 uint32_t BufferTexture_Core::getTextureBufferSize() const
-{ 
-	if (isInitialized()) return p_shared_data->texture_buffer->getSize();
+{
+	if (isInitialized()) return static_cast<uint32_t>(p_shared_data->texture_buffer->getSize());
 	else
 	{
 		set_error_state(true);
@@ -119,7 +119,7 @@ uint32_t BufferTexture_Core::getTextureBufferSize() const
 
 uint32_t BufferTexture_Core::getTexelCount() const
 {
-	if (isInitialized()) return p_shared_data->texture_buffer->getSize() / (getStorageFormatTraits().getMinimalStorageSize() / 8);
+	if (isInitialized()) return static_cast<uint32_t>(p_shared_data->texture_buffer->getSize() / (getStorageFormatTraits().getMinimalStorageSize() / 8));
 	else
 	{
 		set_error_state(true);
@@ -139,7 +139,7 @@ void BufferTexture_Core::allocateStorage(size_t texture_size, BufferTextureInter
 		p_shared_data = new BufferTextureSharedDetails{ SharedBuffer{ BufferBindingTarget::TEXTURE, BufferUsage::COPY, BufferUsageFrequency::STATIC } };
 		is_buffer_object_replaced = true;
 	}
-		
+
 
 	if (is_buffer_provided_by_user)
 	{
@@ -150,7 +150,7 @@ void BufferTexture_Core::allocateStorage(size_t texture_size, BufferTextureInter
 	p_shared_data->texture_buffer->allocate(texture_size);
 	p_shared_data->internal_format = internal_format;
 
-	uint32_t texel_count = texture_size / (PixelFormatTraits{ internal_format }.getMinimalStorageSize() / 8);
+	uint32_t texel_count = static_cast<uint32_t>(texture_size) / (PixelFormatTraits{ internal_format }.getMinimalStorageSize() / 8);
 	Texture::initialize(TextureSize{ texel_count, 1, 1 }, StorageSize{ texel_count, 1, 1 }, static_cast<GLenum>(internal_format));
 
 	if (is_buffer_object_replaced)
@@ -231,7 +231,7 @@ void BufferTexture_Core::attachBuffer(const SharedBuffer& shared_buffer, BufferT
 	p_shared_data->texture_buffer = shared_buffer;
 	p_shared_data->internal_format = internal_format;
 
-	uint32_t texel_count = shared_buffer->getSize() / (PixelFormatTraits{ internal_format }.getMinimalStorageSize() / 8);
+	uint32_t texel_count = static_cast<uint32_t>(shared_buffer->getSize()) / (PixelFormatTraits{ internal_format }.getMinimalStorageSize() / 8);
 	Texture::initialize(TextureSize{ texel_count, 1, 1 }, TextureSize{ texel_count, 1, 1 }, static_cast<GLenum>(internal_format));
 
 	is_buffer_provided_by_user = true;

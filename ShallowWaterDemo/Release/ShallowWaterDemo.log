@@ -1,9 +1,2 @@
-﻿Build started 21.9.2016 0.17.04.
-     1>Project "C:\Users\lexer\Source\Repos\TinyWorld\ShallowWaterDemo\ShallowWaterDemo.vcxproj" on node 2 (Build target(s)).
-     1>Link:
-         ShallowWaterDemo.vcxproj -> C:\Users\lexer\Source\Repos\TinyWorld\Release\ShallowWaterDemo.exe
-     1>Done Building Project "C:\Users\lexer\Source\Repos\TinyWorld\ShallowWaterDemo\ShallowWaterDemo.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:00.07
+﻿  ShallowWaterDemo.vcxproj -> C:\Users\abibov\Source\Repos\TinyWorld\Release\ShallowWaterDemo.exe
+  ShallowWaterDemo.vcxproj -> C:\Users\abibov\Source\Repos\TinyWorld\Release\ShallowWaterDemo.pdb (Full PDB)

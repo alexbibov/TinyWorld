@@ -39,7 +39,7 @@ TextureUnitBlock* TextureUnitBlock::initialize()
 		TextureUnitBlock::myself_pointer = new TextureUnitBlock();
 		TextureUnitBlock::is_initialized = true;
 	}
-	
+
 	return TextureUnitBlock::myself_pointer;
 }
 
@@ -77,9 +77,9 @@ uint32_t TextureUnitBlock::switchActiveTextureUnit(uint32_t new_texture_unit)
 void TextureUnitBlock::bindTexture(const Texture& texture_object)
 {
 	if (!texture_unit_block_descriptor[active_unit].first.
-		insert(std::move(std::make_pair(texture_object.getBindingSlot(), 
+		insert(std::move(std::make_pair(texture_object.getBindingSlot(),
 		std::unique_ptr < const Texture > {texture_object.clone()}))).second)
-		texture_unit_block_descriptor[active_unit].first.at(texture_object.getBindingSlot()) = 
+		texture_unit_block_descriptor[active_unit].first.at(texture_object.getBindingSlot()) =
 		std::move(std::unique_ptr < const Texture > {texture_object.clone()});
 	texture_object.bind();
 }
@@ -99,7 +99,7 @@ int32_t TextureUnitBlock::getBindingTextureUnit(const Texture& texture_object) c
 			texture_unit_block_iter->first.find(texture_object.getBindingSlot());
 		if (texture_slot_iter != texture_unit_block_iter->first.end() &&
 			*texture_slot_iter->second == texture_object)
-			return texture_unit_block_iter - texture_unit_block_descriptor.begin();
+			return static_cast<int32_t>(texture_unit_block_iter - texture_unit_block_descriptor.begin());
 	}
 
 	return -1;
@@ -111,7 +111,7 @@ int32_t TextureUnitBlock::getBindingTextureUnit(const TextureSampler& sampler_ob
 		texture_unit_block_iter != texture_unit_block_descriptor.end(); ++texture_unit_block_iter)
 	{
 		if (texture_unit_block_iter->second->getId() == sampler_object.getId())
-			return texture_unit_block_iter - texture_unit_block_descriptor.begin();
+			return static_cast<int32_t>(texture_unit_block_iter - texture_unit_block_descriptor.begin());
 	}
 
 	return -1;

@@ -115,7 +115,7 @@ private:
 		p_tw_bar = TwNewBar("main_bar");
 		TwDefine(" main_bar label='Appearance'\n help='Change optical parameters of the rendering'\n color='117 134 41'\n alpha='100'\n text='light'\n "
 			"iconifiable='false'\n movable='false'\n resizable='false'\n buttonalign='center'");
-		
+
 		TwAddVarRW(p_tw_bar, "log_point_cloud_rotation", TW_TYPE_QUAT4F, log_rotation,
 			" label='Rotation' help='Rotates chosen piece of the log' ");
 
@@ -221,7 +221,7 @@ private:
 		log_point_cloud.installPointCloud(_3d_point_cloud_texture);
 		log_point_cloud.addLightSourceDirection(light);
 		log_point_cloud.setScreenSize(uvec2{ DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT });
-		
+
 		log_point_cloud.setDimensions(3.0f, 3.0f, 15.0f);
 
 		log_point_cloud.setBloomMinimalThreshold(0.4f);
@@ -337,12 +337,12 @@ private:
 	{
 		*static_cast<optical_mode*>(value) = p_myself->log_optical_mode;
 	}
-	
 
-	
+
+
 	static void TW_CALL setOpticalModeParamsCallback(const void* value, void* aux_data)
 	{
-		uint32_t update_idx = reinterpret_cast<uint32_t>(aux_data);
+		uint32_t update_idx = static_cast<uint32_t>(reinterpret_cast<size_t>(aux_data));
 		uint32_t optical_mode_idx;
 		float medium_color_multiplier = 1.0f;	//needed to adjust visibility for certain optical modes
 		switch (p_myself->log_optical_mode)
@@ -360,7 +360,7 @@ private:
 			optical_mode_idx = 2;
 			break;
 		}
-		
+
 		switch (update_idx)
 		{
 		case 0:
@@ -388,7 +388,7 @@ private:
 
 	static void TW_CALL getOpticalModeParamsCallback(void* value, void* aux_data)
 	{
-		uint32_t update_idx = reinterpret_cast<uint32_t>(aux_data);
+		uint32_t update_idx = static_cast<uint32_t>(reinterpret_cast<size_t>(aux_data));
 		uint32_t optical_mode_idx;
 		float medium_color_multiplier = 1.0f;	//needed to adjust visibility for certain optical modes
 		switch (p_myself->log_optical_mode)
@@ -448,7 +448,7 @@ private:
 			std::array<float, 3> new_keyval = p_myself->color_map.back();
 			p_myself->color_map.push_back(new_keyval);
 			TwAddVarCB(p_myself->p_tw_bar, ("color" + std::to_string(p_myself->color_map.size() - 1)).c_str(), TW_TYPE_COLOR3F,
-				setColormapKeyValue, getColormapKeyValue, p_myself->color_map.back().data(), 
+				setColormapKeyValue, getColormapKeyValue, p_myself->color_map.back().data(),
 				(" group='Colormap settings'\n label='Key color " + std::to_string(p_myself->color_map.size()) + "' ").c_str());
 		}
 
@@ -719,6 +719,6 @@ int main(int argc, char* argv[])
 
 	p_render_context->reset();
 
-	return EXIT_SUCCESS;	
+	return EXIT_SUCCESS;
 }
 

@@ -29,7 +29,7 @@ ShaderProgram("SeparateShaderProgram", program_string_name, glsl_sources, shader
 	glProgramParameteri(getOpenGLProgramId(), GL_PROGRAM_SEPARABLE, GL_TRUE);
 }
 
-SeparateShaderProgram_Core::SeparateShaderProgram_Core(const std::string& program_string_name, std::string shader_binary_source) : 
+SeparateShaderProgram_Core::SeparateShaderProgram_Core(const std::string& program_string_name, std::string shader_binary_source) :
 ShaderProgram("SeparateShaderProgram", program_string_name, shader_binary_source)
 {
 	glProgramParameteri(getOpenGLProgramId(), GL_PROGRAM_SEPARABLE, GL_TRUE);
@@ -56,17 +56,17 @@ bool SeparateShaderProgram_Core::isSeparate() const { return true; }
 
 
 //**************************************************Functions belonging to the interface part of the separate shader program implementation**************************************************
-SeparateShaderProgram::SeparateShaderProgram() : 
+SeparateShaderProgram::SeparateShaderProgram() :
 SeparateShaderProgram_Core()
 {
 }
 
-SeparateShaderProgram::SeparateShaderProgram(const std::string& program_string_name) : 
+SeparateShaderProgram::SeparateShaderProgram(const std::string& program_string_name) :
 SeparateShaderProgram_Core(program_string_name)
 {
 }
 
-SeparateShaderProgram::SeparateShaderProgram(const SeparateShaderProgram& other) : 
+SeparateShaderProgram::SeparateShaderProgram(const SeparateShaderProgram& other) :
 SeparateShaderProgram_Core(other)
 {
 }
@@ -97,7 +97,7 @@ SeparateShaderProgram_Core(program_string_name, shaders)
 }
 
 bool SeparateShaderProgram::installToPipeline(GLuint ogl_pipeline_id) const
-{		
+{
 	glUseProgramStages(ogl_pipeline_id, getProgramStages(), getOpenGLProgramId());
 	return true;
 }
@@ -168,8 +168,8 @@ ProgramPipeline& ProgramPipeline::operator+=(const SeparateShaderProgram& separa
 
 bool ProgramPipeline::activate_program(long long program_id) const
 {
-	pipeline_map::const_iterator requested_program = 
-		std::find_if(pipeline_state.begin(), pipeline_state.end(), 
+	pipeline_map::const_iterator requested_program =
+		std::find_if(pipeline_state.begin(), pipeline_state.end(),
 		[program_id](pipeline_map::value_type elem)->bool
 	{
 		return elem.second->getId() == program_id;

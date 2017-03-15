@@ -1,6 +1,7 @@
 #include "ShallowWaterScene.h"
 
 #include <iostream>
+#include <cstddef>
 
 
 
@@ -315,7 +316,7 @@ void ShallowWaterScene::onScreenSizeChange(Screen& screen, int width, int height
 
 
     //Update textures
-    TextureSize tex_size{ width, height, 0 };
+    TextureSize tex_size{ static_cast<uint32_t>(width), static_cast<uint32_t>(height), 0 };
 
     p_myself->color_buffer = ImmutableTexture2D{ p_myself->color_buffer.getStringName() };
     p_myself->color_buffer.allocateStorage(1, 0, tex_size, InternalPixelFormat::SIZED_FLOAT_RGBA32);
@@ -624,6 +625,22 @@ void ShallowWaterScene::onParamSet(const void* value, void* client_data)
     {
         p_myself->modification_strength = *static_cast<const float*>(value);
     }
+    if (param_name == "mie_scattering")
+    {
+        LightScatteringSettings scattering_settings = p_myself->skydome.getAtmosphericScatteringSettings();
+        float new_mie_scattering_coefficient = *static_cast<const float*>(value);
+        scattering_settings.mie_coefficient = new_mie_scattering_coefficient;
+        p_myself->skydome.setAtmosphereScatteringSettings(scattering_settings);
+    }
+    if (param_name == "rayleigh_scattering")
+    {
+        LightScatteringSettings scattering_settings = p_myself->skydome.getAtmosphericScatteringSettings();
+        RayleighScatteringCoefficients rayleigh_scattering = *static_cast<const RayleighScatteringCoefficients*>(value);
+        scattering_settings.red_wavelength = rayleigh_scattering.wavelength_red;
+        scattering_settings.green_wavelength = rayleigh_scattering.wavelength_green;
+        scattering_settings.blue_wavelength = rayleigh_scattering.wavelength_blue;
+        p_myself->skydome.setAtmosphereScatteringSettings(scattering_settings);
+    }
 }
 
 
@@ -632,23 +649,56 @@ void ShallowWaterScene::onParamGet(void* value, void* client_data)
     p_myself->suppress_mouse_user_input = true;
     std::string param_name{ static_cast<const char*>(client_data) };
 
-    if (param_name == "daytime"){ *static_cast<float*>(value) = p_myself->daytime; }
-    if (param_name == "fog_density"){ *static_cast<float*>(value) = p_myself->fog_density; }
-    if (param_name == "fog_height_fall_off"){ *static_cast<float*>(value) = p_myself->fog_height_fall_off; }
-    if (param_name == "modification_strength"){ *static_cast<float*>(value) = p_myself->modification_strength; }
+    if (param_name == "daytime") { *static_cast<float*>(value) = p_myself->daytime; }
+    if (param_name == "fog_density") { *static_cast<float*>(value) = p_myself->fog_density; }
+    if (param_name == "fog_height_fall_off") { *static_cast<float*>(value) = p_myself->fog_height_fall_off; }
+    if (param_name == "modification_strength") { *static_cast<float*>(value) = p_myself->modification_strength; }
+    if (param_name == "mie_scattering")
+    {
+        LightScatteringSettings scattering_settings = p_myself->skydome.getAtmosphericScatteringSettings();
+        *static_cast<float*>(value) = scattering_settings.mie_coefficient;
+    }
+    if (param_name == "rayleigh_scattering")
+    {
+        LightScatteringSettings scattering_settings = p_myself->skydome.getAtmosphericScatteringSettings();
+        RayleighScatteringCoefficients rayleigh_scattering{ scattering_settings.red_wavelength, scattering_settings.green_wavelength, scattering_settings.blue_wavelength };
+        *static_cast<RayleighScatteringCoefficients*>(value) = rayleigh_scattering;
+    }
 }
 
 
 ShallowWaterScene::ShallowWaterScene(const std::string& topography_file_name, uint32_t reflection_map_resolution) :
-error_state{ false }, main_camera{ "main_scene_camera" }, reflection_camera{ "global_reflection_camera" },
-rendering_composition_framebuffer{ "renderer_framebuffer" }, reflection_framebuffer{ "reflection_framebuffer" }, reflection_map{ "scene_env_map" },
-reflection_map_depth_buffer{ "env_map_depth_buffer" }, refraction_map{ "scene_refraction_map" }, normal_map{ "scene_normal_map" },
-ad_map{ "ad_map" }, linear_depth_buffer{ "scene_linear_depth_texture" }, color_buffer{ "scene_color_buffer" }, bloom_texture{ "scene_bloom_texture" },
-depth_buffer{ "scene_depth_buffer" }, selection_buffer{ "scene_selection_buffer" }, tess_terrain{ "topography_map", 15.0f, 100U, 100U, 1.0f / 50, 1.0f / 50 },
-water{ 100U, 100U }, ambient_light{ "scene_ambient_light" }, skybody_light{ "skybody_light" }, skydome{ "sky_simulator", 2e4f, 0.05f, 1000U, 128U, 128U },
-p_processed_topography_data{ nullptr }, p_interpolated_topography_data{ nullptr }, p_raw_topography_data{ nullptr },
-p_init_water_levels{ nullptr }, p_init_hu{ nullptr }, p_init_hv{ nullptr }, modification_strength{ 0.0f }, suppress_mouse_user_input{ false },
-daytime{ 0.25f }, fog_density{ 0.05f }, fog_height_fall_off{ 0.5f }
+error_state{ false },
+main_camera{ "main_scene_camera" },
+reflection_camera{ "global_reflection_camera" },
+rendering_composition_framebuffer{ "renderer_framebuffer" },
+reflection_framebuffer{ "reflection_framebuffer" },
+reflection_map{ "scene_env_map" },
+reflection_map_depth_buffer{ "env_map_depth_buffer" },
+refraction_map{ "scene_refraction_map" },
+normal_map{ "scene_normal_map" },
+ad_map{ "ad_map" },
+linear_depth_buffer{ "scene_linear_depth_texture" },
+color_buffer{ "scene_color_buffer" },
+bloom_texture{ "scene_bloom_texture" },
+depth_buffer{ "scene_depth_buffer" },
+selection_buffer{ "scene_selection_buffer" },
+tess_terrain{ "topography_map", 15.0f, 100U, 100U, 1.0f / 50, 1.0f / 50 },
+water{ 100U, 100U },
+ambient_light{ "scene_ambient_light" },
+skybody_light{ "skybody_light" },
+skydome{ "sky_simulator", 2e4f, 0.05f, 1000U, 128U, 128U },
+p_processed_topography_data{ nullptr },
+p_interpolated_topography_data{ nullptr },
+p_raw_topography_data{ nullptr },
+p_init_water_levels{ nullptr },
+p_init_hu{ nullptr },
+p_init_hv{ nullptr },
+modification_strength{ 0.0f },
+suppress_mouse_user_input{ false },
+daytime{ 0.25f },
+fog_density{ 0.05f },
+fog_height_fall_off{ 0.5f }
 {
     auto screen_size = p_screen->getScreenSize();
 
@@ -1054,6 +1104,19 @@ void ShallowWaterScene::init_toolbar()
 
     TwAddVarCB(p_main_bar, "fog_height_fall_off", TW_TYPE_FLOAT, onParamSet, onParamGet, "fog_height_fall_off",
         " label='Fog height fall off' help='Allows to set how rapidly the atmospheric fog evaporates with respect to the altitude' min=0.01 max=1.0 step=0.0001 precision=4 ");
+
+    TwAddVarCB(p_main_bar, "rayleigh_scattering",
+        TwDefineStruct("rayleigh_scattering_coefficients",
+            std::vector<TwStructMember>{
+        TwStructMember{"wavelength_red", TW_TYPE_FLOAT, offsetof(RayleighScatteringCoefficients, wavelength_red), " label='Red' help='Rayleigh coefficient used for the red channel' min=0.0001 max=1.0 step=0.0001 precision=4 "},
+        TwStructMember{ "wavelength_green", TW_TYPE_FLOAT, offsetof(RayleighScatteringCoefficients, wavelength_green), " label='Green' help='Rayleigh coefficient used for the green channel' min=0.0001 max=1.0 step=0.0001 precision=4 " },
+        TwStructMember{ "wavelength_blue", TW_TYPE_FLOAT, offsetof(RayleighScatteringCoefficients, wavelength_blue), " label='Blue' help='Rayleigh coefficient used for the blue channel' min=0.0001 max=1.0 step=0.0001 precision=4 " } }.data(),
+        3, sizeof(RayleighScatteringCoefficients), nullptr, nullptr),
+        onParamSet, onParamGet, "rayleigh_scattering",
+        " label='Rayleigh scattering coefficients' help='Allows to configure coefficients of Rayleigh scattering' ");
+
+    TwAddVarCB(p_main_bar, "mie_scattering", TW_TYPE_FLOAT, onParamSet, onParamGet, "mie_scattering",
+        " label='Mie scattering coefficient' help='Adjusts Mie scattering coefficient' min=0.0001 max=1.0 step=0.0001 precision=4 ");
 
 
     TwAddVarRW(p_main_bar, "interaction_mode",

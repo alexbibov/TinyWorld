@@ -14,7 +14,7 @@ typedef AbstractRenderableObjectExtensionAggregator < AbstractRenderableObjectLi
 
 const std::string KPWater::water_rendering_program0_name = "KPWater::rendering_program0";
 const std::string KPWater::fft_compute_program_name = "KPWater::fft_compute_program";
-const uint32_t KPWater::fractal_noise_update_period = 10;	//update fractal noise map once per 10 rendering inquiries 
+const uint32_t KPWater::fractal_noise_update_period = 10;	//update fractal noise map once per 10 rendering inquiries
 
 
 //Default boundary conditions compute procedure implementing reflecting boundaries
@@ -32,8 +32,9 @@ void reflectingBoundariesComputeProcedure(const SaintVenantSystem::SVSCore* p_sv
         for (unsigned int i = 0; i < domain_settings.height; ++i)
         {
             SaintVenantSystem::Numeric4 state_west_value = p_state[(domain_settings.width + 2)*(i + 1) + 1];
-            west.setElement(i, /*p_interpolated_topography[(2 * domain_settings.width + 1)*(2 * i + 1)] + */state_west_value.x,
-                /*p_interpolated_topography[(2 * domain_settings.width + 1)*(2 * i + 1)] + */state_west_value.x, 0, 0, 0, 0);
+            bool aux = state_west_value.x - p_interpolated_topography[(2 * domain_settings.width + 1)*(2 * i + 1)] > 0.1f;
+            west.setElement(i, /*p_interpolated_topography[(2 * domain_settings.width + 1)*(2 * i + 1)] + */state_west_value.x + (aux ? 20 : 0),
+                /*p_interpolated_topography[(2 * domain_settings.width + 1)*(2 * i + 1)] + */state_west_value.x + (aux ? 20.f : 0.f), (aux ? 20.f : 0.f), (aux ? 20.f : 0.f), 0.f, 0.f);
 
             SaintVenantSystem::Numeric4 state_east_value = p_state[(domain_settings.width + 2)*(i + 1) + domain_settings.width];
             east.setElement(i, /*p_interpolated_topography[(2 * domain_settings.width + 1)*(2 * i + 1) + 2 * domain_settings.width] +*/ state_east_value.x,
@@ -101,7 +102,7 @@ KPWater::BoundaryCondition::BoundaryCondition(const BoundaryCondition& other) : 
 }
 
 KPWater::BoundaryCondition::BoundaryCondition(BoundaryCondition&& other) : length{ other.length }, capacity{ other.capacity },
-w_center{ other.w_center }, w_edge{ other.w_edge }, 
+w_center{ other.w_center }, w_edge{ other.w_edge },
 hu_center{ other.hu_center }, hu_edge{ other.hu_edge },
 hv_center{ other.hv_center }, hv_edge{ other.hv_edge }
 {
@@ -249,11 +250,11 @@ void KPWater::BoundaryCondition::getRawData(const SaintVenantSystem::Numeric** p
     const SaintVenantSystem::Numeric** p_hu_center_values, const SaintVenantSystem::Numeric** p_hu_edge_values,
     const SaintVenantSystem::Numeric** p_hv_center_values, const SaintVenantSystem::Numeric** p_hv_edge_values) const
 {
-    const_cast<BoundaryCondition*>(this)->getRawData(const_cast<SaintVenantSystem::Numeric**>(p_w_center_values), 
-        const_cast<SaintVenantSystem::Numeric**>(p_w_edge_values), 
-        const_cast<SaintVenantSystem::Numeric**>(p_hu_center_values), 
-        const_cast<SaintVenantSystem::Numeric**>(p_hu_edge_values), 
-        const_cast<SaintVenantSystem::Numeric**>(p_hv_center_values), 
+    const_cast<BoundaryCondition*>(this)->getRawData(const_cast<SaintVenantSystem::Numeric**>(p_w_center_values),
+        const_cast<SaintVenantSystem::Numeric**>(p_w_edge_values),
+        const_cast<SaintVenantSystem::Numeric**>(p_hu_center_values),
+        const_cast<SaintVenantSystem::Numeric**>(p_hu_edge_values),
+        const_cast<SaintVenantSystem::Numeric**>(p_hv_center_values),
         const_cast<SaintVenantSystem::Numeric**>(p_hv_edge_values));
 }
 
@@ -272,7 +273,7 @@ void KPWater::applyScreenSize(const uvec2& screen_size)
         updateTexture(refraction_texture_with_caustics_tex_res.second, refraction_texture_with_caustics_tex_res.first, refraction_texture_sampler_ref_code);
 
     retrieveShaderProgram(water_rendering_program_ref_code)->assignUniformScalar("s2dRefractionTexture", getBindingUnit(refraction_texture_with_caustics_tex_res.second));
-    
+
 
     caustics_framebuffer.defineViewport(Rectangle{ 0, 0, static_cast<float>(screen_size.x), static_cast<float>(screen_size.y) });
     caustics_framebuffer.attachTexture(FramebufferAttachmentPoint::COLOR0, FramebufferAttachmentInfo{ 0, 0, &refraction_texture_with_caustics_tex_res.first });
@@ -326,7 +327,7 @@ bool KPWater::configureRendering(AbstractRenderingDevice& render_target, uint32_
         imageOutput3.flush();
         imageOutput4.flush();
 
-        
+
         fft_ripples_normal_map_global_scale_tex_res.first.generateMipmapLevels();
         fft_ripples_normal_map_capillary_scale_tex_res.first.generateMipmapLevels();
 
@@ -400,7 +401,7 @@ bool KPWater::configureRendering(AbstractRenderingDevice& render_target, uint32_
 
 
 
-        //Initialize rendering pipeline 
+        //Initialize rendering pipeline
         COMPLETE_SHADER_PROGRAM_CAST(p_shader_program).activate();
 
 
@@ -470,12 +471,12 @@ uint32_t reverse_bits(uint32_t x, unsigned char significant_bits)
 //NOTE2: Number of rows N and number of columns M of the output table must both be even numbers. Otherwise
 //the results might not be valid
 //NOTE3: Objects random_number_generator and gaussian_distribution passed by non-const references are used to
-//produce draws from Gaussian distribution during calculation of the Phillips spectrum. Therefore their states 
-//get updated as a side effect of the function call. Note that object gaussian_distribution passed to the 
+//produce draws from Gaussian distribution during calculation of the Phillips spectrum. Therefore their states
+//get updated as a side effect of the function call. Note that object gaussian_distribution passed to the
 //function should implement standard normal distribution with zero mean and unit variance for the output to be correct
-void generatePhillipsSpectrum(float Lx, float Lz, uint32_t N, uint32_t M, 
+void generatePhillipsSpectrum(float Lx, float Lz, uint32_t N, uint32_t M,
     vec2 v2WindVelocity, float gravity_constant, float minimal_wave_length_ratio,
-    std::default_random_engine& random_number_generator, std::normal_distribution<float>& gaussian_distribution, 
+    std::default_random_engine& random_number_generator, std::normal_distribution<float>& gaussian_distribution,
     void* output_spectrum)
 {
     uint32_t significant_bits_M = static_cast<uint32_t>(std::log2(static_cast<float>(M)));
@@ -567,13 +568,13 @@ void KPWater::setup_deep_water_waves()
     if (!fft_ripples_normal_map_capillary_scale_tex_res.first.isInitialized())
         fft_ripples_normal_map_capillary_scale_tex_res.first.allocateStorage(TW__KPWATER_MIPMAPS__, 1, TextureSize{ fft_size, fft_size, 1 }, InternalPixelFormat::SIZED_FLOAT_RGBA32);
 
-    
+
     ogl_type_mapper<float>::ogl_type* p_phillips_spectrum_data = new ogl_type_mapper<float>::ogl_type[4 * fft_size*fft_size];
-    
+
     generatePhillipsSpectrum(domain_settings.dx*domain_settings.width, domain_settings.dy*domain_settings.height, fft_size, fft_size,
         v2WindVelocity, g, 1e-3f, random_number_generator, standard_gaussian_distribution, p_phillips_spectrum_data);
     phillips_spectrum_tex_res.first.setMipmapLevelData(0, PixelLayout::RGBA, PixelDataType::FLOAT, p_phillips_spectrum_data);
-    
+
     delete[] p_phillips_spectrum_data;
 
     if (!phillips_spectrum_tex_res.second)
@@ -702,7 +703,7 @@ void KPWater::setup_object()
     Shader compute_shader{ ShaderProgram::getShaderBaseCatalog() + "KPWaterFFT.cp.glsl", ShaderType::COMPUTE_SHADER, "KPWater::fft_compute_program::compute_shader" };
     retrieveShaderProgram(fft_compute_program_ref_code)->addShader(compute_shader);
     retrieveShaderProgram(fft_compute_program_ref_code)->link();
-    
+
 
     //Setup parameters responsible for implementation of caustics
     Shader caustics_shader{ ShaderProgram::getShaderBaseCatalog() + "KPWaterCaustics.fp.glsl", ShaderType::FRAGMENT_SHADER, "KPWater::caustics_rendering_program::fragment_shader" };
@@ -720,7 +721,7 @@ void KPWater::setup_object()
 
     //Install default water specular map
     defineProceduralSpecularMap("FFTRipplesSpecularModulation");
-    
+
     //Install cube map sample retriever
     defineCustomCubeEnvironmentMapSampleRetriever("KPWaterCubicEnvironmentMapSampleRetriever");
 
@@ -798,25 +799,25 @@ uint32_t _2power_round(uint32_t x)
 }
 
 
-KPWater::KPWater(uint32_t tess_billet_horizontal_resolution /* = 128 */, uint32_t tess_billet_vertical_resolution /* = 128 */) : 
+KPWater::KPWater(uint32_t tess_billet_horizontal_resolution /* = 128 */, uint32_t tess_billet_vertical_resolution /* = 128 */) :
 
 AbstractRenderableObject("KPWater"),
 
 ExtensionAggregator(std::initializer_list<std::pair<PipelineStage, std::string>>({ std::make_pair(PipelineStage::FRAGMENT_SHADER, ShaderProgram::getShaderBaseCatalog() + "KPWater.fp.ext.glsl") })),
 
-is_initialized{ false }, ode_solver{ KPWater::ODESolver::RungeKutta33 }, bc_callback{ reflectingBoundariesComputeProcedure }, 
-g{ 9.8f }, theta{ 1.1f }, eps{ 0.0f }, p_water_heightmap_data{ nullptr }, p_topography_heightmap_data{ nullptr }, 
-p_interpolated_topography_heightmap_data{ nullptr }, lod_factor{ 20.0f }, max_light_penetration_depth{ 1.0f }, 
-water_heightmap_tex_res{ ImmutableTexture2D{ "KPWater::water_height_map" }, TextureReferenceCode{} }, 
+is_initialized{ false }, ode_solver{ KPWater::ODESolver::RungeKutta33 }, bc_callback{ reflectingBoundariesComputeProcedure },
+g{ 9.8f }, theta{ 1.1f }, eps{ 0.0f }, p_water_heightmap_data{ nullptr }, p_topography_heightmap_data{ nullptr },
+p_interpolated_topography_heightmap_data{ nullptr }, lod_factor{ 20.0f }, max_light_penetration_depth{ 1.0f },
+water_heightmap_tex_res{ ImmutableTexture2D{ "KPWater::water_height_map" }, TextureReferenceCode{} },
 topography_heightmap_tex_res{ ImmutableTexture2D{ "KPWater::topography_height_map" }, TextureReferenceCode{} },
 refraction_texture_with_caustics_tex_res{ ImmutableTexture2D{ "KPWater::refraction_texture_with_caustics" }, TextureReferenceCode{} },
 force_water_heightmap_update{ false }, max_deep_water_wave_amplitude{ 10.0f },
 max_capillary_wave_amplitude{ 10.0f }, v2RippleSimulationTime{ 0.0f }, v2RippleSimulationDt{ 1e-5f, 1e-4f }, /*fresnel_power{ 0.9f },*/
-v3ColorExtinctionFactors{ 1535, 92, 23 }, v2WindVelocity{ 0.0f, 1.0f }, standard_gaussian_distribution{ 0, 1 }, 
+v3ColorExtinctionFactors{ 1535, 92, 23 }, v2WindVelocity{ 0.0f, 1.0f }, standard_gaussian_distribution{ 0, 1 },
 phillips_spectrum_tex_res{ ImmutableTexture2D{ "KPWater::phillips_spectrum" }, TextureReferenceCode{} },
-fft_ripples_tex_res{ ImmutableTexture2D{ "KPWater::fft_ripples" }, TextureReferenceCode{} }, 
-fft_displacement_map_tex_res{ ImmutableTexture2D{ "KPWater::fft_displacement_map" }, TextureReferenceCode{} }, 
-fft_ripples_normal_map_global_scale_tex_res{ ImmutableTexture2D{ "KPWater::fft_ripples_normal_map_global_scale" }, TextureReferenceCode{} }, 
+fft_ripples_tex_res{ ImmutableTexture2D{ "KPWater::fft_ripples" }, TextureReferenceCode{} },
+fft_displacement_map_tex_res{ ImmutableTexture2D{ "KPWater::fft_displacement_map" }, TextureReferenceCode{} },
+fft_ripples_normal_map_global_scale_tex_res{ ImmutableTexture2D{ "KPWater::fft_ripples_normal_map_global_scale" }, TextureReferenceCode{} },
 fft_ripples_normal_map_capillary_scale_tex_res{ ImmutableTexture2D{ "KPWater::fft_ripples_normal_map_capillary_scale" }, TextureReferenceCode{} },
 choppiness{ 0.1f }, uv2DeepWaterRippleMapTilingFactor{ 5U, 20U }, max_wave_height_as_elevation_fraction{ 0.1f },
 fractal_noise{ 128, 128, 64U, 64U, 4U }, fractal_noise_update_counter{ 0 },
@@ -851,24 +852,24 @@ current_rendering_pass{ 0 }, p_render_target{ nullptr }
 
 KPWater::KPWater(const SaintVenantSystem::Numeric* init_water_levels, const SaintVenantSystem::Numeric* init_horizontal_speed_flux, const SaintVenantSystem::Numeric* init_vertical_speed_flux,
     uint32_t domain_width, uint32_t domain_height, SaintVenantSystem::Numeric dx, SaintVenantSystem::Numeric dy, SaintVenantSystem::Numeric eps, const SaintVenantSystem::Numeric* p_interpolated_topography,
-    SaintVenantSystem::Numeric g /* = 9.8 */, SaintVenantSystem::Numeric theta /* = 1.1 */, ODESolver solver /* = ODESolver::RungeKutta33 */, 
+    SaintVenantSystem::Numeric g /* = 9.8 */, SaintVenantSystem::Numeric theta /* = 1.1 */, ODESolver solver /* = ODESolver::RungeKutta33 */,
     uint32_t tess_billet_horizontal_resolution /* = 128 */, uint32_t tess_billet_vertical_resolution /* = 128 */) :
 
     AbstractRenderableObject("KPWater"),
 
     ExtensionAggregator(std::initializer_list<std::pair<PipelineStage, std::string>>({ std::make_pair(PipelineStage::FRAGMENT_SHADER, ShaderProgram::getShaderBaseCatalog() + "KPWater.fp.ext.glsl") })),
 
-    bc_callback{ reflectingBoundariesComputeProcedure }, g{ g }, theta{ static_cast<float>(theta) }, eps{ static_cast<float>(eps) }, 
+    bc_callback{ reflectingBoundariesComputeProcedure }, g{ g }, theta{ static_cast<float>(theta) }, eps{ static_cast<float>(eps) },
     p_water_heightmap_data{ nullptr }, p_topography_heightmap_data{ nullptr },
-    p_interpolated_topography_heightmap_data{ nullptr }, lod_factor{ 20.0f }, max_light_penetration_depth{ 1.0f }, 
+    p_interpolated_topography_heightmap_data{ nullptr }, lod_factor{ 20.0f }, max_light_penetration_depth{ 1.0f },
     water_heightmap_tex_res{ ImmutableTexture2D{ "KPWater::water_height_map" }, TextureReferenceCode{} },
     topography_heightmap_tex_res{ ImmutableTexture2D{ "KPWater::topography_height_map" }, TextureReferenceCode{} },
     refraction_texture_with_caustics_tex_res{ ImmutableTexture2D{ "KPWater::refraction_texture_with_caustics" }, TextureReferenceCode{} },
-    force_water_heightmap_update{ false }, max_deep_water_wave_amplitude{ 10.0f }, max_capillary_wave_amplitude{ 10.0f }, 
-    v2RippleSimulationTime{ 0.0f }, v2RippleSimulationDt{ 1e-5f, 1e-4f }, /*fresnel_power{ 0.9f },*/ v3ColorExtinctionFactors{ 1535, 92, 23 }, 
-    v2WindVelocity{ 0.0f, 1.0f }, standard_gaussian_distribution{ 0, 1 }, phillips_spectrum_tex_res{ ImmutableTexture2D{ "KPWater::phillips_spectrum" }, 
-    TextureReferenceCode{} }, fft_ripples_tex_res{ ImmutableTexture2D{ "KPWater::fft_ripples" }, TextureReferenceCode{} }, 
-    fft_displacement_map_tex_res{ ImmutableTexture2D{ "KPWater::fft_displacement_map" }, TextureReferenceCode{} }, 
+    force_water_heightmap_update{ false }, max_deep_water_wave_amplitude{ 10.0f }, max_capillary_wave_amplitude{ 10.0f },
+    v2RippleSimulationTime{ 0.0f }, v2RippleSimulationDt{ 1e-5f, 1e-4f }, /*fresnel_power{ 0.9f },*/ v3ColorExtinctionFactors{ 1535, 92, 23 },
+    v2WindVelocity{ 0.0f, 1.0f }, standard_gaussian_distribution{ 0, 1 }, phillips_spectrum_tex_res{ ImmutableTexture2D{ "KPWater::phillips_spectrum" },
+    TextureReferenceCode{} }, fft_ripples_tex_res{ ImmutableTexture2D{ "KPWater::fft_ripples" }, TextureReferenceCode{} },
+    fft_displacement_map_tex_res{ ImmutableTexture2D{ "KPWater::fft_displacement_map" }, TextureReferenceCode{} },
     fft_ripples_normal_map_global_scale_tex_res{ ImmutableTexture2D{ "KPWater::fft_ripples_normal_map_global_scale" }, TextureReferenceCode{} },
     fft_ripples_normal_map_capillary_scale_tex_res{ ImmutableTexture2D{ "KPWater::fft_ripples_normal_map_capillary_scale" }, TextureReferenceCode{} },
     choppiness{ 0.1f }, uv2DeepWaterRippleMapTilingFactor{ 5U, 20U }, max_wave_height_as_elevation_fraction{ 0.1f },
@@ -903,29 +904,29 @@ KPWater::KPWater(const SaintVenantSystem::Numeric* init_water_levels, const Sain
 }
 
 
-KPWater::KPWater(const KPWater& other) : 
+KPWater::KPWater(const KPWater& other) :
 
-AbstractRenderableObject(other), AbstractRenderableObjectTextured(other), 
+AbstractRenderableObject(other), AbstractRenderableObjectTextured(other),
 AbstractRenderableObjectExtensionAggregator<AbstractRenderableObjectLightEx, AbstractRenderableObjectHDRBloomEx, AbstractRenderableObjectSelectionEx>(other),
 
 kpwater_cuda{ other.kpwater_cuda }, domain_settings(other.domain_settings), is_initialized{ other.is_initialized }, ode_solver{ other.ode_solver },
-bc_callback{ other.bc_callback }, g{ other.g }, theta{ other.theta }, eps{ other.eps }, 
+bc_callback{ other.bc_callback }, g{ other.g }, theta{ other.theta }, eps{ other.eps },
 p_water_heightmap_data{ nullptr }, p_topography_heightmap_data{ nullptr }, p_interpolated_topography_heightmap_data{ nullptr },
-lod_factor{ other.lod_factor }, max_light_penetration_depth{ other.max_light_penetration_depth }, 
+lod_factor{ other.lod_factor }, max_light_penetration_depth{ other.max_light_penetration_depth },
 water_heightmap_tex_res{ ImmutableTexture2D{ "KPWater::water_height_map" }, other.water_heightmap_tex_res.second },
 topography_heightmap_tex_res{ ImmutableTexture2D{ "KPWater::topography_height_map" }, other.topography_heightmap_tex_res.second },
 refraction_texture_with_caustics_tex_res{ other.refraction_texture_with_caustics_tex_res }, refraction_texture_depth_map{ other.refraction_texture_depth_map },
 refraction_texture_sampler_ref_code{ other.refraction_texture_sampler_ref_code },
-ripple_texture_sampler_ref_code{ other.ripple_texture_sampler_ref_code }, 
+ripple_texture_sampler_ref_code{ other.ripple_texture_sampler_ref_code },
 normal_texture_sampler_ref_code{ other.normal_texture_sampler_ref_code },
-force_water_heightmap_update{ true }, water_rendering_program_ref_code{ other.water_rendering_program_ref_code }, fft_compute_program_ref_code{ other.fft_compute_program_ref_code }, 
-tess_billet_horizontal_resolution{ other.tess_billet_horizontal_resolution }, tess_billet_vertical_resolution{ other.tess_billet_vertical_resolution }, 
-max_deep_water_wave_amplitude{ other.max_deep_water_wave_amplitude }, max_capillary_wave_amplitude{ other.max_capillary_wave_amplitude }, 
-v2RippleSimulationTime{ other.v2RippleSimulationTime }, v2RippleSimulationDt{ other.v2RippleSimulationDt }, /*fresnel_power{ other.fresnel_power },*/ 
-v3ColorExtinctionFactors{ other.v3ColorExtinctionFactors }, v2WindVelocity{ other.v2WindVelocity }, standard_gaussian_distribution{ other.standard_gaussian_distribution }, 
-phillips_spectrum_tex_res{ other.phillips_spectrum_tex_res }, fft_ripples_tex_res{ other.fft_ripples_tex_res }, fft_displacement_map_tex_res{ other.fft_displacement_map_tex_res }, 
+force_water_heightmap_update{ true }, water_rendering_program_ref_code{ other.water_rendering_program_ref_code }, fft_compute_program_ref_code{ other.fft_compute_program_ref_code },
+tess_billet_horizontal_resolution{ other.tess_billet_horizontal_resolution }, tess_billet_vertical_resolution{ other.tess_billet_vertical_resolution },
+max_deep_water_wave_amplitude{ other.max_deep_water_wave_amplitude }, max_capillary_wave_amplitude{ other.max_capillary_wave_amplitude },
+v2RippleSimulationTime{ other.v2RippleSimulationTime }, v2RippleSimulationDt{ other.v2RippleSimulationDt }, /*fresnel_power{ other.fresnel_power },*/
+v3ColorExtinctionFactors{ other.v3ColorExtinctionFactors }, v2WindVelocity{ other.v2WindVelocity }, standard_gaussian_distribution{ other.standard_gaussian_distribution },
+phillips_spectrum_tex_res{ other.phillips_spectrum_tex_res }, fft_ripples_tex_res{ other.fft_ripples_tex_res }, fft_displacement_map_tex_res{ other.fft_displacement_map_tex_res },
 fft_ripples_normal_map_global_scale_tex_res{ other.fft_ripples_normal_map_global_scale_tex_res }, fft_ripples_normal_map_capillary_scale_tex_res{ other.fft_ripples_normal_map_capillary_scale_tex_res },
-choppiness{ other.choppiness }, uv2DeepWaterRippleMapTilingFactor{ other.uv2DeepWaterRippleMapTilingFactor }, max_wave_height_as_elevation_fraction{ other.max_wave_height_as_elevation_fraction }, 
+choppiness{ other.choppiness }, uv2DeepWaterRippleMapTilingFactor{ other.uv2DeepWaterRippleMapTilingFactor }, max_wave_height_as_elevation_fraction{ other.max_wave_height_as_elevation_fraction },
 fractal_noise{ other.fractal_noise }, fractal_noise_map_tex_res{ fractal_noise.retrieveNoiseMap(), other.fractal_noise_map_tex_res.second },
 fractal_noise_update_counter{ other.fractal_noise_update_counter }, caustics_framebuffer{ other.caustics_framebuffer }, caustics_canvas{ other.caustics_canvas },
 caustics_rendering_program{ other.caustics_rendering_program }, caustics_power{ other.caustics_power }, caustics_amplification{ other.caustics_amplification }, caustics_sample_area{ other.caustics_sample_area },
@@ -952,7 +953,7 @@ current_rendering_pass{ other.current_rendering_pass }, p_render_target{ other.p
         updateTexture(topography_heightmap_tex_res.second, topography_heightmap_tex_res.first);
 
         p_interpolated_topography_heightmap_data = new SaintVenantSystem::Numeric[(2 * domain_settings.width + 1)*(2 * domain_settings.height + 1)];
-        memcpy(p_interpolated_topography_heightmap_data, other.p_interpolated_topography_heightmap_data, 
+        memcpy(p_interpolated_topography_heightmap_data, other.p_interpolated_topography_heightmap_data,
             (2 * domain_settings.width + 1)*(2 * domain_settings.height + 1)*sizeof(SaintVenantSystem::Numeric));
     }
 
@@ -964,28 +965,28 @@ current_rendering_pass{ other.current_rendering_pass }, p_render_target{ other.p
 }
 
 
-KPWater::KPWater(KPWater&& other) : 
+KPWater::KPWater(KPWater&& other) :
 
 AbstractRenderableObject(std::move(other)), AbstractRenderableObjectTextured(std::move(other)), ExtensionAggregator(std::move(other)),
 
-kpwater_cuda{ std::move(other.kpwater_cuda) }, domain_settings(std::move(other.domain_settings)), is_initialized{ other.is_initialized }, 
-ode_solver{ other.ode_solver }, bc_callback(std::move(other.bc_callback)), g{ other.g }, theta{ other.theta }, eps{ other.eps }, 
+kpwater_cuda{ std::move(other.kpwater_cuda) }, domain_settings(std::move(other.domain_settings)), is_initialized{ other.is_initialized },
+ode_solver{ other.ode_solver }, bc_callback(std::move(other.bc_callback)), g{ other.g }, theta{ other.theta }, eps{ other.eps },
 p_water_heightmap_data{ other.p_water_heightmap_data }, p_topography_heightmap_data{ other.p_topography_heightmap_data },
-p_interpolated_topography_heightmap_data{ other.p_interpolated_topography_heightmap_data }, lod_factor{ other.lod_factor }, 
-max_light_penetration_depth{ other.max_light_penetration_depth }, water_heightmap_tex_res{ std::move(other.water_heightmap_tex_res) }, 
+p_interpolated_topography_heightmap_data{ other.p_interpolated_topography_heightmap_data }, lod_factor{ other.lod_factor },
+max_light_penetration_depth{ other.max_light_penetration_depth }, water_heightmap_tex_res{ std::move(other.water_heightmap_tex_res) },
 topography_heightmap_tex_res{ std::move(other.topography_heightmap_tex_res) }, refraction_texture_depth_map{ std::move(other.refraction_texture_depth_map) },
 refraction_texture_sampler_ref_code{ std::move(other.refraction_texture_sampler_ref_code) },
-ripple_texture_sampler_ref_code{ std::move(other.ripple_texture_sampler_ref_code) }, 
+ripple_texture_sampler_ref_code{ std::move(other.ripple_texture_sampler_ref_code) },
 normal_texture_sampler_ref_code{ std::move(other.normal_texture_sampler_ref_code) },
 refraction_texture_with_caustics_tex_res{ std::move(other.refraction_texture_with_caustics_tex_res) },
-force_water_heightmap_update{ false }, water_rendering_program_ref_code{ std::move(other.water_rendering_program_ref_code) }, 
-fft_compute_program_ref_code{ std::move(other.fft_compute_program_ref_code) }, tess_billet_horizontal_resolution{ other.tess_billet_horizontal_resolution }, 
-tess_billet_vertical_resolution{ other.tess_billet_vertical_resolution }, max_deep_water_wave_amplitude{ other.max_deep_water_wave_amplitude }, 
-max_capillary_wave_amplitude{ other.max_capillary_wave_amplitude }, v2RippleSimulationTime{ std::move(other.v2RippleSimulationTime) }, 
-v2RippleSimulationDt{ std::move(other.v2RippleSimulationDt) }, /*fresnel_power{ other.fresnel_power },*/ v3ColorExtinctionFactors{ std::move(other.v3ColorExtinctionFactors) }, 
-v2WindVelocity{ std::move(other.v2WindVelocity) }, standard_gaussian_distribution{ std::move(other.standard_gaussian_distribution) }, 
-phillips_spectrum_tex_res{ std::move(other.phillips_spectrum_tex_res) }, fft_ripples_tex_res{ std::move(other.fft_ripples_tex_res) }, 
-fft_displacement_map_tex_res{ std::move(other.fft_displacement_map_tex_res) }, 
+force_water_heightmap_update{ false }, water_rendering_program_ref_code{ std::move(other.water_rendering_program_ref_code) },
+fft_compute_program_ref_code{ std::move(other.fft_compute_program_ref_code) }, tess_billet_horizontal_resolution{ other.tess_billet_horizontal_resolution },
+tess_billet_vertical_resolution{ other.tess_billet_vertical_resolution }, max_deep_water_wave_amplitude{ other.max_deep_water_wave_amplitude },
+max_capillary_wave_amplitude{ other.max_capillary_wave_amplitude }, v2RippleSimulationTime{ std::move(other.v2RippleSimulationTime) },
+v2RippleSimulationDt{ std::move(other.v2RippleSimulationDt) }, /*fresnel_power{ other.fresnel_power },*/ v3ColorExtinctionFactors{ std::move(other.v3ColorExtinctionFactors) },
+v2WindVelocity{ std::move(other.v2WindVelocity) }, standard_gaussian_distribution{ std::move(other.standard_gaussian_distribution) },
+phillips_spectrum_tex_res{ std::move(other.phillips_spectrum_tex_res) }, fft_ripples_tex_res{ std::move(other.fft_ripples_tex_res) },
+fft_displacement_map_tex_res{ std::move(other.fft_displacement_map_tex_res) },
 fft_ripples_normal_map_global_scale_tex_res{ std::move(other.fft_ripples_normal_map_global_scale_tex_res) }, fft_ripples_normal_map_capillary_scale_tex_res{ std::move(other.fft_ripples_normal_map_capillary_scale_tex_res) },
 choppiness{ other.choppiness }, uv2DeepWaterRippleMapTilingFactor{ std::move(other.uv2DeepWaterRippleMapTilingFactor) }, max_wave_height_as_elevation_fraction{ other.max_wave_height_as_elevation_fraction },
 fractal_noise{ std::move(other.fractal_noise) }, fractal_noise_map_tex_res{ std::move(other.fractal_noise_map_tex_res) }, fractal_noise_update_counter{ other.fractal_noise_update_counter },
@@ -1047,7 +1048,7 @@ KPWater& KPWater::operator=(const KPWater& other)
     theta = other.theta;
     eps = other.eps;
 
-    
+
     water_heightmap_tex_res.first = ImmutableTexture2D{ "KPWater::water_height_map" };
     topography_heightmap_tex_res.first = ImmutableTexture2D{ "KPWater::topography_height_map" };
     refraction_texture_with_caustics_tex_res = other.refraction_texture_with_caustics_tex_res;
@@ -1067,7 +1068,7 @@ KPWater& KPWater::operator=(const KPWater& other)
         updateTexture(topography_heightmap_tex_res.second, topography_heightmap_tex_res.first);
 
         p_interpolated_topography_heightmap_data = new SaintVenantSystem::Numeric[(2 * domain_settings.width + 1)*(2 * domain_settings.height + 1)];
-        memcpy(p_interpolated_topography_heightmap_data, other.p_interpolated_topography_heightmap_data, 
+        memcpy(p_interpolated_topography_heightmap_data, other.p_interpolated_topography_heightmap_data,
             (2 * domain_settings.width + 1)*(2 * domain_settings.height + 1)*sizeof(SaintVenantSystem::Numeric));
     }
 
@@ -1108,7 +1109,7 @@ KPWater& KPWater::operator=(const KPWater& other)
     //Note: after this operation caustics_canvas of "this" object will refer to caustics_rendering_program of the "other" object. This should be corrected!
     caustics_canvas = other.caustics_canvas;
     caustics_canvas.setFilterEffect(caustics_rendering_program, std::bind(&KPWater::setup_caustics_parameters, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
-    
+
     caustics_power = other.caustics_power;
     caustics_amplification = other.caustics_amplification;
     caustics_sample_area = other.caustics_sample_area;
@@ -1177,7 +1178,7 @@ KPWater& KPWater::operator=(KPWater&& other)
     fractal_noise_update_counter = other.fractal_noise_update_counter;
 
     caustics_framebuffer = std::move(other.caustics_framebuffer);
-    
+
     caustics_rendering_program = std::move(other.caustics_rendering_program);
     //Note: after this operation caustics_canvas of "this" object will refer to caustics_rendering_program of the "other" object. This should be corrected!
     caustics_canvas = std::move(other.caustics_canvas);
@@ -1199,7 +1200,7 @@ KPWater& KPWater::operator=(KPWater&& other)
 
 void KPWater::initialize(const SaintVenantSystem::Numeric* init_water_levels,
     const SaintVenantSystem::Numeric* init_horizontal_speed_flux, const SaintVenantSystem::Numeric* init_vertical_speed_flux,
-    uint32_t domain_width, uint32_t domain_height, SaintVenantSystem::Numeric dx, SaintVenantSystem::Numeric dy, SaintVenantSystem::Numeric eps, 
+    uint32_t domain_width, uint32_t domain_height, SaintVenantSystem::Numeric dx, SaintVenantSystem::Numeric dy, SaintVenantSystem::Numeric eps,
     const SaintVenantSystem::Numeric* p_interpolated_topography, SaintVenantSystem::Numeric g /* = 9.8 */, SaintVenantSystem::Numeric theta /* = 1.1 */, ODESolver solver /* = ODESolver::RungeKutta33 */)
 {
     if (is_initialized) return;
@@ -1236,7 +1237,7 @@ void KPWater::initialize(const SaintVenantSystem::Numeric* init_water_levels,
     {
         p_interpolated_topography_heightmap_data[2 * domain_height*(2 * domain_width + 1) + j] = p_interpolated_topography[2 * domain_height*(2 * domain_width + 1) + j] * v3Scale.y;
     }
-            
+
 
     topography_heightmap_tex_res.first.allocateStorage(1, 1, TextureSize{ domain_width, domain_height, 1 }, InternalPixelFormat::SIZED_FLOAT_R32);
     topography_heightmap_tex_res.first.setMipmapLevelData(0, PixelLayout::RED, PixelDataType::FLOAT, p_topography_heightmap_data);
@@ -1539,8 +1540,8 @@ void KPWater::setWindVelocity(const vec2& wind_speed)
 vec2 KPWater::getWindVelocity() const { return v2WindVelocity; }
 
 
-void KPWater::setDeepWaterWavesChoppiness(float choppiness) 
-{ 
+void KPWater::setDeepWaterWavesChoppiness(float choppiness)
+{
     this->choppiness = choppiness;
     retrieveShaderProgram(fft_compute_program_ref_code)->assignUniformScalar("fChoppiness", choppiness);
 }
@@ -1632,7 +1633,7 @@ void KPWater::scale(float x_scale_factor, float y_scale_factor, float z_scale_fa
             for (uint32_t j = 0; j < domain_settings.width; ++j)
             {
                 p_topography_heightmap_data[i * domain_settings.width + j] *= y_scale_factor;
-                
+
                 p_init_water_heights[i*domain_settings.width + j] = p_kpwater_system_state[(i + 1)*(domain_settings.width + 2) + j + 1].x * y_scale_factor;
                 p_init_horizontal_flux[i*domain_settings.width + j] = p_kpwater_system_state[(i + 1)*(domain_settings.width + 2) + j + 1].y * x_scale_factor;
                 p_init_vertical_flux[i*domain_settings.width + j] = p_kpwater_system_state[(i + 1)*(domain_settings.width + 2) + j + 1].z * z_scale_factor;
@@ -1717,7 +1718,7 @@ bool KPWater::render()
     default:
         return false;
     }
-    
+
     return true;
 }
 

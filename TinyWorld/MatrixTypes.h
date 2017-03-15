@@ -439,7 +439,7 @@ namespace tiny_world
 		glsl_matrix_type <decltype(1.0f / T{ 1 }), dim, dim> inverse() const
 		{
 
-			typedef signed decltype(1.0f / T{ 1 }) return_value_type;
+			typedef decltype(1.0f / T{ 1 }) return_value_type;
 			data_storage_type aux = data;
 			data_storage_type inv_matrix_data = {};
 			std::array<uint32_t, dim> permutation;

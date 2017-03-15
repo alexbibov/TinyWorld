@@ -46,7 +46,7 @@ bool KTXTexture::loadTexture(std::string file_name)
 
 	typedef std::array<char, 12> KTXid;
 
-	const KTXid ktx_identifier = { 0xAB, 0x4B, 0x54, 0x58, 0x20, 0x31, 0x31, 0xBB, 0x0D, 0x0A, 0x1A, 0x0A };
+	const KTXid ktx_identifier = { 0xABi8, 0x4Bi8, 0x54i8, 0x58i8, 0x20i8, 0x31i8, 0x31i8, 0xBBi8, 0x0Di8, 0x0Ai8, 0x1Ai8, 0x0Ai8 };
 	KTXid input_file_identifier;
 
 	if (ktx_input_buffer.sgetn(input_file_identifier.data(), 12) < 12 || input_file_identifier != ktx_identifier)
@@ -164,7 +164,7 @@ bool KTXTexture::loadTexture(std::string file_name)
 	bool is_compressed = ktx_scalar_preamble["glFormat"] == 0;
 	PixelFormatTraits pixel_format_traits{ ktx_scalar_preamble["glInternalFormat"] };
 
-	//Non-array cube maps should be treated in a special way... 
+	//Non-array cube maps should be treated in a special way...
 	bool is_non_array_cube_map = ktx_scalar_preamble["numberOfFaces"] == 6 && ktx_scalar_preamble["numberOfArrayElements"] == 0;
 
 	if (ktx_scalar_preamble["numberOfFaces"] == 6)
@@ -177,10 +177,10 @@ bool KTXTexture::loadTexture(std::string file_name)
 
 		//Allocate storage for the texture
 		if (is_compressed)
-			cubemap_tex->allocateStorage(number_of_mipmap_levels, ktx_scalar_preamble["numberOfArrayElements"], tex_size, 
+			cubemap_tex->allocateStorage(number_of_mipmap_levels, ktx_scalar_preamble["numberOfArrayElements"], tex_size,
 			static_cast<InternalPixelFormatCompressed>(ktx_scalar_preamble["glInternalFormat"]));
 		else
-			cubemap_tex->allocateStorage(number_of_mipmap_levels, ktx_scalar_preamble["numberOfArrayElements"], tex_size, 
+			cubemap_tex->allocateStorage(number_of_mipmap_levels, ktx_scalar_preamble["numberOfArrayElements"], tex_size,
 			static_cast<InternalPixelFormat>(ktx_scalar_preamble["glInternalFormat"]));
 
 		offset = 0;

@@ -1,0 +1,54 @@
+﻿  TransparentBox.cpp
+  TextureUnitBlock.cpp
+  TextureSampler.cpp
+  Texture.cpp
+  TessellatedTerrain.cpp
+  std140UniformBuffer.cpp
+  SSFilter_SSAO.cpp
+  SSFilter_LightHaze.cpp
+  SSFilter_ImmediateShader.cpp
+  SSFilter_HDRBloom.cpp
+  SSFilter_Blur.cpp
+  SSFilter_AtmosphericFog.cpp
+  SSFilter.cpp
+  Skydome.cpp
+  SharedBuffer.cpp
+  ShaderProgram.cpp
+  Shader.cpp
+  SeparateShaderProgram.cpp
+  Screen.cpp
+  PixelTraits.cpp
+  Generating Code...
+  Compiling...
+  LightingConditions.cpp
+  Light.cpp
+  KTXTexture.cpp
+  KPWater.cpp
+  ImmutableTextureCubeMap.cpp
+  ImmutableTexture3D.cpp
+  ImmutableTexture2D.cpp
+  ImmutableTexture1D.cpp
+  ImmutableTexture.cpp
+  ImageUnit.cpp
+  FullscreenRectangle.cpp
+  Framebuffer.cpp
+  FractalNoise.cpp
+  ErrorBehavioral.cpp
+  EnvironmentMap.cpp
+  Entity.cpp
+  CylindricalSurface.cpp
+  Cube.cpp
+  CompleteShaderProgram.cpp
+  Clouds.cpp
+  Generating Code...
+  Compiling...
+  BufferTexture.cpp
+  Buffer.cpp
+  AbstractRenderingDevice.cpp
+  AbstractRenderableObjectSelectionEx.cpp
+  AbstractRenderableObjectLightEx.cpp
+  AbstractRenderableObjectHDRBloomEx.cpp
+  AbstractRenderableObject.cpp
+  AbstractProjectingDevice.cpp
+  Generating Code...
+  TinyWorldCore.vcxproj -> C:\Users\abibov\Source\Repos\TinyWorld\x64\Debug\TinyWorldCore.lib

@@ -12,7 +12,7 @@ AbstractSSFilter::AbstractSSFilter(const std::string& ssfilter_class_name) : Ent
 
 
 
-CascadeFilterLevel::CascadeFilterLevel() : Entity("CascadeFilterLevel"), 
+CascadeFilterLevel::CascadeFilterLevel() : Entity("CascadeFilterLevel"),
 is_initialized{ false }, output_color_width{ ColorWidth::_16bit }
 {
 	setOutputResolution(uvec2{ 1024U, 768U });
@@ -67,9 +67,9 @@ void CascadeFilterLevel::setOutputColorBitWidth(ColorWidth out_color_width)
 	is_initialized = false;
 }
 
-CascadeFilterLevel::ColorWidth CascadeFilterLevel::getOutputColorBitWidth() const 
-{ 
-	return output_color_width; 
+CascadeFilterLevel::ColorWidth CascadeFilterLevel::getOutputColorBitWidth() const
+{
+	return output_color_width;
 }
 
 
@@ -156,7 +156,7 @@ void CascadeFilterLevel::initialize()
 	switch (output_color_bits.to_ulong())
 	{
 	case 1:
-		output_storage_format = output_color_width == tag_color_width::_16bit ? 
+		output_storage_format = output_color_width == tag_color_width::_16bit ?
 			InternalPixelFormat::SIZED_FLOAT_R16 : InternalPixelFormat::SIZED_FLOAT_R32;
 		break;
 
@@ -216,7 +216,7 @@ bool CascadeFilterLevel::pass(const AbstractProjectingDevice& projecting_device)
 		std::list<ImmutableTexture2D>::iterator out_texture_iterator;
 		int filter_index;
 		for (filter_iterator = level_filter_list.begin(), p_filter = level_filter_list.front(), filter_index = 0, out_texture_iterator = output_textures.begin();
-			filter_iterator != level_filter_list.end(); 
+			filter_iterator != level_filter_list.end();
 			++filter_iterator, ++filter_index, ++out_texture_iterator)
 		{
 			p_filter = *filter_iterator;
@@ -306,9 +306,9 @@ uv2CommonLevelOutputResolution{ 1024U, 768U }, is_initialized{ false }
 }
 
 
-CascadeFilter::CascadeFilter(const CascadeFilterLevel& base_cascade_filter) : 
+CascadeFilter::CascadeFilter(const CascadeFilterLevel& base_cascade_filter) :
 AbstractSSFilter("CascadeFilter"),
-levels_use_common_output_reolution{ false }, 
+levels_use_common_output_reolution{ false },
 uv2CommonLevelOutputResolution{ 1024U, 768U }, is_initialized{ false }
 {
 	levels.push_back(base_cascade_filter);
@@ -330,17 +330,17 @@ void CascadeFilter::addLevel(const CascadeFilterLevel& filter_level, const std::
 	is_initialized = false;
 }
 
-void CascadeFilter::useCommonOutputResolution(bool flag) 
-{ 
-	levels_use_common_output_reolution = flag; 
+void CascadeFilter::useCommonOutputResolution(bool flag)
+{
+	levels_use_common_output_reolution = flag;
 	is_initialized = false;
 }
 
 bool CascadeFilter::isCommonOutputResolutionInUse() const { return levels_use_common_output_reolution; }
 
-void CascadeFilter::setCommonOutputResolutionValue(const uvec2& resolution) 
-{ 
-	uv2CommonLevelOutputResolution = resolution; 
+void CascadeFilter::setCommonOutputResolutionValue(const uvec2& resolution)
+{
+	uv2CommonLevelOutputResolution = resolution;
 	is_initialized = false;
 }
 
@@ -353,7 +353,7 @@ void CascadeFilter::initialize()
 	//Firstly, initialize the base cascade level
 	if (levels_use_common_output_reolution)levels[0].setOutputResolution(uv2CommonLevelOutputResolution);
 	levels[0].initialize();
-	
+
 	//Check that initialization has been accomplished without errors
 	if (!levels[0])
 	{
@@ -446,7 +446,7 @@ bool CascadeFilter::pass(const AbstractProjectingDevice& projecting_device, Abst
 	result_canvas.setLocation(vec3{ (left + right) / 2.0f, (bottom + top) / 2.0f, -near });
 	result_canvas.setDimensions(right - left, top - bottom);
 	result_canvas.applyViewProjectionTransform(projecting_device);
-	
+
 	//Draw canvas to the output render target
 	for (uint32_t rendering_pass = 0; rendering_pass < result_canvas.getNumberOfRenderingPasses(result_canvas.getActiveRenderingMode()); ++rendering_pass)
 	{
@@ -484,7 +484,7 @@ bool CascadeFilter::pass(const AbstractProjectingDevice& projecting_device, Abst
 uint32_t CascadeFilter::getNumberOfInputChannels() const
 {
 	//For each level of the cascade compute number of unused input channels. These channels are identified as the inputs of the cascade
-	
+
 	uint32_t num_inputs = 0;
 	for (unsigned int filter_idx = 0; filter_idx < levels[0].getNumberOfFilters(); ++filter_idx)
 		num_inputs += levels[0].retrieveFilter(filter_idx)->getNumberOfInputChannels();
@@ -493,13 +493,13 @@ uint32_t CascadeFilter::getNumberOfInputChannels() const
 	for (unsigned int level_idx = 1; level_idx < levels.size(); ++level_idx)
 	{
 		std::set<uint32_t> busy_inputs;
-		std::for_each(level_data_flow_redirection_tables[level_idx-1].begin(), 
-			level_data_flow_redirection_tables[level_idx-1].end(), 
+		std::for_each(level_data_flow_redirection_tables[level_idx-1].begin(),
+			level_data_flow_redirection_tables[level_idx-1].end(),
 			[&busy_inputs](const DataFlow& data_rediection_entry) -> void
 		{
 			busy_inputs.insert(data_rediection_entry.input_channel_index);
 		});
-		num_busy_inputs += busy_inputs.size();
+		num_busy_inputs += static_cast<uint32_t>(busy_inputs.size());
 
 		for (unsigned int filter_idx = 0; filter_idx < levels[level_idx].getNumberOfFilters(); ++filter_idx)
 			num_inputs += levels[level_idx].retrieveFilter(filter_idx)->getNumberOfInputChannels();

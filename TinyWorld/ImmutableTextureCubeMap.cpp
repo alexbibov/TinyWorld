@@ -7,7 +7,7 @@ using namespace tiny_world;
 ImmutableTextureCubeMap::ImmutableTextureCubeMap() : ImmutableTexture("ImmutableTextureCubemap") {}
 
 
-ImmutableTextureCubeMap::ImmutableTextureCubeMap(const std::string& texture_string_name) : 
+ImmutableTextureCubeMap::ImmutableTextureCubeMap(const std::string& texture_string_name) :
 ImmutableTexture("ImmutableTextureCubemap", texture_string_name) {}
 
 
@@ -15,10 +15,10 @@ ImmutableTextureCubeMap::ImmutableTextureCubeMap(const ImmutableTexture2D& posit
 	const ImmutableTexture2D& positive_y, const ImmutableTexture2D& negative_y,
 	const ImmutableTexture2D& positive_z, const ImmutableTexture2D& negative_z) : ImmutableTexture("ImmutableTextureCubemap")
 {
-	feed_data_from_2d_textures(std::vector<const ImmutableTexture2D>({ positive_x, negative_x, positive_y, negative_y, positive_z, negative_z }));
+	feed_data_from_2d_textures(std::vector<ImmutableTexture2D>({ positive_x, negative_x, positive_y, negative_y, positive_z, negative_z }));
 }
 
-ImmutableTextureCubeMap::ImmutableTextureCubeMap(const std::vector<const ImmutableTexture2D>& _2d_textures) : ImmutableTexture("ImmutableTextureCubemap")
+ImmutableTextureCubeMap::ImmutableTextureCubeMap(const std::vector<ImmutableTexture2D>& _2d_textures) : ImmutableTexture("ImmutableTextureCubemap")
 {
 	feed_data_from_2d_textures(_2d_textures);
 }
@@ -33,7 +33,7 @@ ImmutableTexture::TextureBinding ImmutableTextureCubeMap::perform_allocation()
 	GLint ogl_current_texture_id;
 	glGetIntegerv(rv.gl_texture_binding, &ogl_current_texture_id);
 	glBindTexture(rv.gl_texture_target, getOpenGLId());
-	
+
 	TextureSize texture_size = getTextureSize();
 
 	if (isArrayTexture())
@@ -53,13 +53,13 @@ ImmutableTexture::TextureBinding ImmutableTextureCubeMap::perform_allocation()
 TextureDimension ImmutableTextureCubeMap::query_dimension() const { return TextureDimension::_2D; }
 
 
-bool ImmutableTextureCubeMap::feed_data_from_2d_textures(const std::vector<const ImmutableTexture2D>& _2d_textures)
+bool ImmutableTextureCubeMap::feed_data_from_2d_textures(const std::vector<ImmutableTexture2D>& _2d_textures)
 {
 	//Get number of 2D textures that is enough to create an array of fully defined cubemaps
 	uint32_t num_cubemaps = static_cast<uint32_t>(_2d_textures.size()) / 6;	//number of resulting cubemaps
 	uint32_t num_textures = 6 * num_cubemaps;	   //number of textures that participate in construction of the cubemaps
-	std::vector<const ImmutableTexture2D>::const_iterator begin = _2d_textures.begin();
-	std::vector<const ImmutableTexture2D>::const_iterator end = _2d_textures.begin() + num_textures;
+	std::vector<ImmutableTexture2D>::const_iterator begin = _2d_textures.begin();
+	std::vector<ImmutableTexture2D>::const_iterator end = _2d_textures.begin() + num_textures;
 
 	//Check if all textures are having same dimensions
 	TextureSize reference_texture_size = _2d_textures[0].getTextureSize();
@@ -110,7 +110,7 @@ bool ImmutableTextureCubeMap::feed_data_from_2d_textures(const std::vector<const
 
 	//Compute number of array layers in the resulting cubemap
 	size_t resulting_cubemap_layers = 0;
-	for (std::vector<const ImmutableTexture2D>::const_iterator texture_group = begin; texture_group < end; texture_group += 6)
+	for (std::vector<ImmutableTexture2D>::const_iterator texture_group = begin; texture_group < end; texture_group += 6)
 	{
 		//Check if all textures in the current texture group are having same number of array layers
 		uint32_t reference_number_of_array_layers = texture_group->getNumberOfArrayLayers();
@@ -130,13 +130,13 @@ bool ImmutableTextureCubeMap::feed_data_from_2d_textures(const std::vector<const
 
 		resulting_cubemap_layers += reference_number_of_array_layers;
 	}
-	    
+
 	//Allocate storage for the new cubemap texture object (note: allocation is done differently for compressed and non-compressed textures)
 	if (isCompressed())
-		allocateStorage(reference_number_of_mipmaps, resulting_cubemap_layers, reference_texture_size,
+		allocateStorage(reference_number_of_mipmaps, static_cast<int32_t>(resulting_cubemap_layers), reference_texture_size,
 		static_cast<InternalPixelFormatCompressed>(reference_internal_pixel_storage_format));
 	else
-		allocateStorage(reference_number_of_mipmaps, resulting_cubemap_layers, reference_texture_size,
+		allocateStorage(reference_number_of_mipmaps, static_cast<int32_t>(resulting_cubemap_layers), reference_texture_size,
 		static_cast<InternalPixelFormat>(reference_internal_pixel_storage_format));
 
 	//Generate name for the cubemap texture
@@ -171,7 +171,7 @@ bool ImmutableTextureCubeMap::feed_data_from_2d_textures(const std::vector<const
 
 		void* img_data = nullptr;
 		size_t image_data_size = 0;
-		for (std::vector<const ImmutableTexture2D>::const_iterator texture_group = begin; texture_group < end; texture_group += 6)
+		for (std::vector<ImmutableTexture2D>::const_iterator texture_group = begin; texture_group < end; texture_group += 6)
 		{
 			//All textures in the same cubemap assembly group are having same number of array layers and are using the same pixel storage format. Therefore their size in bytes is same
 			size_t proxy_buffer_size;
@@ -185,7 +185,7 @@ bool ImmutableTextureCubeMap::feed_data_from_2d_textures(const std::vector<const
 
 		img_data = malloc(image_data_size);
 		size_t texture_group_shift = 0;
-		for (std::vector<const ImmutableTexture2D>::const_iterator texture_group = begin; texture_group < end; texture_group += 6)
+		for (std::vector<ImmutableTexture2D>::const_iterator texture_group = begin; texture_group < end; texture_group += 6)
 		{
 			size_t proxy_buffer_size;
 			void* proxy_buffer[6];
@@ -218,13 +218,13 @@ bool ImmutableTextureCubeMap::feed_data_from_2d_textures(const std::vector<const
 		}
 
 		if (isCompressed())
-			setMipmapLevelMultiLayerFacesData(mipmap_level, 0, resulting_cubemap_layers * 6, static_cast<InternalPixelFormatCompressed>(reference_internal_pixel_storage_format), image_data_size, img_data);
+			setMipmapLevelMultiLayerFacesData(mipmap_level, 0, static_cast<int32_t>(resulting_cubemap_layers) * 6, static_cast<InternalPixelFormatCompressed>(reference_internal_pixel_storage_format), image_data_size, img_data);
 		else
-			setMipmapLevelMultiLayerFacesData(mipmap_level, 0, resulting_cubemap_layers * 6, pixel_format_traits.getPixelLayout(), pixel_format_traits.getOptimalStorageType(), img_data);
+			setMipmapLevelMultiLayerFacesData(mipmap_level, 0, static_cast<int32_t>(resulting_cubemap_layers) * 6, pixel_format_traits.getPixelLayout(), pixel_format_traits.getOptimalStorageType(), img_data);
 
 		free(img_data);
 	}
-	
+
 	//Restore the old settings of unpacking alignment
 	glPixelStorei(GL_UNPACK_ALIGNMENT, pixel_storage_unpack_alignment);
 
@@ -266,8 +266,8 @@ void ImmutableTextureCubeMap::setMipmapLevelLayerData(uint32_t mipmap_level, uin
 }
 
 
-void ImmutableTextureCubeMap::setMipmapLevelLayerData(uint32_t mipmap_level, uint32_t array_layer, 
-	InternalPixelFormatCompressed compressed_data_type, size_t compressed_data_size, 
+void ImmutableTextureCubeMap::setMipmapLevelLayerData(uint32_t mipmap_level, uint32_t array_layer,
+	InternalPixelFormatCompressed compressed_data_type, size_t compressed_data_size,
 	const void* positive_x, const void* negative_x, const void* positive_y, const void* negative_y, const void* positive_z, const void* negative_z)
 {
 	setMipmapLevelMultiLayersData(mipmap_level, array_layer, 1, compressed_data_type, compressed_data_size, positive_x, negative_x, positive_y, negative_y, positive_z, negative_z);
@@ -281,7 +281,7 @@ void ImmutableTextureCubeMap::setMipmapLevelLayerData(uint32_t mipmap_level, uin
 }
 
 
-void ImmutableTextureCubeMap::setMipmapLevelLayerData(uint32_t mipmap_level, uint32_t array_layer, CubemapFace face, 
+void ImmutableTextureCubeMap::setMipmapLevelLayerData(uint32_t mipmap_level, uint32_t array_layer, CubemapFace face,
 	InternalPixelFormatCompressed compressed_data_type, size_t compressed_data_size, const void* data)
 {
 	setMipmapLevelMultiLayersData(mipmap_level, array_layer, 1, face, compressed_data_type, compressed_data_size, data);
@@ -340,7 +340,7 @@ void ImmutableTextureCubeMap::setMipmapLevelMultiLayersData(uint32_t mipmap_leve
 }
 
 
-void ImmutableTextureCubeMap::setMipmapLevelMultiLayersData(uint32_t mipmap_level, uint32_t start_array_layer, uint32_t number_of_array_layers, PixelLayout pixel_layout, PixelDataType pixel_component_type, 
+void ImmutableTextureCubeMap::setMipmapLevelMultiLayersData(uint32_t mipmap_level, uint32_t start_array_layer, uint32_t number_of_array_layers, PixelLayout pixel_layout, PixelDataType pixel_component_type,
 	const void* positive_x, const void* negative_x, const void* positive_y, const void* negative_y, const void* positive_z, const void* negative_z)
 {
 	if (!isInitialized())
@@ -436,7 +436,7 @@ void ImmutableTextureCubeMap::setMipmapLevelMultiLayersData(uint32_t mipmap_leve
 }
 
 
-void ImmutableTextureCubeMap::setMipmapLevelMultiLayersData(uint32_t mipmap_level, uint32_t start_array_layer, uint32_t number_of_array_layers, InternalPixelFormatCompressed compressed_data_format, size_t compressed_data_size, 
+void ImmutableTextureCubeMap::setMipmapLevelMultiLayersData(uint32_t mipmap_level, uint32_t start_array_layer, uint32_t number_of_array_layers, InternalPixelFormatCompressed compressed_data_format, size_t compressed_data_size,
 	const void* positive_x, const void* negative_x, const void* positive_y, const void* negative_y, const void* positive_z, const void* negative_z)
 {
 	if (!isInitialized())
@@ -479,48 +479,48 @@ void ImmutableTextureCubeMap::setMipmapLevelMultiLayersData(uint32_t mipmap_leve
 		{
 			if (positive_x)
 				glCompressedTexSubImage3D(GL_TEXTURE_CUBE_MAP_ARRAY, mipmap_level, 0, 0, (start_array_layer + layer) * 6 + 0, width, height, 1,
-				static_cast<GLenum>(compressed_data_format), stride, static_cast<const char*>(positive_x)+stride*layer);
+				static_cast<GLenum>(compressed_data_format), static_cast<GLsizei>(stride), static_cast<const char*>(positive_x)+stride*layer);
 
 			if (negative_x)
 				glCompressedTexSubImage3D(GL_TEXTURE_CUBE_MAP_ARRAY, mipmap_level, 0, 0, (start_array_layer + layer) * 6 + 1, width, height, 1,
-				static_cast<GLenum>(compressed_data_format), stride, static_cast<const char*>(negative_x)+stride*layer);
+				static_cast<GLenum>(compressed_data_format), static_cast<GLsizei>(stride), static_cast<const char*>(negative_x)+stride*layer);
 
 			if (positive_y)
 				glCompressedTexSubImage3D(GL_TEXTURE_CUBE_MAP_ARRAY, mipmap_level, 0, 0, (start_array_layer + layer) * 6 + 2, width, height, 1,
-				static_cast<GLenum>(compressed_data_format), stride, static_cast<const char*>(positive_y)+stride*layer);
+				static_cast<GLenum>(compressed_data_format), static_cast<GLsizei>(stride), static_cast<const char*>(positive_y)+stride*layer);
 
 			if (negative_y)
 				glCompressedTexSubImage3D(GL_TEXTURE_CUBE_MAP_ARRAY, mipmap_level, 0, 0, (start_array_layer + layer) * 6 + 3, width, height, 1,
-				static_cast<GLenum>(compressed_data_format), stride, static_cast<const char*>(negative_y)+stride*layer);
+				static_cast<GLenum>(compressed_data_format), static_cast<GLsizei>(stride), static_cast<const char*>(negative_y)+stride*layer);
 
 			if (positive_z)
 				glCompressedTexSubImage3D(GL_TEXTURE_CUBE_MAP_ARRAY, mipmap_level, 0, 0, (start_array_layer + layer) * 6 + 4, width, height, 1,
-				static_cast<GLenum>(compressed_data_format), stride, static_cast<const char*>(positive_z)+stride*layer);
+				static_cast<GLenum>(compressed_data_format), static_cast<GLsizei>(stride), static_cast<const char*>(positive_z)+stride*layer);
 
 			if (negative_z)
 				glCompressedTexSubImage3D(GL_TEXTURE_CUBE_MAP_ARRAY, mipmap_level, 0, 0, (start_array_layer + layer) * 6 + 5, width, height, 1,
-				static_cast<GLenum>(compressed_data_format), stride, static_cast<const char*>(negative_z)+stride*layer);
+				static_cast<GLenum>(compressed_data_format), static_cast<GLsizei>(stride), static_cast<const char*>(negative_z)+stride*layer);
 		}
 	}
 	else
 	{
 		if (positive_x)
-			glCompressedTexSubImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X, mipmap_level, 0, 0, width, height, static_cast<GLenum>(compressed_data_format), compressed_data_size, positive_x);
+			glCompressedTexSubImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X, mipmap_level, 0, 0, width, height, static_cast<GLenum>(compressed_data_format), static_cast<GLsizei>(compressed_data_size), positive_x);
 
 		if (negative_x)
-			glCompressedTexSubImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_X, mipmap_level, 0, 0, width, height, static_cast<GLenum>(compressed_data_format), compressed_data_size, negative_x);
+			glCompressedTexSubImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_X, mipmap_level, 0, 0, width, height, static_cast<GLenum>(compressed_data_format), static_cast<GLsizei>(compressed_data_size), negative_x);
 
 		if (positive_y)
-			glCompressedTexSubImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_Y, mipmap_level, 0, 0, width, height, static_cast<GLenum>(compressed_data_format), compressed_data_size, positive_y);
+			glCompressedTexSubImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_Y, mipmap_level, 0, 0, width, height, static_cast<GLenum>(compressed_data_format), static_cast<GLsizei>(compressed_data_size), positive_y);
 
 		if (negative_y)
-			glCompressedTexSubImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, mipmap_level, 0, 0, width, height, static_cast<GLenum>(compressed_data_format), compressed_data_size, negative_y);
+			glCompressedTexSubImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, mipmap_level, 0, 0, width, height, static_cast<GLenum>(compressed_data_format), static_cast<GLsizei>(compressed_data_size), negative_y);
 
 		if (positive_z)
-			glCompressedTexSubImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_Z, mipmap_level, 0, 0, width, height, static_cast<GLenum>(compressed_data_format), compressed_data_size, positive_z);
+			glCompressedTexSubImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_Z, mipmap_level, 0, 0, width, height, static_cast<GLenum>(compressed_data_format), static_cast<GLsizei>(compressed_data_size), positive_z);
 
 		if (negative_z)
-			glCompressedTexSubImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_Z, mipmap_level, 0, 0, width, height, static_cast<GLenum>(compressed_data_format), compressed_data_size, negative_z);
+			glCompressedTexSubImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_Z, mipmap_level, 0, 0, width, height, static_cast<GLenum>(compressed_data_format), static_cast<GLsizei>(compressed_data_size), negative_z);
 	}
 
 	//Restore the old texture binding
@@ -647,8 +647,8 @@ void ImmutableTextureCubeMap::getMipmapLevelImageData(GLint mipmap_level, Cubema
 	GLenum texture_target = isArrayTexture() ? GL_TEXTURE_CUBE_MAP_ARRAY : static_cast<GLenum>(face);
 	glGetTexLevelParameteriv(texture_target, mipmap_level, GL_TEXTURE_WIDTH, &width);
 	glGetTexLevelParameteriv(texture_target, mipmap_level, GL_TEXTURE_HEIGHT, &height);
-	
-	
+
+
 	if (img_size)
 	{
 		img_size->width = width;
@@ -670,7 +670,7 @@ void ImmutableTextureCubeMap::getMipmapLevelImageData(GLint mipmap_level, Cubema
 			void* proxy_buffer = malloc(proxy_buffer_size);
 			glGetTexImage(GL_TEXTURE_CUBE_MAP_ARRAY, mipmap_level, static_cast<GLenum>(pixel_layout), static_cast<GLenum>(pixel_component_type), proxy_buffer);
 			size_t layer_shift = (width*pixel_size + row_padding)*height;
-			
+
 			for (uint32_t layer = 0; layer < getNumberOfArrayLayers(); ++layer)
 				memcpy(static_cast<char*>(data)+layer_shift*layer,
 				static_cast<char*>(proxy_buffer)+(6 * layer + static_cast<GLenum>(face)-GL_TEXTURE_CUBE_MAP_POSITIVE_X)*layer_shift, layer_shift);
@@ -679,11 +679,11 @@ void ImmutableTextureCubeMap::getMipmapLevelImageData(GLint mipmap_level, Cubema
 		else
 			glGetTexImage(static_cast<GLenum>(face), mipmap_level, static_cast<GLenum>(pixel_layout), static_cast<GLenum>(pixel_component_type), data);
 	}
-	
+
 	glBindTexture(getOpenGLTextureBinding().gl_texture_target, gl_current_texture_id);	//Restore the old binding
 }
 
-void ImmutableTextureCubeMap::getMipmapLevelImageData(GLint mipmap_level, CubemapFace face, 
+void ImmutableTextureCubeMap::getMipmapLevelImageData(GLint mipmap_level, CubemapFace face,
 	size_t *compressed_data_size, InternalPixelFormatCompressed *compressed_format, TextureSize *img_size, void *data) const
 {
 	if (!isInitialized())
@@ -712,14 +712,14 @@ void ImmutableTextureCubeMap::getMipmapLevelImageData(GLint mipmap_level, Cubema
 
 	if (compressed_data_size)
 		*compressed_data_size = isArrayTexture() ? static_cast<size_t>(ogl_compressed_img_size) / 6 : static_cast<size_t>(ogl_compressed_img_size);
-	
+
 	if (compressed_format)
 	{
 		GLint ogl_compressed_img_format;
 		glGetTexLevelParameteriv(texture_target, mipmap_level, GL_TEXTURE_INTERNAL_FORMAT, &ogl_compressed_img_format);
 		*compressed_format = static_cast<InternalPixelFormatCompressed>(ogl_compressed_img_format);
 	}
-		
+
 	if (img_size)
 	{
 		GLint width, height;
@@ -747,7 +747,7 @@ void ImmutableTextureCubeMap::getMipmapLevelImageData(GLint mipmap_level, Cubema
 		else
 			glGetCompressedTexImage(static_cast<GLenum>(face), mipmap_level, static_cast<GLvoid*>(data));
 	}
-		
+
 
 	glBindTexture(getOpenGLTextureBinding().gl_texture_target, gl_current_texture_id);		//Restore old binding
 }
@@ -844,7 +844,7 @@ ImmutableTextureCubeMap ImmutableTextureCubeMap::combine(const ImmutableTextureC
 			//Gather texture data for the positive-X face of the cubemap
 			getMipmapLevelImageData(mipmap_level, CubemapFace::POSITIVE_X, nullptr, nullptr, nullptr,
 				img_data);
-			
+
 			other.getMipmapLevelImageData(mipmap_level, CubemapFace::POSITIVE_X, nullptr, nullptr, nullptr,
 				static_cast<char*>(img_data)+_1st_component_compressed_face_size);
 
@@ -912,7 +912,7 @@ ImmutableTextureCubeMap ImmutableTextureCubeMap::combine(const ImmutableTextureC
 
 			//Gather texture data for the positive-X face of the combined cubemap
 			getMipmapLevelImageData(mipmap_level, static_cast<CubemapFace>(GL_TEXTURE_CUBE_MAP_POSITIVE_X),
-				pixel_format_traits.getPixelLayout(), pixel_format_traits.getOptimalStorageType(), nullptr, 
+				pixel_format_traits.getPixelLayout(), pixel_format_traits.getOptimalStorageType(), nullptr,
 				img_data);
 
 			other.getMipmapLevelImageData(mipmap_level, static_cast<CubemapFace>(GL_TEXTURE_CUBE_MAP_POSITIVE_X),
@@ -945,7 +945,7 @@ ImmutableTextureCubeMap ImmutableTextureCubeMap::combine(const ImmutableTextureC
 			other.getMipmapLevelImageData(mipmap_level, static_cast<CubemapFace>(GL_TEXTURE_CUBE_MAP_NEGATIVE_Y),
 				pixel_format_traits.getPixelLayout(), pixel_format_traits.getOptimalStorageType(), nullptr,
 				static_cast<char*>(img_data)+layer_shift*(4 * getNumberOfArrayLayers() + 3 * other.getNumberOfArrayLayers()));
-			
+
 			//Gather texture data for the positive-Z face of the combined cubemap
 			getMipmapLevelImageData(mipmap_level, static_cast<CubemapFace>(GL_TEXTURE_CUBE_MAP_POSITIVE_Z),
 				pixel_format_traits.getPixelLayout(), pixel_format_traits.getOptimalStorageType(), nullptr,
@@ -971,7 +971,7 @@ ImmutableTextureCubeMap ImmutableTextureCubeMap::combine(const ImmutableTextureC
 				static_cast<char*>(img_data)+4 * storage_size, static_cast<char*>(img_data)+5 * storage_size);
 		}
 		free(img_data);
-		
+
 	}
 
 	//Restore the old unpack alignment setting

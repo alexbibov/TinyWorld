@@ -32,6 +32,14 @@ using namespace tiny_world;
 class ShallowWaterScene final
 {
 private:
+    struct RayleighScatteringCoefficients
+    {
+        float wavelength_red;
+        float wavelength_green;
+        float wavelength_blue;
+    };
+
+
     static ShallowWaterScene* p_myself;		//pointer to the instance of the class (the class is a singleton)
     static Screen* p_screen;	//pointer to the screen object which receives the rendered data
     static const float pi;	//the value of pi
@@ -98,7 +106,7 @@ private:
     typedef enum{ ADD_WATER, REMOVE_WATER, STIR_WATER, RAISE_TERRAIN, LOWER_TERRAIN, SLIDE_TERRAIN } UserInteractionMode; //allowed user interaction modes
 
     UserInteractionMode interaction_mode;
-    
+
 
     ShallowWaterScene(const std::string& topography_file_name, uint32_t reflection_map_resolution);	//initialization of the object requires the caller to provide a screen object for which to perform the rendering
     ShallowWaterScene(const ShallowWaterScene& other) = delete;	//no copying allowed
@@ -132,9 +140,9 @@ private:
 
 
 public:
-    static ShallowWaterScene* initializeScene(uint32_t init_screen_width, uint32_t init_screen_height, const std::string& topography_file_name, 
+    static ShallowWaterScene* initializeScene(uint32_t init_screen_width, uint32_t init_screen_height, const std::string& topography_file_name,
         const std::string& shader_base_catalog, const std::string& texture_base_catalog, uint32_t reflection_map_resolution = 1024U);	//creates an instance of the scene
-    
+
     static void destroyScene();	//destroys the scene
 
     static bool updateScene();	//updates the scene and returns 'true' if the scene should be updated also next time or 'false' if the application should exit
