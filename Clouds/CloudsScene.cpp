@@ -417,14 +417,14 @@ void CloudsScene::onMouseClick(GLFWwindow* p_glfw_window, int button, int action
                             {
                             case UserInteractionMode::RAISE_TERRAIN:
                             {
-                                p_myself->p_raw_topography_data[i*topography_x_res + j] += std::exp(-dist*dist * (5 + p_myself->modification_strength*(20 - 5)))*(0.1f + p_myself->modification_strength*(0.3f - 0.1f));
+                                p_myself->p_raw_topography_data[i*topography_x_res + j] += std::exp(-dist*dist * (5 + p_myself->modification_strength*5))*(0.1f + p_myself->modification_strength*0.1f);
                                 is_topography_updated = true;
                                 break;
                             }
 
                             case UserInteractionMode::LOWER_TERRAIN:
                             {
-                                p_myself->p_raw_topography_data[i*topography_x_res + j] -= std::exp(-dist*dist * (5 + p_myself->modification_strength*(20 - 5)))*(0.1f + p_myself->modification_strength*(0.3f - 0.1f));
+                                p_myself->p_raw_topography_data[i*topography_x_res + j] -= std::exp(-dist*dist * (5 + p_myself->modification_strength*5))*(0.1f + p_myself->modification_strength*0.1f);
                                 is_topography_updated = true;
                                 break;
                             }
@@ -674,7 +674,7 @@ CloudsScene::CloudsScene(const std::string& topography_file_name, uint32_t refle
 
     tess_terrain.defineHeightMap(p_raw_topography_data, topography_x_res, topography_y_res, false);
     tess_terrain.setScreenSize(screen_size.first, screen_size.second);
-    tess_terrain.scale(600.0f, topography_max_height, 600.0f);
+    tess_terrain.scale(1000.f, 100.f, 1000.f);
 
     //TessellatedTerrain tess_terrain1 = tess_terrain;
 
@@ -860,8 +860,7 @@ void CloudsScene::init_ss_filters()
     lighting.setAtmosphericFogMiePhaseFunctionParameter(-0.8f);
     lighting.setSkydome(&skydome);
     atmospheric_fog_filter.setLightingConditions(lighting);
-    atmospheric_fog_filter.setDistanceCutOff(300.0f);
-
+    atmospheric_fog_filter.setDistanceCutOff(500.0f);
 
     //Configure Light Haze filter
     light_haze_filter.defineLinearDepthBuffer(linear_depth_buffer);
@@ -940,7 +939,7 @@ void CloudsScene::init_toolbar()
         " label='Fog density' help='Allows to alter density of the atmospheric fog' min=0.05 max=1 step=0.0001 precision=4 ");
 
     TwAddVarCB(p_main_bar, "fog_height_fall_off", TW_TYPE_FLOAT, onParamSet, onParamGet, "fog_height_fall_off",
-        " label='Fog height fall off' help='Allows to set how rapidly the atmospheric fog evaporates with respect to the altitude' min=0.01 max=1.0 step=0.0001 precision=4 ");
+        " label='Fog height fall off' help='Allows to set how rapidly the atmospheric fog evaporates with respect to the altitude' min=0.01 max=1 step=0.0001 precision=4 ");
 
     TwAddVarCB(p_main_bar, "rayleigh_scattering",
         TwDefineStruct("rayleigh_scattering_coefficients",

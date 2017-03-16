@@ -23,6 +23,7 @@
 #include "../TinyWorld/SSFilter_ImmediateShader.h"
 #include "../TinyWorld/SSFilter_AtmosphericFog.h"
 #include "../TinyWorld/SSFilter_LightHaze.h"
+#include "../TinyWorld/StaticClouds.h"
 
 
 using namespace tiny_world;
