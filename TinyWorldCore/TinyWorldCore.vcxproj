@@ -202,6 +202,7 @@
     <ClCompile Include="..\TinyWorld\ShaderProgram.cpp" />
     <ClCompile Include="..\TinyWorld\SharedBuffer.cpp" />
     <ClCompile Include="..\TinyWorld\Skydome.cpp" />
+    <ClCompile Include="..\TinyWorld\StaticClouds.cpp" />
     <ClCompile Include="..\TinyWorld\SSFilter.cpp" />
     <ClCompile Include="..\TinyWorld\SSFilter_AtmosphericFog.cpp" />
     <ClCompile Include="..\TinyWorld\SSFilter_Blur.cpp" />
@@ -263,6 +264,7 @@
     <ClInclude Include="..\TinyWorld\SSFilter_ImmediateShader.h" />
     <ClInclude Include="..\TinyWorld\SSFilter_LightHaze.h" />
     <ClInclude Include="..\TinyWorld\SSFilter_SSAO.h" />
+    <ClInclude Include="..\TinyWorld\StaticClouds.h" />
     <ClInclude Include="..\TinyWorld\std140UniformBuffer.h" />
     <ClInclude Include="..\TinyWorld\TessellatedTerrain.h" />
     <ClInclude Include="..\TinyWorld\Texture.h" />

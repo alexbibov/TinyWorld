@@ -494,7 +494,7 @@ void CloudsScene::onMouseClick(GLFWwindow* p_glfw_window, int button, int action
 
                 if (is_topography_updated)
                 {
-                    p_myself->tess_terrain.defineHeightMap(p_myself->p_processed_topography_data, topography_x_res, topography_y_res, false);
+                    p_myself->tess_terrain.defineHeightMap(p_myself->p_raw_topography_data, topography_x_res, topography_y_res, false);
                 }
 
             }
@@ -594,12 +594,10 @@ CloudsScene::CloudsScene(const std::string& topography_file_name, uint32_t refle
     bloom_texture{ "scene_bloom_texture" },
     depth_buffer{ "scene_depth_buffer" },
     selection_buffer{ "scene_selection_buffer" },
-    tess_terrain{ "topography_map", 15.0f, 100U, 100U, 1.0f / 50, 1.0f / 50 },
+    tess_terrain{ "topography_map", 10.0f, 400U, 400U, 1.0f / 50, 1.0f / 50 },
     ambient_light{ "scene_ambient_light" },
     skybody_light{ "skybody_light" },
     skydome{ "sky_simulator", 2e4f, 0.05f, 1000U, 128U, 128U },
-    p_processed_topography_data{ nullptr },
-    p_interpolated_topography_data{ nullptr },
     p_raw_topography_data{ nullptr },
     modification_strength{ 0.0f },
     suppress_mouse_user_input{ false },
@@ -647,9 +645,8 @@ CloudsScene::CloudsScene(const std::string& topography_file_name, uint32_t refle
     float w = static_cast<float>(screen_size.first) / std::max(screen_size.first, screen_size.second);
     float h = static_cast<float>(screen_size.second) / std::max(screen_size.first, screen_size.second);
     main_camera.setProjectionVolume(-w / 2, w / 2, -h / 2, h / 2, 1.0f, 2000.0f);
-    main_camera.setLocation(vec3{ 0, 50, 0 });
-    main_camera.rotateY(pi / 2, RotationFrame::LOCAL);
-
+    main_camera.setLocation(vec3{ 0, 350, 0 });
+    main_camera.setTarget(tiny_world::vec3{ 0, -.3f, -1.f });
 
 
     //Setup reflection camera
@@ -673,11 +670,9 @@ CloudsScene::CloudsScene(const std::string& topography_file_name, uint32_t refle
     //Perform topography interpolation
     p_raw_topography_data = new float[topography_x_res*topography_y_res];
     std::copy(topography_heightmap.begin(), topography_heightmap.end(), stdext::make_unchecked_array_iterator(p_raw_topography_data));
-    p_interpolated_topography_data = new float[(2 * topography_x_res + 1)*(2 * topography_y_res + 1)];
-    p_processed_topography_data = new float[topography_x_res*topography_y_res];
 
 
-    tess_terrain.defineHeightMap(p_processed_topography_data, topography_x_res, topography_y_res, false);
+    tess_terrain.defineHeightMap(p_raw_topography_data, topography_x_res, topography_y_res, false);
     tess_terrain.setScreenSize(screen_size.first, screen_size.second);
     tess_terrain.scale(600.0f, topography_max_height, 600.0f);
 
@@ -762,8 +757,6 @@ CloudsScene::CloudsScene(const std::string& topography_file_name, uint32_t refle
 CloudsScene::~CloudsScene()
 {
     TextureUnitBlock::reset();
-    if (p_processed_topography_data) delete[] p_processed_topography_data;
-    if (p_interpolated_topography_data) delete[] p_interpolated_topography_data;
     if (p_raw_topography_data) delete[] p_raw_topography_data;
 
     TwTerminate();
@@ -965,9 +958,9 @@ void CloudsScene::init_toolbar()
 
     TwAddVarRW(p_main_bar, "interaction_mode",
         TwDefineEnum("UserInteractionMode",
-            std::vector < TwEnumVal > { TwEnumVal{ UserInteractionMode::ADD_WATER, "Add water" }, TwEnumVal{ UserInteractionMode::REMOVE_WATER, "Remove water" },
-            TwEnumVal{ UserInteractionMode::STIR_WATER, "Stir water" },
-            TwEnumVal{ UserInteractionMode::RAISE_TERRAIN, "Raise terrain" }, TwEnumVal{ UserInteractionMode::LOWER_TERRAIN, "Lower terrain" }, TwEnumVal{ UserInteractionMode::SLIDE_TERRAIN, "Slide terrain" }}.data(), 6),
+            std::vector < TwEnumVal > {TwEnumVal{ UserInteractionMode::RAISE_TERRAIN, "Raise terrain" },
+            TwEnumVal{ UserInteractionMode::LOWER_TERRAIN, "Lower terrain" },
+            TwEnumVal{ UserInteractionMode::SLIDE_TERRAIN, "Slide terrain" }}.data(), 3),
         &interaction_mode,
         " label='Interaction mode' help='Defines the way the user is able to interact with the virtual environment' ");
     TwAddVarCB(p_main_bar, "modification_strength", TW_TYPE_FLOAT, onParamSet, onParamGet, "modification_strength",

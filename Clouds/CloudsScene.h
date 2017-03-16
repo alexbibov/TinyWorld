@@ -81,8 +81,6 @@ private:
     CascadeFilter postprocess;	//cascade filter that performs post-processing
 
 
-    float* p_processed_topography_data;	//set of values from the "integer" nodes of the interpolated topography height map
-    float* p_interpolated_topography_data;	//interpolated topography height map
     float* p_raw_topography_data;	//raw topography height map as it appears before interpolation
     uint32_t topography_x_res, topography_y_res;	//resolution of the topography height map
     float topography_offset, topography_max_height;	//the offset height and the maximal height of the topography
@@ -96,7 +94,7 @@ private:
     float fog_density;	//density of the atmospheric fog
     float fog_height_fall_off;	//height fall off rate applied to the atmospheric fog
 
-    typedef enum { ADD_WATER, REMOVE_WATER, STIR_WATER, RAISE_TERRAIN, LOWER_TERRAIN, SLIDE_TERRAIN } UserInteractionMode; //allowed user interaction modes
+    typedef enum { RAISE_TERRAIN, LOWER_TERRAIN, SLIDE_TERRAIN } UserInteractionMode; //allowed user interaction modes
 
     UserInteractionMode interaction_mode;
 

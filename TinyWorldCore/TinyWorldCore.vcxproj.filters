@@ -168,6 +168,9 @@
     <ClCompile Include="..\TinyWorld\Clouds.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\TinyWorld\StaticClouds.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\TinyWorld\AbstractProjectingDevice.h">
@@ -327,6 +330,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\TinyWorld\Clouds.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TinyWorld\StaticClouds.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
