@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ShallowWaterDemo", "ShallowWaterDemo\ShallowWaterDemo.vcxproj", "{8B264DB6-86E4-40DD-ADCD-BBDD9EB90BE0}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -40,34 +40,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FractalNoise3DTest", "Fract
 		{A0A2F024-13BC-4EB9-A3AA-63197B19115C} = {A0A2F024-13BC-4EB9-A3AA-63197B19115C}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Clouds", "Clouds\Clouds.vcxproj", "{9C313E93-EA65-4583-9A88-2E2C1470470A}"
+EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 8
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://alexbibov.visualstudio.com/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = ShallowWaterDemo\\ShallowWaterDemo.vcxproj
-		SccProjectName1 = ShallowWaterDemo
-		SccLocalPath1 = ShallowWaterDemo
-		SccProjectUniqueName2 = VirtualSawing\\VirtualSawing.vcxproj
-		SccProjectName2 = VirtualSawing
-		SccLocalPath2 = VirtualSawing
-		SccProjectUniqueName3 = TinyWorldCore\\TinyWorldCore.vcxproj
-		SccProjectName3 = TinyWorldCore
-		SccLocalPath3 = TinyWorldCore
-		SccProjectUniqueName4 = SurfaceViewer\\SurfaceViewer.vcxproj
-		SccProjectName4 = SurfaceViewer
-		SccLocalPath4 = SurfaceViewer
-		SccProjectUniqueName5 = libswecore\\libswecore.vcxproj
-		SccProjectName5 = libswecore
-		SccLocalPath5 = libswecore
-		SccProjectUniqueName6 = FractalNoise2DTest\\FractalNoise2DTest.vcxproj
-		SccProjectName6 = FractalNoise2DTest
-		SccLocalPath6 = FractalNoise2DTest
-		SccProjectUniqueName7 = FractalNoise3DTest\\FractalNoise3DTest.vcxproj
-		SccProjectName7 = FractalNoise3DTest
-		SccLocalPath7 = FractalNoise3DTest
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
 		Debug|x64 = Debug|x64
@@ -125,6 +100,14 @@ Global
 		{BCD7500E-7DDC-424F-9BDE-B898A69208F5}.Release|Win32.ActiveCfg = Release|Win32
 		{BCD7500E-7DDC-424F-9BDE-B898A69208F5}.Release|Win32.Build.0 = Release|Win32
 		{BCD7500E-7DDC-424F-9BDE-B898A69208F5}.Release|x64.ActiveCfg = Release|Win32
+		{9C313E93-EA65-4583-9A88-2E2C1470470A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9C313E93-EA65-4583-9A88-2E2C1470470A}.Debug|Win32.Build.0 = Debug|Win32
+		{9C313E93-EA65-4583-9A88-2E2C1470470A}.Debug|x64.ActiveCfg = Debug|x64
+		{9C313E93-EA65-4583-9A88-2E2C1470470A}.Debug|x64.Build.0 = Debug|x64
+		{9C313E93-EA65-4583-9A88-2E2C1470470A}.Release|Win32.ActiveCfg = Release|Win32
+		{9C313E93-EA65-4583-9A88-2E2C1470470A}.Release|Win32.Build.0 = Release|Win32
+		{9C313E93-EA65-4583-9A88-2E2C1470470A}.Release|x64.ActiveCfg = Release|x64
+		{9C313E93-EA65-4583-9A88-2E2C1470470A}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

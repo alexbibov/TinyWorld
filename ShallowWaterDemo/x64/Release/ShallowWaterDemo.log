@@ -1,8 +1,7 @@
-﻿LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
-  Generating code
-  749 of 9900 functions ( 7.6%) were compiled, the rest were copied from previous compilation.
+﻿  Generating code
+  179 of 9900 functions ( 1.8%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    304 functions had inline decision re-evaluated but remain unchanged
+    49 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
 TinyWorldCore.lib(SSFilter_AtmosphericFog.obj) : warning LNK4049: locally defined symbol __glewUniform4fv imported
 TinyWorldCore.lib(SSFilter_AtmosphericFog.obj) : warning LNK4049: locally defined symbol __glewUniformMatrix4fv imported
@@ -106,5 +105,5 @@ TinyWorldCore.lib(FractalNoise.obj) : warning LNK4049: locally defined symbol __
 TinyWorldCore.lib(ImageUnit.obj) : warning LNK4049: locally defined symbol __glewMemoryBarrier imported
 TinyWorldCore.lib(ImmutableTexture1D.obj) : warning LNK4049: locally defined symbol __glewTexStorage1D imported
 TinyWorldCore.lib(ImmutableTexture1D.obj) : warning LNK4049: locally defined symbol __glewCompressedTexSubImage1D imported
-  ShallowWaterDemo.vcxproj -> C:\Users\abibov\Source\Repos\TinyWorld\x64\Release\ShallowWaterDemo.exe
-  ShallowWaterDemo.vcxproj -> C:\Users\abibov\Source\Repos\TinyWorld\x64\Release\ShallowWaterDemo.pdb (Full PDB)
+  ShallowWaterDemo.vcxproj -> D:\Repos\TinyWorld\x64\Release\ShallowWaterDemo.exe
+  ShallowWaterDemo.vcxproj -> D:\Repos\TinyWorld\x64\Release\ShallowWaterDemo.pdb (Full PDB)

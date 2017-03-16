@@ -1,7 +1,9 @@
 ﻿  main.cpp
 LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
   Generating code
-  All 6733 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  2407 of 6733 functions (35.7%) were compiled, the rest were copied from previous compilation.
+    2 functions were new in current compilation
+    411 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
 TinyWorldCore.lib(TransparentBox.obj) : warning LNK4049: locally defined symbol ___glewBindBuffer imported
 TinyWorldCore.lib(TransparentBox.obj) : warning LNK4049: locally defined symbol ___glewBindVertexArray imported
@@ -102,5 +104,37 @@ TinyWorldCore.lib(Buffer.obj) : warning LNK4049: locally defined symbol ___glewB
 TinyWorldCore.lib(Buffer.obj) : warning LNK4049: locally defined symbol ___glewMapBuffer imported
 TinyWorldCore.lib(Buffer.obj) : warning LNK4049: locally defined symbol ___glewMapBufferRange imported
 TinyWorldCore.lib(Buffer.obj) : warning LNK4049: locally defined symbol ___glewUnmapBuffer imported
-  FractalNoise3DTest.vcxproj -> C:\Users\abibov\Source\Repos\TinyWorld\Release\FractalNoise3DTest.exe
-  FractalNoise3DTest.vcxproj -> C:\Users\abibov\Source\Repos\TinyWorld\Release\FractalNoise3DTest.pdb (Full PDB)
+TinyWorldCore.lib(AbstractProjectingDevice.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(AbstractProjectingDevice.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(TransparentBox.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(TransparentBox.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(AbstractRenderableObjectHDRBloomEx.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(AbstractRenderableObjectHDRBloomEx.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(ImmutableTexture3D.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(ImmutableTexture3D.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(Texture.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(Texture.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(Entity.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(Entity.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(Light.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(Light.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(Shader.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(Shader.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(Framebuffer.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(Framebuffer.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(Screen.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(Screen.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(ShaderProgram.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(ShaderProgram.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(ImmutableTexture2D.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(ImmutableTexture2D.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(AbstractRenderableObject.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(AbstractRenderableObject.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(TextureUnitBlock.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(TextureUnitBlock.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(FractalNoise.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(FractalNoise.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(SSFilter_HDRBloom.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(SSFilter_HDRBloom.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(FullscreenRectangle.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(FullscreenRectangle.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(AbstractRenderingDevice.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(AbstractRenderingDevice.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(ErrorBehavioral.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(ErrorBehavioral.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(ImmutableTexture.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(ImmutableTexture.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(CompleteShaderProgram.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(CompleteShaderProgram.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(PixelTraits.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(PixelTraits.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(BufferTexture.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(BufferTexture.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(std140UniformBuffer.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(std140UniformBuffer.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(SeparateShaderProgram.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(SeparateShaderProgram.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(TextureSampler.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(TextureSampler.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(ImmutableTexture1D.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(ImmutableTexture1D.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(ImmutableTextureCubeMap.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(ImmutableTextureCubeMap.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(ImageUnit.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(ImageUnit.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(SSFilter.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(SSFilter.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(Buffer.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(Buffer.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+TinyWorldCore.lib(SharedBuffer.obj) : warning LNK4099: PDB 'TinyWorldCore.pdb' was not found with 'TinyWorldCore.lib(SharedBuffer.obj)' or at 'D:\Repos\TinyWorld\Release\TinyWorldCore.pdb'; linking object as if no debug info
+  FractalNoise3DTest.vcxproj -> D:\Repos\TinyWorld\Release\FractalNoise3DTest.exe
+  FractalNoise3DTest.vcxproj -> D:\Repos\TinyWorld\Release\FractalNoise3DTest.pdb (Full PDB)

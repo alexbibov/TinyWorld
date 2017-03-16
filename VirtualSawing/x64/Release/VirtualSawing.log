@@ -1,8 +1,8 @@
 ﻿LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
   Generating code
-  506 of 6754 functions ( 7.5%) were compiled, the rest were copied from previous compilation.
+  123 of 6754 functions ( 1.8%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    198 functions had inline decision re-evaluated but remain unchanged
+    26 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
 TinyWorldCore.lib(TransparentBox.obj) : warning LNK4049: locally defined symbol __glewUniform3fv imported
 TinyWorldCore.lib(TransparentBox.obj) : warning LNK4049: locally defined symbol __glewDeleteBuffers imported
@@ -98,5 +98,5 @@ TinyWorldCore.lib(Buffer.obj) : warning LNK4049: locally defined symbol __glewCo
 TinyWorldCore.lib(Buffer.obj) : warning LNK4049: locally defined symbol __glewBindBufferBase imported
 TinyWorldCore.lib(Buffer.obj) : warning LNK4049: locally defined symbol __glewMapBuffer imported
 TinyWorldCore.lib(Buffer.obj) : warning LNK4049: locally defined symbol __glewMapBufferRange imported
-  VirtualSawing.vcxproj -> C:\Users\abibov\Source\Repos\TinyWorld\x64\Release\VirtualSawing.exe
-  VirtualSawing.vcxproj -> C:\Users\abibov\Source\Repos\TinyWorld\x64\Release\VirtualSawing.pdb (Full PDB)
+  VirtualSawing.vcxproj -> D:\Repos\TinyWorld\x64\Release\VirtualSawing.exe
+  VirtualSawing.vcxproj -> D:\Repos\TinyWorld\x64\Release\VirtualSawing.pdb (Full PDB)

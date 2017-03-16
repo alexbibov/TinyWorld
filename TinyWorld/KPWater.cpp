@@ -32,9 +32,8 @@ void reflectingBoundariesComputeProcedure(const SaintVenantSystem::SVSCore* p_sv
         for (unsigned int i = 0; i < domain_settings.height; ++i)
         {
             SaintVenantSystem::Numeric4 state_west_value = p_state[(domain_settings.width + 2)*(i + 1) + 1];
-            bool aux = state_west_value.x - p_interpolated_topography[(2 * domain_settings.width + 1)*(2 * i + 1)] > 0.1f;
-            west.setElement(i, /*p_interpolated_topography[(2 * domain_settings.width + 1)*(2 * i + 1)] + */state_west_value.x + (aux ? 20 : 0),
-                /*p_interpolated_topography[(2 * domain_settings.width + 1)*(2 * i + 1)] + */state_west_value.x + (aux ? 20.f : 0.f), (aux ? 20.f : 0.f), (aux ? 20.f : 0.f), 0.f, 0.f);
+            west.setElement(i, /*p_interpolated_topography[(2 * domain_settings.width + 1)*(2 * i + 1)] + */state_west_value.x,
+                /*p_interpolated_topography[(2 * domain_settings.width + 1)*(2 * i + 1)] + */state_west_value.x, 0, 0, 0.f, 0.f);
 
             SaintVenantSystem::Numeric4 state_east_value = p_state[(domain_settings.width + 2)*(i + 1) + domain_settings.width];
             east.setElement(i, /*p_interpolated_topography[(2 * domain_settings.width + 1)*(2 * i + 1) + 2 * domain_settings.width] +*/ state_east_value.x,
