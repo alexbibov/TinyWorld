@@ -204,9 +204,9 @@ inline void StaticClouds::setup_object()
             {
                 size_t offset = (offset_row + j)*vb_typed_element_size;
 
-                float x = (-1.f + 2.f*i / (uv3DomainResolution.x - 1.f)) * v3DomainSize.x;
-                float y = (-1.f + 2.f*j / (uv3DomainResolution.y - 1.f)) * v3DomainSize.y;
-                float z = (-1.f + 2.f*k / (uv3DomainResolution.z - 1.f)) * v3DomainSize.z;
+                float x = (-1.f + 2.f*i / (uv3DomainResolution.x - 1.f));
+                float y = (-1.f + 2.f*j / (uv3DomainResolution.y - 1.f));
+                float z = (-1.f + 2.f*k / (uv3DomainResolution.z - 1.f));
 
                 static_cast<float*>(vertex_buf)[offset + 0] = x;
                 static_cast<float*>(vertex_buf)[offset + 1] = y;
@@ -256,7 +256,6 @@ inline void StaticClouds::setup_object()
 }
 
 StaticClouds::StaticClouds():
-    v3DomainSize{ 1.f },
     uv3DomainResolution{ 20U },
     out_scattering_values{"Clouds::out_scattering_values"},
     v2CloudDensityPatternResolution{ cloud_particle_texture_resolution },
@@ -269,8 +268,7 @@ StaticClouds::StaticClouds():
     setup_object();
 }
 
-StaticClouds::StaticClouds(const vec3& cloud_domain_size, const uvec3& cloud_domain_resolution):
-    v3DomainSize{ cloud_domain_size },
+StaticClouds::StaticClouds(const uvec3& cloud_domain_resolution):
     uv3DomainResolution{ cloud_domain_resolution },
     out_scattering_values{ "Clouds::out_scattering_values" },
     v2CloudDensityPatternResolution{ cloud_particle_texture_resolution },
@@ -311,11 +309,6 @@ StaticClouds::~StaticClouds()
 {
     glDeleteVertexArrays(1, &ogl_vertex_attribute_object);
     glDeleteBuffers(1, &ogl_vertex_buffer);
-}
-
-vec3 StaticClouds::getDomainDimensions() const
-{
-    return v3DomainSize;
 }
 
 void StaticClouds::setAlbedo(float albedo)
@@ -400,14 +393,11 @@ bool StaticClouds::render()
         case 0:
         {
             retrieveShaderProgram(preprocess_program_ref_code)->assignUniformVector("uv3DomainResolution", uv3DomainResolution);
-            retrieveShaderProgram(preprocess_program_ref_code)->assignUniformVector("v3DomainSize", v3DomainSize);
 
             ImageUnit preprocessed_data_storage_texture;
             preprocessed_data_storage_texture.setStringName("Clouds::preprocessed_data_storage_texture");
             preprocessed_data_storage_texture.attachTexture(out_scattering_values, 0, BufferAccess::WRITE, InternalPixelFormat::SIZED_FLOAT_R16);
             retrieveShaderProgram(preprocess_program_ref_code)->assignUniformScalar("i3dOutScatteringValues", preprocessed_data_storage_texture.getBinding());
-
-            retrieveShaderProgram(preprocess_program_ref_code)->assignUniformScalar("s2dDensityPatternTexture", getBindingUnit(density_pattern_texture_ref_code));
             retrieveShaderProgram(preprocess_program_ref_code)->assignUniformScalar("sbDensityPatternRandomShiftsTexture", getBindingUnit(density_pattern_random_shifts_ref_code));
 
             retrieveShaderProgram(preprocess_program_ref_code)->assignUniformScalar("fAlbedo", albedo);
@@ -426,7 +416,6 @@ bool StaticClouds::render()
             retrieveShaderProgram(rendering_program_ref_code)->assignUniformScalar("s3dOutScatteringTexture", getBindingUnit(out_scattering_values_ref_code));
             retrieveShaderProgram(rendering_program_ref_code)->assignUniformScalar("s2dCelestialBodyInScattering",
                 p_lighting_conditions->getSkydome()->isDay() ? getBindingUnit(sun_in_scattering_ref_code) : getBindingUnit(moon_in_scattering_ref_code));
-            retrieveShaderProgram(rendering_program_ref_code)->assignUniformVector("v3DomainSize", v3DomainSize);
             retrieveShaderProgram(rendering_program_ref_code)->assignUniformScalar("sbDensityPatternRandomShiftsTexture", getBindingUnit(density_pattern_random_shifts_ref_code));
 
             retrieveShaderProgram(rendering_program_ref_code)->assignUniformScalar("fAlbedo", albedo);

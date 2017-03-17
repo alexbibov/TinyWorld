@@ -10,7 +10,6 @@ uniform sampler2D s2dDensityPatternTexture;
 uniform samplerBuffer sbDensityPatternRandomShiftsTexture;
 uniform sampler2D s2dCelestialBodyInScattering;
 uniform vec3 v3LightDirection;
-uniform vec3 v3DomainSize;
 uniform vec3 v3Scale;
 
 uniform float fAlbedo;
@@ -45,28 +44,13 @@ void main()
 	float t_max = intBitsToFloat(0x7F800000);    //+Infinity
     float t_min = intBitsToFloat(0xFF800000);    //-Infinity
 	
-	float aux1 = (v3DomainSize.x/2.f - v3FragCoordInScaledObjectSpace.x)/v3ViewDirection.x;
-	float aux2 = (-v3DomainSize.x/2.f - v3FragCoordInScaledObjectSpace.x)/v3ViewDirection.x;
-    float aux_t_max = max(aux1, aux2);
-    float aux_t_min = min(aux1, aux2);
-	t_max = min(aux_t_max, t_max);
-	t_min = max(aux_t_min, t_min);
-	
-	aux1 = (v3DomainSize.y/2.f - v3FragCoordInScaledObjectSpace.y)/v3ViewDirection.y;
-	aux2 = (-v3DomainSize.y/2.f - v3FragCoordInScaledObjectSpace.y)/v3ViewDirection.y;
-    aux_t_max = max(aux1, aux2);
-    aux_t_min = min(aux1, aux2);
-	t_max = min(aux_t_max, t_max);
-	t_min = max(aux_t_min, t_min);
-	
-	aux1 = (v3DomainSize.z/2.f - v3FragCoordInScaledObjectSpace.z)/v3ViewDirection.z;
-	aux2 = (-v3DomainSize.z/2.f - v3FragCoordInScaledObjectSpace.z)/v3ViewDirection.z;
-    aux_t_max = max(aux1, aux2);
-    aux_t_min = min(aux1, aux2);
-	t_max = min(aux_t_max, t_max);
-	t_min = max(aux_t_min, t_min);
-	t_min = max(t_min, 0);
-	
+    vec3 v3Aux1 = (v3Scale/2.f - v3FragCoordInScaledObjectSpace)/v3ViewDirection;
+    vec3 v3Aux2 = (-v3Scale/2.f - v3FragCoordInScaledObjectSpace)/v3ViewDirection;
+    vec3 aux_t_min = min(v3Aux1, v3Aux2);
+    vec3 aux_t_max = max(v3Aux1, v3Aux2);
+    
+    t_max = min(min(min(t_max, aux_t_max.x), aux_t_max.y), aux_t_max.z);
+    t_min = max(max(max(max(t_min, aux_t_min.x), aux_t_min.y), aux_t_min.z), 0);
 	
 	if(t_max > t_min)
 	{
@@ -77,13 +61,13 @@ void main()
 		for(int i = 1; i < ray_marching_steps; ++i)
 		{
 		    vec3 v3CurrentPoint = v3TraversalStart + v3ViewDirection*fStepSize*i;
-			vec3 v3CurrentPointInTextureSpace = (v3CurrentPoint / v3Scale / v3DomainSize + .5f);
+			vec3 v3CurrentPointInTextureSpace = (v3CurrentPoint / v3Scale + .5f);
 			vec3 v3CurrentPointInGridSpace = v3CurrentPointInTextureSpace * (textureSize(s3dOutScatteringValues, 0) - 1.f);
 			vec3 v3ClosestGridVertex = round(v3CurrentPointInGridSpace);
-			vec2 texture_coordinates = v3ClosestGridVertex.xy - v3CurrentPointInGridSpace.xy;
+			//vec2 texture_coordinates = v3ClosestGridVertex.xy - v3CurrentPointInGridSpace.xy;
 			    //+ texelFetch(sbDensityPatternRandomShiftsTexture, getVertexId(uvec3(v3ClosestGridVertex))).rg;
-			float density = texture(s2dDensityPatternTexture, texture_coordinates).r*fDensityScale;
-			float I_i = texture(s3dOutScatteringValues, v3CurrentPointInTextureSpace).r*fDensityScale;
+			float density = texture(s2dDensityPatternTexture, gl_PointCoord).r*fDensityScale;
+			float I_i = texture(s3dOutScatteringValues, v3CurrentPointInTextureSpace).r;
 			
 			float c = dot(v3ViewDirection, v3LightDirection);
 			float S_i = -fAlbedo*density*(3.f/4.f*(1f + c*c))*I_i*fGamma/(4*pi);
@@ -91,12 +75,11 @@ void main()
             E_i = S_i + E_i*exp(-density);			
 		}
 		
-		v4FragIntensityScale = vec4(1.f, 1.f, 1.f, E_i);
+		v4FragIntensityScale = vec4(0.f, 0.f, 0.f, 1 - E_i);
 	}
 	else
 	{
-	    vec3 v3FragInTextureSpace = (v3FragCoordInScaledObjectSpace / v3Scale / v3DomainSize + .5f);
+	    vec3 v3FragInTextureSpace = (v3FragCoordInScaledObjectSpace / v3Scale + .5f);
 		v4FragIntensityScale = vec4(1.f, 1.f, 1.f, texture(s3dOutScatteringValues, v3FragInTextureSpace).r*fDensityScale);
 	}
-    
 }

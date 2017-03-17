@@ -26,7 +26,6 @@ private:
     static const uint32_t preprocess_group_size_y = 8U;
     static const uint32_t preprocess_group_size_z = 8U;
 
-    vec3 v3DomainSize;    // size of the domain
     uvec3 uv3DomainResolution;    //vertex resolution of the cloud domain
     TextureSamplerReferenceCode texture_sampler_ref_code;    //texture sampler employed by cloud renderer
     TextureReferenceCode density_pattern_texture_ref_code;    //reference code of the density pattern texture
@@ -69,7 +68,7 @@ public:
     StaticClouds();
 
     //Initializes clouds simulation given the spatial size and the resolution of the simulation domain
-    StaticClouds(const vec3& cloud_domain_size, const uvec3& cloud_domain_resolution);
+    StaticClouds(const uvec3& cloud_domain_resolution);
 
     //Copy initialization
     StaticClouds(const StaticClouds& other);
@@ -85,9 +84,6 @@ public:
 
     //Destructor
     ~StaticClouds();
-
-
-    vec3 getDomainDimensions() const;	//retrieves spatial dimensions of the cloud domain
 
     void setAlbedo(float albedo);    //sets albedo of the clouds
     float getAlbedo() const;    //retrieves albedo of the clouds
