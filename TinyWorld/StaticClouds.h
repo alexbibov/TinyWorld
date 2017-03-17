@@ -13,11 +13,10 @@
 namespace tiny_world
 {
 
-class StaticClouds final : virtual public AbstractRenderableObject,
-    public AbstractRenderableObjectExtensionAggregator<
+class StaticClouds final : virtual public AbstractRenderableObjectTextured,
+    virtual public AbstractRenderableObjectExtensionAggregator<
     AbstractRenderableObjectHDRBloomEx,
-    AbstractRenderableObjectSelectionEx,
-    AbstractRenderableObjectTextured>
+    AbstractRenderableObjectSelectionEx>
 {
 private:
     static const std::string preprocess_program_name;
@@ -42,6 +41,8 @@ private:
 
     const uvec2 v2CloudDensityPatternResolution;    //resolution of the density pattern texture
     float albedo;    //albedo of the clouds
+    float domega;    //solid angle differential
+    float density_scale;    //scaling factor applied to density kernels
     float particle_size;    //size of single cloud particle
 
     GLuint ogl_vertex_attribute_object;    //native OpenGL vertex attribute object
@@ -53,6 +54,8 @@ private:
     int rendering_pass;    //active rendering pass
 
     const LightingConditions* p_lighting_conditions;    //lighting conditions
+
+    AbstractRenderingDevice* p_last_render_targer;
 
     void applyScreenSize(const uvec2& screen_size) override;
     bool configureRendering(AbstractRenderingDevice& render_target, uint32_t rendering_pass) override;
@@ -90,6 +93,12 @@ public:
 
     void setAlbedo(float albedo);    //sets albedo of the clouds
     float getAlbedo() const;    //retrieves albedo of the clouds
+
+    void setSolidAngleDifferentialScale(float scale);    //applies scale of solid angle differential
+    float getSolidAngleDifferentialScale() const;    //retrieves scale of solid angle differential
+
+    void setDensityScale(float scale);    //applies scaling factor applied to cloud density kernels
+    float getDensityScale() const;    //returns scaling factor applied to cloud density kernels
 
     void setParticleSize(float size);    //sets size of cloud particles
     float getParticleSize() const;    //retrieves size of cloud particles

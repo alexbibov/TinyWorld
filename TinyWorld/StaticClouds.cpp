@@ -18,10 +18,34 @@ uvec3 calculateNumberOfGroupsForDispatchCompute(uint32_t problem_size_x, uint32_
     };
 }
 
+uint16_t to_half_precision_float(float fp_float)
+{
+    uint32_t fp_float_bits = *reinterpret_cast<uint32_t*>(&fp_float);
+    uint8_t fp_exp_bits = ((fp_float_bits & 0x7F800000) << 1) >> 24;
+    uint32_t fp_fraction_bits = fp_float_bits & 0x7FFFFF;
+    uint16_t hp_float_bits = 0x0;
+
+    hp_float_bits |= fp_float_bits >> 31 << 15;    //copy sign bit
+
+    int hp_exp_bits = fp_exp_bits - 127 + 15;
+    if (hp_exp_bits < 0) return hp_float_bits;
+    if (hp_exp_bits > 31)
+    {
+        hp_float_bits |= 0x7C00;
+        return hp_float_bits;
+    }
+
+    hp_float_bits |= hp_exp_bits << 10;
+    hp_float_bits |= hp_float_bits >> 13;
+
+    return hp_float_bits;
+}
+
 }
 
 void StaticClouds::applyScreenSize(const uvec2& screen_size)
 {
+    
 }
 
 bool StaticClouds::configureRendering(AbstractRenderingDevice& render_target, uint32_t rendering_pass)
@@ -32,7 +56,7 @@ bool StaticClouds::configureRendering(AbstractRenderingDevice& render_target, ui
     {
     case 0:
         COMPLETE_SHADER_PROGRAM_CAST(retrieveShaderProgram(preprocess_program_ref_code)).activate();
-        break;
+        return true;
 
     case 1:
         if (!render_target.isActive())
@@ -40,15 +64,29 @@ bool StaticClouds::configureRendering(AbstractRenderingDevice& render_target, ui
 
         COMPLETE_SHADER_PROGRAM_CAST(retrieveShaderProgram(rendering_program_ref_code)).activate();
 
+        auto viewport = render_target.getViewportRectangle(0);
+        retrieveShaderProgram(rendering_program_ref_code)->assignUniformVector("v4Viewport", vec4{ viewport.x, viewport.y, viewport.w, viewport.h });
+
         //Bind object's data buffer
         glBindVertexArray(ogl_vertex_attribute_object);
 
         glPointSize(particle_size);
-        break;
+
+        render_target.pushOpenGLContextSettings();
+        render_target.setDepthTestEnableState(false);
+        render_target.setColorBlendEnableState(true);
+        render_target.setRGBSourceBlendFactor(ColorBlendFactor::DST_COLOR);
+        render_target.setRGBDestinationBlendFactor(ColorBlendFactor::ZERO);
+        render_target.setBlendEquation(ColorBlendEquation::ADD);
+
+        p_last_render_targer = &render_target;
+        
+
+        return true;
     }
 
 
-
+    return false;
 }
 
 void StaticClouds::configureViewProjectionTransform(const AbstractProjectingDevice& projecting_device)
@@ -58,27 +96,36 @@ void StaticClouds::configureViewProjectionTransform(const AbstractProjectingDevi
     retrieveShaderProgram(rendering_program_ref_code)->assignUniformMatrix("m4ModelViewTransform", ModelViewTransform);
     retrieveShaderProgram(rendering_program_ref_code)->assignUniformMatrix("m4ProjectionTransform", projecting_device.getProjectionTransform());
 
-    float left, right, bottom, top, near, far;
-    projecting_device.getProjectionVolume(&left, &right, &bottom, &top, &near, &far);
-    retrieveShaderProgram(rendering_program_ref_code)->assignUniformVector("v4FocalPlane", vec4{ left, right, bottom, top });
-    retrieveShaderProgram(rendering_program_ref_code)->assignUniformVector("v2NearFarDistances", vec2{ near, far });
+    mat4 m4WorldToScaledObjectTransform = getObjectTransform().inverse();
+    vec4 v4ObserverLocationInScaledObjectSpace = m4WorldToScaledObjectTransform*vec4{ projecting_device.getLocation(), 1.f };
+
+    retrieveShaderProgram(rendering_program_ref_code)->assignUniformMatrix("m4ProjectionToScaledObjectTransform",
+        m4WorldToScaledObjectTransform*projecting_device.getViewTransform().inverse()*projecting_device.getProjectionTransform().inverse());
+    retrieveShaderProgram(rendering_program_ref_code)->assignUniformVector("v3ObserverLocation", 
+        vec3{v4ObserverLocationInScaledObjectSpace.x, v4ObserverLocationInScaledObjectSpace.y, v4ObserverLocationInScaledObjectSpace.z}
+    / v4ObserverLocationInScaledObjectSpace.w);
+
 
 
     vec3 light_direction = p_lighting_conditions->getSkydome()->isDay() ?
         p_lighting_conditions->getSkydome()->getSunDirection() :
         p_lighting_conditions->getSkydome()->getMoonDirection();
-    vec4 light_direction_homogeneous{ light_direction, 1.f };
+    vec4 light_direction_homogeneous{ light_direction, 0.f };
 
-    mat4 WorldToObjectTransform = (getObjectTransform()*getObjectScaleTransform()).inverse();
-    light_direction_homogeneous = WorldToObjectTransform*light_direction_homogeneous;
-    light_direction.x = light_direction_homogeneous.x / light_direction_homogeneous.w;
-    light_direction.y = light_direction_homogeneous.y / light_direction_homogeneous.w;
-    light_direction.z = light_direction_homogeneous.z / light_direction_homogeneous.w;
-    retrieveShaderProgram(preprocess_program_ref_code)->assignUniformVector("v3LightDirection", light_direction);
+    light_direction_homogeneous = m4WorldToScaledObjectTransform*light_direction_homogeneous;
+    light_direction.x = light_direction_homogeneous.x;
+    light_direction.y = light_direction_homogeneous.y;
+    light_direction.z = light_direction_homogeneous.z;
+    retrieveShaderProgram(preprocess_program_ref_code)->assignUniformVector("v3LightDirection", light_direction.get_normalized());
+    retrieveShaderProgram(preprocess_program_ref_code)->assignUniformVector("v3Scale", getObjectScale());
+
+    retrieveShaderProgram(rendering_program_ref_code)->assignUniformVector("v3LightDirection", light_direction.get_normalized());
 }
 
 bool StaticClouds::configureRenderingFinalization()
 {
+    if(p_last_render_targer)
+        p_last_render_targer->popOpenGLContextSettings();
     return true;
 }
 
@@ -108,12 +155,13 @@ inline void StaticClouds::setup_object()
 
     //calculate random shifts
     BufferTexture random_shifts_texture{ "Clouds::density_pattern_random_shifts_texture" };
-    random_shifts_texture.allocateStorage(uv3DomainResolution.x*uv3DomainResolution.y*uv3DomainResolution.z, BufferTextureInternalPixelFormat::SIZED_FLOAT_RG16);
-    float* random_shifts = static_cast<float*>(random_shifts_texture.map(BufferTextureAccessPolicy::WRITE));
+    random_shifts_texture.allocateStorage(uv3DomainResolution.x*uv3DomainResolution.y*uv3DomainResolution.z * 4, BufferTextureInternalPixelFormat::SIZED_FLOAT_RG16);
+    uint32_t* random_shifts = static_cast<uint32_t*>(random_shifts_texture.map(BufferTextureAccessPolicy::WRITE));
     for (uint32_t i = 0; i < uv3DomainResolution.x*uv3DomainResolution.y*uv3DomainResolution.z; ++i)
     {
-        random_shifts[i + 0] = density_pattern_shift_distribution(random_engine);
-        random_shifts[i + 1] = density_pattern_shift_distribution(random_engine);
+        uint16_t u_shift = to_half_precision_float(density_pattern_shift_distribution(random_engine));
+        uint16_t v_shift = to_half_precision_float(density_pattern_shift_distribution(random_engine));
+        random_shifts[i] = static_cast<uint32_t>(v_shift) << 16 | u_shift;
     }
     random_shifts_texture.unmap();
     if (!density_pattern_random_shifts_ref_code)
@@ -123,14 +171,6 @@ inline void StaticClouds::setup_object()
     out_scattering_values.allocateStorage(1, 1, TextureSize{ uv3DomainResolution.x, uv3DomainResolution.y, uv3DomainResolution.z }, InternalPixelFormat::SIZED_FLOAT_R16);
     if (!out_scattering_values_ref_code)
         out_scattering_values_ref_code = registerTexture(out_scattering_values, texture_sampler_ref_code);
-
-
-    std::pair<ImmutableTexture2D, ImmutableTexture2D> sun_moon_in_scattering_contribution = p_lighting_conditions->retrieveInScatteringTextures();
-    if (!sun_in_scattering_ref_code)
-        sun_in_scattering_ref_code = registerTexture(sun_moon_in_scattering_contribution.first, texture_sampler_ref_code);
-    if (!moon_in_scattering_ref_code)
-        moon_in_scattering_ref_code = registerTexture(sun_moon_in_scattering_contribution.second, texture_sampler_ref_code);
-
 
 
     //setup OpenGL objects
@@ -178,7 +218,7 @@ inline void StaticClouds::setup_object()
     glBufferData(GL_ARRAY_BUFFER, vb_size, vertex_buf, GL_STATIC_DRAW);
     delete[] vertex_buf;
 
-    glBindVertexBuffer(0U, ogl_vertex_buffer, 0, vb_untyped_element_size);
+    glBindVertexBuffer(0U, ogl_vertex_buffer, 0, static_cast<GLsizei>(vb_untyped_element_size));
 
 
 
@@ -202,13 +242,13 @@ inline void StaticClouds::setup_object()
 
         Shader vertex_shader{ ShaderProgram::getShaderBaseCatalog() + "CloudsInScattering.vp.glsl", ShaderType::VERTEX_SHADER,
             "CalculateCloudsInScattering.vp" };
-        Shader fragment_shader{ ShaderProgram::getShaderBaseCatalog() + "CloudsInScattering.fg.glsl", ShaderType::FRAGMENT_SHADER,
+        Shader fragment_shader{ ShaderProgram::getShaderBaseCatalog() + "CloudsInScattering.fp.glsl", ShaderType::FRAGMENT_SHADER,
             "CalculateCloudsInScattering.fp" };
 
         retrieveShaderProgram(rendering_program_ref_code)->addShader(vertex_shader);
         retrieveShaderProgram(rendering_program_ref_code)->addShader(fragment_shader);
 
-        retrieveShaderProgram(rendering_program_ref_code)->bindVertexAttributeId("vertex_position", vertex_attribute_position::getId());
+        retrieveShaderProgram(rendering_program_ref_code)->bindVertexAttributeId("v4VertexPosition", vertex_attribute_position::getId());
 
         retrieveShaderProgram(rendering_program_ref_code)->link();
     }
@@ -220,6 +260,8 @@ StaticClouds::StaticClouds():
     out_scattering_values{"Clouds::out_scattering_values"},
     v2CloudDensityPatternResolution{ cloud_particle_texture_resolution },
     albedo{ 1.f },
+    domega{ .01f },
+    density_scale{ 1.f },
     particle_size{ 10.f },
     rendering_pass{ -1 }
 {
@@ -232,6 +274,8 @@ StaticClouds::StaticClouds(const vec3& cloud_domain_size, const uvec3& cloud_dom
     out_scattering_values{ "Clouds::out_scattering_values" },
     v2CloudDensityPatternResolution{ cloud_particle_texture_resolution },
     albedo{ 1.f },
+    domega{ .01f },
+    density_scale{ 1.f },
     particle_size{ 10.f },
     rendering_pass{ -1 }
 {
@@ -264,6 +308,8 @@ StaticClouds& StaticClouds::operator=(StaticClouds&& other)
 
 StaticClouds::~StaticClouds()
 {
+    glDeleteVertexArrays(1, &ogl_vertex_attribute_object);
+    glDeleteBuffers(1, &ogl_vertex_buffer);
 }
 
 void StaticClouds::setDomainDimensions(float cloud_domain_size_x, float cloud_domain_size_y, float cloud_domain_size_z)
@@ -291,6 +337,26 @@ float StaticClouds::getAlbedo() const
     return albedo;
 }
 
+void StaticClouds::setSolidAngleDifferentialScale(float scale)
+{
+    domega = scale;
+}
+
+float StaticClouds::getSolidAngleDifferentialScale() const
+{
+    return domega;
+}
+
+void StaticClouds::setDensityScale(float scale)
+{
+    density_scale = scale;
+}
+
+float StaticClouds::getDensityScale() const
+{
+    return density_scale;
+}
+
 void StaticClouds::setParticleSize(float size)
 {
     particle_size = size;
@@ -304,6 +370,12 @@ float StaticClouds::getParticleSize() const
 void StaticClouds::setLightingConditions(const LightingConditions& lighting_conditions)
 {
     p_lighting_conditions = &lighting_conditions;
+
+    std::pair<ImmutableTexture2D, ImmutableTexture2D> sun_moon_in_scattering_contribution = p_lighting_conditions->retrieveInScatteringTextures();
+    if (!sun_in_scattering_ref_code)
+        sun_in_scattering_ref_code = registerTexture(sun_moon_in_scattering_contribution.first, texture_sampler_ref_code);
+    if (!moon_in_scattering_ref_code)
+        moon_in_scattering_ref_code = registerTexture(sun_moon_in_scattering_contribution.second, texture_sampler_ref_code);
 }
 
 const LightingConditions* StaticClouds::getLightingConditions() const
@@ -347,6 +419,10 @@ bool StaticClouds::render()
             retrieveShaderProgram(preprocess_program_ref_code)->assignUniformScalar("s2dDensityPatternTexture", getBindingUnit(density_pattern_texture_ref_code));
             retrieveShaderProgram(preprocess_program_ref_code)->assignUniformScalar("sbDensityPatternRandomShiftsTexture", getBindingUnit(density_pattern_random_shifts_ref_code));
 
+            retrieveShaderProgram(preprocess_program_ref_code)->assignUniformScalar("fAlbedo", albedo);
+            retrieveShaderProgram(preprocess_program_ref_code)->assignUniformScalar("fGamma", domega);
+            retrieveShaderProgram(preprocess_program_ref_code)->assignUniformScalar("fDensityScale", density_scale);
+
             uvec3 num_groups = calculateNumberOfGroupsForDispatchCompute(uv3DomainResolution.x, uv3DomainResolution.y, uv3DomainResolution.z,
                 preprocess_group_size_x, preprocess_group_size_y, preprocess_group_size_z);
             glDispatchCompute(num_groups.x, num_groups.y, num_groups.z);
@@ -359,6 +435,13 @@ bool StaticClouds::render()
             retrieveShaderProgram(rendering_program_ref_code)->assignUniformScalar("s3dOutScatteringTexture", getBindingUnit(out_scattering_values_ref_code));
             retrieveShaderProgram(rendering_program_ref_code)->assignUniformScalar("s2dCelestialBodyInScattering",
                 p_lighting_conditions->getSkydome()->isDay() ? getBindingUnit(sun_in_scattering_ref_code) : getBindingUnit(moon_in_scattering_ref_code));
+            retrieveShaderProgram(rendering_program_ref_code)->assignUniformVector("v3DomainSize", v3DomainSize);
+            retrieveShaderProgram(rendering_program_ref_code)->assignUniformScalar("sbDensityPatternRandomShiftsTexture", getBindingUnit(density_pattern_random_shifts_ref_code));
+
+            retrieveShaderProgram(rendering_program_ref_code)->assignUniformScalar("fAlbedo", albedo);
+            retrieveShaderProgram(rendering_program_ref_code)->assignUniformScalar("fGamma", domega);
+            retrieveShaderProgram(rendering_program_ref_code)->assignUniformScalar("fDensityScale", density_scale);
+
 
             if (density_pattern_texture_ref_code)
                 bindTexture(density_pattern_texture_ref_code);

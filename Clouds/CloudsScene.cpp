@@ -151,6 +151,14 @@ void CloudsScene::onSceneRedraw(Framebuffer& target_framebuffer)
         p_myself->tess_terrain.render();
         p_myself->tess_terrain.finalizeRendering();
     }
+
+    p_myself->clouds.applyViewProjectionTransform(p_myself->main_camera);
+    for (uint32_t i = 0; i < p_myself->clouds.getNumberOfRenderingPasses(TW_RENDERING_MODE_DEFAULT); ++i)
+    {
+        p_myself->clouds.prepareRendering(target_framebuffer, i);
+        p_myself->clouds.render();
+        p_myself->clouds.finalizeRendering();
+    }
 }
 
 
@@ -211,13 +219,13 @@ void CloudsScene::onReflectionMapUpdate(Framebuffer& target_framebuffer)
     p_myself->tess_terrain.setLODFactor(200);
     p_myself->tess_terrain.setNormalMapEnableState(false);
 
-    for (uint32_t i = 0; i < p_myself->tess_terrain.getNumberOfRenderingPasses(TW_RENDERING_MODE_DEFAULT); ++i)
+    /*for (uint32_t i = 0; i < p_myself->tess_terrain.getNumberOfRenderingPasses(TW_RENDERING_MODE_DEFAULT); ++i)
     {
         p_myself->tess_terrain.applyViewProjectionTransform(aux_camera);
         p_myself->tess_terrain.prepareRendering(target_framebuffer, i);
         p_myself->tess_terrain.render();
         p_myself->tess_terrain.finalizeRendering();
-    }
+    }*/
 
     p_myself->tess_terrain.setLODFactor(tess_terrain_lod);
     p_myself->tess_terrain.setNormalMapEnableState(true);
@@ -597,6 +605,7 @@ CloudsScene::CloudsScene(const std::string& topography_file_name, uint32_t refle
     tess_terrain{ "topography_map", 10.0f, 400U, 400U, 1.0f / 50, 1.0f / 50 },
     ambient_light{ "scene_ambient_light" },
     skybody_light{ "skybody_light" },
+    clouds{ vec3{ 100, 100, 100 }, uvec3{ 20, 20, 20 } },
     skydome{ "sky_simulator", 2e4f, 0.05f, 1000U, 128U, 128U },
     p_raw_topography_data{ nullptr },
     modification_strength{ 0.0f },
@@ -658,7 +667,7 @@ CloudsScene::CloudsScene(const std::string& topography_file_name, uint32_t refle
     //Configure topography
     std::vector<float> topography_heightmap;
     std::string topography_parse_error;
-    if (!TessellatedTerrain::parseHeightMapFromFile(topography_file_name, topography_heightmap,
+    /*if (!TessellatedTerrain::parseHeightMapFromFile(topography_file_name, topography_heightmap,
         topography_x_res, topography_y_res, topography_offset, topography_max_height, topography_parse_error))
     {
         error_state = true;
@@ -674,7 +683,7 @@ CloudsScene::CloudsScene(const std::string& topography_file_name, uint32_t refle
 
     tess_terrain.defineHeightMap(p_raw_topography_data, topography_x_res, topography_y_res, false);
     tess_terrain.setScreenSize(screen_size.first, screen_size.second);
-    tess_terrain.scale(1000.f, 100.f, 1000.f);
+    tess_terrain.scale(1000.f, 100.f, 1000.f);*/
 
     //TessellatedTerrain tess_terrain1 = tess_terrain;
 
@@ -748,6 +757,10 @@ CloudsScene::CloudsScene(const std::string& topography_file_name, uint32_t refle
     skydome.setDaytime(daytime);
 
 
+    //Configure clouds
+    clouds.setParticleSize(10.f);
+    clouds.setLightingConditions(lighting);
+    clouds.setLocation(vec3{ 0.f, 150.f, 0.f });
 
     //Initializes the toolbar
     init_toolbar();

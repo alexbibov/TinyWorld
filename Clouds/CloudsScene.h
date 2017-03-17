@@ -68,6 +68,7 @@ private:
     TessellatedTerrain tess_terrain;	//tessellated terrain
     AmbientLight ambient_light;	//ambient light of the scene
     DirectionalLight skybody_light;		//light of the sky body (sun or moon)
+    StaticClouds clouds;    //Clouds
     Skydome skydome;	//Skydome
     LightingConditions lighting;	//lighting conditions descriptor
 
