@@ -45,7 +45,7 @@ uint16_t to_half_precision_float(float fp_float)
 
 void StaticClouds::applyScreenSize(const uvec2& screen_size)
 {
-    
+
 }
 
 bool StaticClouds::configureRendering(AbstractRenderingDevice& render_target, uint32_t rendering_pass)
@@ -75,12 +75,13 @@ bool StaticClouds::configureRendering(AbstractRenderingDevice& render_target, ui
         render_target.pushOpenGLContextSettings();
         render_target.setDepthTestEnableState(false);
         render_target.setColorBlendEnableState(true);
-        render_target.setRGBSourceBlendFactor(ColorBlendFactor::DST_COLOR);
-        render_target.setRGBDestinationBlendFactor(ColorBlendFactor::ZERO);
+        render_target.setRGBSourceBlendFactor(ColorBlendFactor::SRC_ALPHA);
+        render_target.setRGBDestinationBlendFactor(ColorBlendFactor::ONE_MINUS_SRC_ALPHA);
         render_target.setBlendEquation(ColorBlendEquation::ADD);
+        render_target.applyOpenGLContextSettings();
 
         p_last_render_targer = &render_target;
-        
+
 
         return true;
     }
@@ -101,7 +102,7 @@ void StaticClouds::configureViewProjectionTransform(const AbstractProjectingDevi
 
     retrieveShaderProgram(rendering_program_ref_code)->assignUniformMatrix("m4ProjectionToScaledObjectTransform",
         m4WorldToScaledObjectTransform*projecting_device.getViewTransform().inverse()*projecting_device.getProjectionTransform().inverse());
-    retrieveShaderProgram(rendering_program_ref_code)->assignUniformVector("v3ObserverLocation", 
+    retrieveShaderProgram(rendering_program_ref_code)->assignUniformVector("v3ObserverLocation",
         vec3{v4ObserverLocationInScaledObjectSpace.x, v4ObserverLocationInScaledObjectSpace.y, v4ObserverLocationInScaledObjectSpace.z}
     / v4ObserverLocationInScaledObjectSpace.w);
 
@@ -203,9 +204,9 @@ inline void StaticClouds::setup_object()
             {
                 size_t offset = (offset_row + j)*vb_typed_element_size;
 
-                float x = -1.f + 2.f*i / (uv3DomainResolution.x - 1.f);
-                float y = -1.f + 2.f*j / (uv3DomainResolution.y - 1.f);
-                float z = -1.f + 2.f*k / (uv3DomainResolution.z - 1.f);
+                float x = (-1.f + 2.f*i / (uv3DomainResolution.x - 1.f)) * v3DomainSize.x;
+                float y = (-1.f + 2.f*j / (uv3DomainResolution.y - 1.f)) * v3DomainSize.y;
+                float z = (-1.f + 2.f*k / (uv3DomainResolution.z - 1.f)) * v3DomainSize.z;
 
                 static_cast<float*>(vertex_buf)[offset + 0] = x;
                 static_cast<float*>(vertex_buf)[offset + 1] = y;
@@ -310,16 +311,6 @@ StaticClouds::~StaticClouds()
 {
     glDeleteVertexArrays(1, &ogl_vertex_attribute_object);
     glDeleteBuffers(1, &ogl_vertex_buffer);
-}
-
-void StaticClouds::setDomainDimensions(float cloud_domain_size_x, float cloud_domain_size_y, float cloud_domain_size_z)
-{
-    setDomainDimensions(vec3{ cloud_domain_size_x, cloud_domain_size_y, cloud_domain_size_z });
-}
-
-void StaticClouds::setDomainDimensions(const vec3& cloud_domain_size)
-{
-    v3DomainSize = cloud_domain_size;
 }
 
 vec3 StaticClouds::getDomainDimensions() const

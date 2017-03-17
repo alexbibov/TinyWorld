@@ -38,18 +38,24 @@ void main()
     float t_max = intBitsToFloat(0x7F800000);    //+Infinity
     float t_min = intBitsToFloat(0xFF800000);    //-Infinity
     
-    float aux_t_max = (v3DomainSize.x/2.f - currentVertexPosition.x)/v3LightDirection.x;
-    float aux_t_min = (-v3DomainSize.x/2.f - currentVertexPosition.x)/v3LightDirection.x;
+    float aux1 = (v3DomainSize.x/2.f - currentVertexPosition.x)/v3LightDirection.x;
+    float aux2 = (-v3DomainSize.x/2.f - currentVertexPosition.x)/v3LightDirection.x;
+    float aux_t_max = max(aux1, aux2);
+    float aux_t_min = min(aux1, aux2);
     t_max = min(t_max, aux_t_max);
     t_min = max(t_min, aux_t_min);
     
-    aux_t_max = (v3DomainSize.y/2.f - currentVertexPosition.y)/v3LightDirection.y;
-    aux_t_min = (-v3DomainSize.y/2.f - currentVertexPosition.y)/v3LightDirection.y;
+    aux1 = (v3DomainSize.y/2.f - currentVertexPosition.y)/v3LightDirection.y;
+    aux2 = (-v3DomainSize.y/2.f - currentVertexPosition.y)/v3LightDirection.y;
+    aux_t_max = max(aux1, aux2);
+    aux_t_min = min(aux1, aux2);
     t_max = min(t_max, aux_t_max);
     t_min = max(t_min, aux_t_min);
     
-    aux_t_max = (v3DomainSize.z/2.f - currentVertexPosition.z)/v3LightDirection.z;
-    aux_t_min = (-v3DomainSize.z/2.f - currentVertexPosition.z)/v3LightDirection.z;
+    aux1 = (v3DomainSize.z/2.f - currentVertexPosition.z)/v3LightDirection.z;
+    aux2 = (-v3DomainSize.z/2.f - currentVertexPosition.z)/v3LightDirection.z;
+    aux_t_max = max(aux1, aux2);
+    aux_t_min = min(aux1, aux2);
     t_max = min(t_max, aux_t_max);
     t_min = max(t_min, aux_t_min);
     t_min = max(t_min, 0.f);
@@ -67,8 +73,8 @@ void main()
 			vec3 v3CurrentPointInGridSpace = (v3CurrentPoint / v3Scale / v3DomainSize + .5f)*(problem_size + 1.f); 
 			uvec3 v3ClosestVertex = uvec3(round(v3CurrentPointInGridSpace));
 			
-			vec2 texture_coordinates = v3ClosestVertex.xy - v3CurrentPointInGridSpace.xy 
-			    + texelFetch(sbDensityPatternRandomShiftsTexture, getVertexId(v3ClosestVertex)).rg;
+			vec2 texture_coordinates = v3ClosestVertex.xy - v3CurrentPointInGridSpace.xy;
+			    //+ texelFetch(sbDensityPatternRandomShiftsTexture, getVertexId(v3ClosestVertex)).rg;
 			
 			float density = texture(s2dDensityPatternTexture, texture_coordinates).r*fDensityScale;
 			
@@ -77,7 +83,7 @@ void main()
             I_i = g + I_i*exp(-density);			
 		}
 		
-		imageStore(i3dOutScatteringValues, ivec3(gl_GlobalInvocationID), vec4(1,0,0,0));
+		imageStore(i3dOutScatteringValues, ivec3(gl_GlobalInvocationID), vec4(I_i,0,0,0));
     }
     else
     {

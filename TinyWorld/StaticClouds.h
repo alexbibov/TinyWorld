@@ -87,8 +87,6 @@ public:
     ~StaticClouds();
 
 
-    void setDomainDimensions(float cloud_domain_size_x, float cloud_domain_size_y, float cloud_domain_size_z);	//sets spatial dimensions of the cloud domain
-    void setDomainDimensions(const vec3& cloud_domain_size);	//sets spatial dimensions of the cloud domain
     vec3 getDomainDimensions() const;	//retrieves spatial dimensions of the cloud domain
 
     void setAlbedo(float albedo);    //sets albedo of the clouds
